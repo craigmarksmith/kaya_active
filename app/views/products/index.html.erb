@@ -1,0 +1,9 @@
+<% @products.each do |product| %>
+  name: <%= product.name %>
+  <%= cl_image_tag product.cloudinary_image_ref,
+                    alt: "#{product.name}",
+                    height: 100,
+                    width: 100,
+                    crop: :pad
+  %>
+<% end %>
