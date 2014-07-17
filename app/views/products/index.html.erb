@@ -1,9 +1,19 @@
-<% @products.each do |product| %>
-  name: <%= product.name %>
-  <%= cl_image_tag product.cloudinary_image_ref,
-                    alt: "#{product.name}",
-                    height: 100,
-                    width: 100,
-                    crop: :pad
-  %>
-<% end %>
+<div class="span8 offset2" >
+  <ul class="thumbnails">
+  <% @products.each do |product| %>
+    <li class="span4">
+      <div class="thumbnail">
+        <%= cl_image_tag product.cloudinary_image_ref,
+                      alt: "#{product.name}",
+                      height: 100,
+                      width: 100,
+                      crop: :pad
+        %>
+        <div class="caption">
+          <h4 class="text-center"><%= product.name %></h4>
+        </div>
+      </div>
+      </li>
+  <% end %>
+  </ul>
+</div>
