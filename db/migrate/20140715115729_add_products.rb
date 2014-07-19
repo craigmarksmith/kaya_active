@@ -8,7 +8,7 @@ class AddProducts < ActiveRecord::Migration
   end
 
   create_table :images do |t|
-    t.belongs_to :products
+    t.belongs_to :product
     t.string :cloudinary_ref
     t.timestamps
   end

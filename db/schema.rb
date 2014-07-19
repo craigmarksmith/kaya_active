@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140715115729) do
 
   create_table "images", force: true do |t|
-    t.integer  "products_id"
+    t.integer  "product_id"
     t.string   "cloudinary_ref"
     t.datetime "created_at"
     t.datetime "updated_at"
