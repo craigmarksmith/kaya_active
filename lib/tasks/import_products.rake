@@ -1,9 +1,12 @@
+require 'csv'
+
 task :import => :environment do
-  count = 0
-  Dir.glob("/Users/craigmarksmith/Programming/kaya_images/*.jpg") do |image|
-    response = Cloudinary::Uploader.upload(image)
-    puts response.inspect
-    Product.create!(name: "Product #{count+=1}", cloudinary_image_ref: response['public_id'])
-    break if count == 10
+  CSV.foreach(File.join(Rails.root, 'app', 'assets', 'upload_stuff', 'file-test.csv')) do |row|
+    product = Product.create!(length: row[0], name: row[1])
+    images = row[2].split(" + ").map do |image|
+      image_id = Cloudinary::Uploader.upload(File.join(Rails.root, 'app', 'assets', 'upload_stuff', 'images', "#{image}.jpg"))['public_id']
+      Image.create!(cloudinary_ref: image_id, product_id: product.id)
+    end
   end
+
 end
