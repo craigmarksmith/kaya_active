@@ -2,8 +2,14 @@ class AddProducts < ActiveRecord::Migration
   def change
   	create_table :products do |t|
   		t.string :name
-  		t.string :cloudinary_image_ref
+      t.string :length
   		t.timestamps
   	end
+  end
+
+  create_table :images do |t|
+    t.belongs_to :products
+    t.string :cloudinary_ref
+    t.timestamps
   end
 end
