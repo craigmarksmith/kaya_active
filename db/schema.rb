@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140715115729) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "images", force: true do |t|
     t.integer  "product_id"
     t.string   "cloudinary_ref"
