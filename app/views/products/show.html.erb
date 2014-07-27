@@ -1,18 +1,43 @@
-<%#= link_to "View all leggings", root_path %>
+<%= link_to "View all leggings", root_path %>
 
 <div class="row">
+  <div class="col-md-8 col-xs-12">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @product.images.each_with_index do |image, index| %>
+          <div class="item <%= 'active' if index == 0 %>">
+            <%= cl_image_tag image.cloudinary_ref,
+                  alt: "#{@product.name}",
+                  height: 800,
+                  width: 400,
+                  crop: :pad,
+                  format: :png,
+                  class: 'img-responsive center-block'
+            %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+
   <div class="col-md-4 col-xs-6">
     <h1><%= @product.name.strip -%></h1>
   </div>
-  <div class="col-md-8 col-xs-12">
-    <% @product.images.each do |image| %>
-      <%= cl_image_tag image.cloudinary_ref,
-            alt: "#{@product.name}",
-            height: 800,
-            width: 400,
-            crop: :pad,
-            format: :png
-      %>
-    <% end %>
-  </div>
+
 </div>
