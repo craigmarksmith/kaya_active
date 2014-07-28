@@ -6,7 +6,7 @@
         <a href="<%= product_path(product) %>">
           <%= cl_image_tag product.images.first.cloudinary_ref,
                         alt: "#{product.name}",
-                        height: 800,
+                        height: 500,
                         width: 400,
                         crop: :pad,
                         format: :png
