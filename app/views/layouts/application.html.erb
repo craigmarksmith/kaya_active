@@ -7,11 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <div class="page-header">
-    <h1><%= link_to "Kaya Active", root_path %></h1>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "Kaya Active", root_path, class: "navbar-brand" %>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Leggings", root_path %></li>
+            <li><%= link_to "Contact Us", contact_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
   </div>
-  <%= yield %>
-</div>
 </body>
 </html>
