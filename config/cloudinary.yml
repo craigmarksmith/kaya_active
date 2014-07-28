@@ -6,9 +6,9 @@ development:
   enhance_image_tag: true
   static_image_support: false
 production:
-  cloud_name: dq6x7ueyn
-  api_key: '671448854153581'
-  api_secret: rA9Q_jvr4lpzABpESAXBl-ygEE8
+  cloud_name: kaya-actvie
+  api_key: '<%= ENV["CLOUDINARY_KEY"] %>'
+  api_secret: uKzTbA03L-BGxivGIUn25lYlSzU
   enhance_image_tag: true
   static_image_support: true
 test:
