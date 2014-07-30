@@ -1,6 +1,6 @@
 <div class="row">
   <% @products.each do |product| %>
-    <% next if product.nil? or product.images.first.nil? %>
+    <%# next if product.nil? or product.images.first.nil? %>
     <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
       <div class="thumbnail">
         <a href="<%= product_path(slug: product.slug) %>">
@@ -14,7 +14,7 @@
             %>
           <% end %>
           <div class="caption">
-            <h6 class="text-center"><%= product.name %></h6>
+            <h6 class="text-center"><%= product.name.titleize %></h6>
           </div>
         </a>
       </div>
