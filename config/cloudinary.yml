@@ -6,7 +6,7 @@ development:
   enhance_image_tag: true
   static_image_support: false
 production:
-  cloud_name: kaya-actvie
+  cloud_name: kaya-active
   api_key: '<%= ENV["CLOUDINARY_KEY"] %>'
   api_secret: uKzTbA03L-BGxivGIUn25lYlSzU
   enhance_image_tag: true
