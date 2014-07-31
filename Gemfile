@@ -30,6 +30,9 @@ gem 'sass-rails', '~> 4.0.3'
 
 gem 'rails_12factor'
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
