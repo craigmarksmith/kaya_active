@@ -9,10 +9,11 @@
 </head>
 <body>
 
-
   <!-- active admin wanted these -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice or alert %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <% end %>
   <!--// active admin wanted these -->
 
   <div class="container">
