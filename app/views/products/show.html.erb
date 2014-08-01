@@ -43,6 +43,15 @@
         <p><%= paragraph %></p>
       <% end %>
     <% end %>
+    <h4>Fabric & Feel</h4>
+    <p><%= @product.fabric_and_feel %></p>
+    <h4>Fit & Size</h4>
+    <p><%= @product.fit_and_size %></p>
+    <h4>Measurements</h4>
+    <p><%= @product.measurements %></p>
+    <h4>Care Instructions</h4>
+    <p>Cool wash only. Do not tumble dry.</p>
+    <p>Made in Brazil, sweatshop free.</p>
     <%= link_to "Buy now", contact_path, class: "btn btn-default" %>
   </div>
 
