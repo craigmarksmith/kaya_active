@@ -43,12 +43,18 @@
         <p><%= paragraph %></p>
       <% end %>
     <% end %>
-    <h4>Fabric & Feel</h4>
-    <p><%= @product.fabric_and_feel %></p>
-    <h4>Fit & Size</h4>
-    <p><%= @product.fit_and_size %></p>
-    <h4>Measurements</h4>
-    <p><%= @product.measurements %></p>
+    <% if @product.fabric_and_feel %>
+      <h4>Fabric & Feel</h4>
+      <p><%= @product.fabric_and_feel %></p>
+    <% end %>
+    <% if @product.fit_and_size %>
+      <h4>Fit & Size</h4>
+      <p><%= @product.fit_and_size %></p>
+    <% end %>
+    <% if @product.measurements %>
+      <h4>Measurements</h4>
+      <p><%= @product.measurements %></p>
+    <% end %>
     <h4>Care Instructions</h4>
     <p>Cool wash only. Do not tumble dry.</p>
     <p>Made in Brazil, sweatshop free.</p>
