@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'products#index'
 
-  get 'products/:slug' => 'products#show', as: :product
-  get 'products' => 'products#index', as: :products
+  get 'collection/:category/:slug' => 'products#show', as: :product
+  get 'collection/' => 'products#index', as: :products
+  get 'collection/:category' => 'products#index', as: :category_products
 
 
   get 'contact-us' => 'contact#show', as: 'contact'

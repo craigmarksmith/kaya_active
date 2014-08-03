@@ -3,7 +3,7 @@
     <% next if product.nil? or product.images.first.nil? %>
     <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
       <div class="thumbnail">
-        <a href="<%= product_path(slug: product.slug) %>">
+        <a href="<%= product_path(slug: product.slug, category: product.category.downcase) %>">
           <% if product.images.first %>
             <%= cl_image_tag product.images.first.cloudinary_ref,
                           alt: "#{product.name}",
@@ -14,7 +14,7 @@
             %>
           <% end %>
           <div class="caption">
-            <h6 class="text-center"><%= product.name.titleize %></h6>
+            <h6 class="text-center"><%= product.name.titleize %> <%= product.category.titleize %></h6>
           </div>
         </a>
       </div>
