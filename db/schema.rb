@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140801113840) do
+ActiveRecord::Schema.define(version: 20140803102148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140801113840) do
     t.text     "fabric_and_feel"
     t.text     "fit_and_size"
     t.text     "measurements"
+    t.string   "category"
   end
 
 end

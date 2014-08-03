@@ -14,7 +14,7 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
+  permit_params :name, :category, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
   remove_filter :fabric_and_feel
   remove_filter :fit_and_size
   remove_filter :measurements
@@ -24,10 +24,24 @@ ActiveAdmin.register Product do
   index do
     column :name
     column :slug
-    column :kind
+    column :category
     column :created_at
     column :updated_at
     actions
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :category, as: :select, collection: ['Leggings', "Belt", "Body Suit"]
+      f.input :kind
+      f.input :slug
+      f.input :description
+      f.input :fabric_and_feel
+      f.input :fit_and_size
+      f.input :measurements
+    end
+    f.actions
   end
 
 end
