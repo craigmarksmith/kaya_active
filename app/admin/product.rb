@@ -33,7 +33,7 @@ ActiveAdmin.register Product do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :category, as: :select, collection: ['Leggings', "Belt", "Body Suit"]
+      f.input :category, as: :select, collection: [['Leggings','leggings'], ['Belts','belts'], ['Body Suit','body-suits']]
       f.input :kind
       f.input :slug
       f.input :description
