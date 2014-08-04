@@ -1,3 +1,15 @@
+<small>
+<ol class="breadcrumb hidden-xs">
+  <li><%= link_to "Home", root_path %></li>
+  <% if params[:category] %>
+    <li><%= link_to "Collection", products_path %></li>
+    <li class="active"><%= params[:category].titleize.gsub(/-/, " ") %></li>
+  <% else %>
+    <li class="active">Collection</li>
+  <% end %>
+</ol>
+</small>
+
 <div class="row">
   <% @products.each do |product| %>
     <% next if product.nil? or product.images.first.nil? %>

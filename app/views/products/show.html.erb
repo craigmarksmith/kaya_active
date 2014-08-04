@@ -1,4 +1,12 @@
 <% content_for :title, "#{@product.name.titleize} #{@product.category} - #{@product.kind.titleize} from Brasil Sul | " %>
+<small>
+<ol class="breadcrumb hidden-xs">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Collection", products_path %></li>
+  <li><%= link_to @product.category.titleize.gsub(/-/, " "), category_products_path(category: @product.category) %></li>
+  <li class="active"><%= "#{@product.name.titleize}" %> </li>
+</ol>
+<small>
 
 <div class="row">
   <div class="col-md-8 col-xs-12">
