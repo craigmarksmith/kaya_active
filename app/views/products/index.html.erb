@@ -1,4 +1,3 @@
-<small>
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
   <% if params[:category] %>
@@ -8,7 +7,6 @@
     <li class="active">Collection</li>
   <% end %>
 </ol>
-</small>
 
 <div class="row">
   <% @products.each do |product| %>
