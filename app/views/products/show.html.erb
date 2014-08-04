@@ -44,7 +44,7 @@
   </div>
 
   <div class="col-md-4 col-xs-12">
-    <h1><%= "#{@product.name.strip}" -%></h1>
+    <h1><%= "#{@product.name.strip.titleize}" -%></h1>
     <p>from <span itemprop="brand">Brasil Sul</span></p>
     <% if @product.description %>
       <% @product.description.split("\n").each do |paragraph| %>
