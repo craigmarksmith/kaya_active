@@ -8,6 +8,8 @@
   <% end %>
 </ol>
 
+<h1><%= params[:category] ? params[:category].titleize.gsub(/-/, " ") : 'Collection' %></h1>
+
 <div class="row">
   <% @products.each do |product| %>
     <% next if product.nil? or product.images.first.nil? %>
