@@ -10,11 +10,11 @@
 
 <div class="row">
   <div class="col-md-8 col-xs-12">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+    <div id="productImages" class="carousel slide" data-ride="carousel" data-interval="false">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#productImages" data-slide-to="0" class="active"></li>
+        <li data-target="#productImages" data-slide-to="1"></li>
       </ol>
 
       <!-- Wrapper for slides -->
@@ -34,10 +34,10 @@
       </div>
 
       <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <a class="left carousel-control" href="#productImages" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <a class="right carousel-control" href="#productImages" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
@@ -70,3 +70,14 @@
   </div>
 
 </div>
+
+<script>
+  $(document).ready(function() {
+       $("#productImages").swiperight(function() {
+          $(this).carousel('prev');
+          });
+       $("#productImages").swipeleft(function() {
+          $(this).carousel('next');
+     });
+  });
+</script>
