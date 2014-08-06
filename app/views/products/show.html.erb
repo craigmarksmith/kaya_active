@@ -62,20 +62,20 @@
   <div class="col-md-4 col-xs-12">
     <h1><%= "#{@product.name.strip.titleize}" -%></h1>
     <p>from <span itemprop="brand">Brasil Sul</span></p>
-    <% if @product.description %>
+    <% if @product.description.present? %>
       <% @product.description.split("\n").each do |paragraph| %>
         <p><%= paragraph %></p>
       <% end %>
     <% end %>
-    <% if @product.fabric_and_feel %>
+    <% if @product.fabric_and_feel.present? %>
       <h4>Fabric & Feel</h4>
       <p><%= @product.fabric_and_feel %></p>
     <% end %>
-    <% if @product.fit_and_size %>
+    <% if @product.fit_and_size.present? %>
       <h4>Fit & Size</h4>
       <p><%= @product.fit_and_size %></p>
     <% end %>
-    <% if @product.measurements %>
+    <% if @product.measurements.present? %>
       <h4>Measurements</h4>
       <p><%= @product.measurements %></p>
     <% end %>
