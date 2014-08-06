@@ -6,6 +6,13 @@
   <li class="active"><%= "#{@product.name.titleize}" %> </li>
 </ol>
 
+<div class="visible-xs">
+  <small>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    <%= link_to "All "+@product.category.titleize.gsub(/-/, " "), category_products_path(category: @product.category) %>
+  </small>
+</div>
+
 <div class="row">
   <div class="col-md-8 col-xs-12">
     <div id="productImages" class="carousel slide" data-ride="carousel" data-interval="false">
