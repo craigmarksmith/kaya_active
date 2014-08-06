@@ -13,6 +13,7 @@
       <ol class="carousel-indicators">
         <li data-target="#productImages" data-slide-to="0" class="active"></li>
         <li data-target="#productImages" data-slide-to="1"></li>
+        <li data-target="#productImages" data-slide-to="2"></li>
       </ol>
 
       <!-- Wrapper for slides -->
@@ -29,6 +30,16 @@
             %>
           </div>
         <% end %>
+        <div class="item">
+            <%= cl_image_tag  @product.images.first.cloudinary_ref,
+                  alt: "#{@product.name}",
+                  height: 700,
+                  width: 600,
+                  crop: :fill,
+                  format: :png,
+                  class: 'img-responsive center-block'
+            %>
+          </div>
       </div>
 
       <!-- Controls -->
