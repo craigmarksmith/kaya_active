@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'products#index'
+  root 'landing#index'
 
   get 'collection/:category/:slug' => 'products#show', as: :product
   get 'collection/' => 'products#index', as: :products
