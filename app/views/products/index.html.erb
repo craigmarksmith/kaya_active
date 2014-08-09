@@ -25,28 +25,9 @@
                           format: :png
             %>
           <% end %>
-          <div class="caption">
-            <h6 class="text-center"><%= product.name.titleize %></h6>
-          </div>
+          <h3 class="caption text-center"><%= product.name.titleize %></h3>
         </a>
       </div>
     </div>
   <% end %>
 </div>
-
-<script>
-function equalHeight(group) {
-    tallest = 0;
-    group.each(function() {
-        thisHeight = $(this).height();
-        if(thisHeight > tallest) {
-            tallest = thisHeight;
-        }
-    });
-    group.each(function() { $(this).height(tallest); });
-}
-
-$(document).ready(function() {
-    equalHeight($(".thumbnail"));
-});
-</script>
