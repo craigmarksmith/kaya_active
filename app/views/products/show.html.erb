@@ -84,7 +84,7 @@
     <% end %>
     <% if @product.measurements.present? %>
       <h4>Measurements</h4>
-      <%= @product.measurements.split("\n").each do |text| %>
+      <% @product.measurements.split("\n").each do |text| %>
        <p><%= text %></p>
       <% end %>
     <% end %>
