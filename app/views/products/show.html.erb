@@ -63,14 +63,17 @@
     <h1><%= "#{@product.name.strip.titleize}" -%></h1>
     <p>from <span itemprop="brand">Brasilsul</span></p>
 
-      <!-- Go to www.addthis.com/dashboard to customize your tools -->
-      <div class="addthis_sharing_toolbox"></div>
+    <p><%= link_to "Pre-order", contact_path, class: "btn btn-info" %></p>
 
     <% if @product.description.present? %>
       <% @product.description.split("\n").each do |paragraph| %>
         <p><%= paragraph %></p>
       <% end %>
     <% end %>
+
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+
     <% if @product.fabric_and_feel.present? %>
       <h4>Fabric & Feel</h4>
       <p><%= @product.fabric_and_feel %></p>
@@ -86,7 +89,6 @@
     <h4>Care Instructions</h4>
     <p>Cool wash only. Do not tumble dry.</p>
     <p>Made in Brazil, sweatshop free.</p>
-    <%= link_to "Buy now", contact_path, class: "btn btn-default" %>
   </div>
 
 </div>
