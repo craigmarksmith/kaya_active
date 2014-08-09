@@ -1,4 +1,4 @@
-<% content_for :title, "#{@product.name.titleize} #{@product.category} - #{@product.kind.titleize} from Brasil Sul | " %>
+<% content_for :title, "#{@product.name.titleize} #{@product.category} - #{@product.kind.titleize} from Brasilsul | " %>
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
   <li><%= link_to "Collection", products_path %></li>
@@ -61,7 +61,7 @@
 
   <div class="col-md-4 col-xs-12">
     <h1><%= "#{@product.name.strip.titleize}" -%></h1>
-    <p>from <span itemprop="brand">Brasil Sul</span></p>
+    <p>from <span itemprop="brand">Brasilsul</span></p>
     <% if @product.description.present? %>
       <% @product.description.split("\n").each do |paragraph| %>
         <p><%= paragraph %></p>
