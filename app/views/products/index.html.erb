@@ -13,14 +13,14 @@
 <div class="row">
   <% @products.each do |product| %>
     <% next if product.nil? or product.images.first.nil? %>
-    <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+    <div class="col-xs-6 col-sm-6 col-lg-3 col-md-3">
       <div class="thumbnail">
         <a href="<%= product_path(slug: product.slug, category: product.category.downcase) %>">
           <% if product.images.first %>
             <%= cl_image_tag product.images.first.cloudinary_ref,
                           alt: "#{product.name}",
                           height: 500,
-                          width: 400,
+                          width: 275,
                           crop: :pad,
                           format: :png
             %>
@@ -33,3 +33,20 @@
     </div>
   <% end %>
 </div>
+
+<script>
+function equalHeight(group) {
+    tallest = 0;
+    group.each(function() {
+        thisHeight = $(this).height();
+        if(thisHeight > tallest) {
+            tallest = thisHeight;
+        }
+    });
+    group.each(function() { $(this).height(tallest); });
+}
+
+$(document).ready(function() {
+    equalHeight($(".thumbnail"));
+});
+</script>
