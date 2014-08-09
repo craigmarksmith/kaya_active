@@ -8,7 +8,7 @@
   <% end %>
 </ol>
 
-<h1><%= params[:category] ? params[:category].titleize.gsub(/-/, " ") : 'Collection' %></h1>
+<h1 class="category-title"><small><%= params[:category] ? params[:category].titleize.gsub(/-/, " ") : 'Collection' %></small></h1>
 
 <div class="row">
   <% @products.each do |product| %>
