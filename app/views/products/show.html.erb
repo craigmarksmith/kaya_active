@@ -76,11 +76,15 @@
 
     <% if @product.fabric_and_feel.present? %>
       <h4>Fabric & Feel</h4>
-      <p><%= @product.fabric_and_feel %></p>
+      <% @product.fabric_and_feel.split("\n").each do |text| %>
+       <p><%= text %></p>
+      <% end %>
     <% end %>
     <% if @product.fit_and_size.present? %>
       <h4>Fit & Size</h4>
-      <p><%= @product.fit_and_size %></p>
+      <% @product.fit_and_size.split("\n").each do |text| %>
+       <p><%= text %></p>
+      <% end %>
     <% end %>
     <% if @product.measurements.present? %>
       <h4>Measurements</h4>
