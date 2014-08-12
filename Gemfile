@@ -33,8 +33,6 @@ gem 'rails_12factor'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 
-gem 'newrelic_rpm'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
