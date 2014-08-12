@@ -101,6 +101,7 @@ GEM
     minitest (5.4.0)
     multi_json (1.10.1)
     netrc (0.7.7)
+    newrelic_rpm (3.9.1.236)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyamorous (1.0.0)
@@ -184,6 +185,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   jquery-rails
+  newrelic_rpm
   pg
   rails (= 4.1.4)
   rails_12factor
