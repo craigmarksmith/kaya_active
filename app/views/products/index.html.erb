@@ -25,7 +25,10 @@
                           format: :png
             %>
           <% end %>
-          <h3 class="caption text-center"><%= product.name.titleize %></h3>
+          <div class="caption text-center">
+            <h3><%= product.name.titleize %></h3>
+            <p class="price"><%= number_to_currency(product.price_in_dollars) if product.price_in_dollars.present?  %></p>
+          </div>
         </a>
       </div>
     </div>

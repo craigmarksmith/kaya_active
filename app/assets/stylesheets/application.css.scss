@@ -26,10 +26,18 @@ ol.breadcrumb {
 }
 
 .thumbnail .caption {
-  font-size: 14px;
-  margin-top:10px;
-  font-weight: normal;
-  height:20px;
+  height:40px;
+}
+
+.thumbnail .caption h3 {
+  margin-top:5px;
+  margin-bottom:0px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.thumbnail .caption .price {
+  font-size: 11px;
 }
 
 .category-title {
