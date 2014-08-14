@@ -18,9 +18,9 @@
     <div id="productImages" class="carousel slide" data-ride="carousel" data-interval="false">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#productImages" data-slide-to="0" class="active"></li>
-        <li data-target="#productImages" data-slide-to="1"></li>
-        <li data-target="#productImages" data-slide-to="2"></li>
+        <% (@product.images.size + 1).times do |i| #+1 for the close up %>
+          <li data-target="#productImages" data-slide-to="0" class="<%= 'active' if i==0 %>"></li>
+        <% end %>
       </ol>
 
       <!-- Wrapper for slides -->
