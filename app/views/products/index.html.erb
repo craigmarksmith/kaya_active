@@ -1,3 +1,6 @@
+<% if params[:category].present? %>
+  <% content_for :title, "#{params[:category].titleize.gsub(/-/, " ")} | " %>
+<% end %>
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
   <% if params[:category] %>
