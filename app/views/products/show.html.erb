@@ -2,7 +2,7 @@
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
   <li><%= link_to "Collection", products_path %></li>
-  <li><%= link_to @product.category.titleize.gsub(/-/, " "), category_products_path(category: @product.category) %></li>
+  <li itemprop="price"><%= link_to @product.category.titleize.gsub(/-/, " "), category_products_path(category: @product.category) %></li>
   <li class="active"><%= "#{@product.name.titleize}" %> </li>
 </ol>
 
@@ -13,7 +13,7 @@
   </small>
 </div>
 
-<div class="row">
+<div itemscope itemtype="http://schema.org/Product" class="row">
   <div class="col-md-8 col-xs-12">
     <div id="productImages" class="carousel slide" data-ride="carousel" data-interval="false">
       <!-- Indicators -->
@@ -33,7 +33,8 @@
                   width: 600,
                   crop: :pad,
                   format: :png,
-                  class: 'img-responsive center-block'
+                  class: 'img-responsive center-block',
+                  itemprop: 'image'
             %>
           </div>
         <% end %>
@@ -44,7 +45,8 @@
                   width: 600,
                   crop: :fill,
                   format: :png,
-                  class: 'img-responsive center-block'
+                  class: 'img-responsive center-block',
+                  itemprop: 'image'
             %>
           </div>
       </div>
@@ -60,11 +62,13 @@
   </div>
 
   <div class="col-md-4 col-xs-12">
-    <h1><%= "#{@product.name.strip.titleize}" -%></h1>
-    <p>from <span itemprop="brand">BrasilSul</span></p>
+    <h1 itemprop="name"><%= "#{@product.name.strip.titleize}" -%></h1>
+    <p itemprop="brand" itemscope itemtype="http://schema.org/Brand">from <span itemprop="name" itemprop="brand">BrasilSul</span></p>
 
     <% if @product.price.present? and @product.price > 0 %>
-      <p><%= number_to_currency(@product.price_in_dollars) %></p>
+      <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <p itemprop="price"><%= number_to_currency(@product.price_in_dollars) %></p>
+      </span>
     <% end %>
 
     <p><%= link_to "Pre-order", contact_path, class: "btn btn-info btn-lg" %></p>
