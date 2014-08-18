@@ -1,7 +1,53 @@
 $font-family-base: 'Muli', Verdana, Helvetica, sans-serif;
+$grid-float-breakpoint: 100px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+h1, h2 {
+  font-size: 160%;
+  text-transform: uppercase;
+}
+
+/* Nav and header */
+.header-logo {
+  text-align: center;
+}
+
+@media screen and (max-width: 368px) {
+    img.small-on-mobile{
+        max-height: 100px;
+    }
+
+}
+
+.navbar-default {
+  background-color: white;
+  border-color: white;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  font-size: 75%;
+  text-transform: uppercase;
+}
+
+.dropdown-menu {
+  font-size: 95%;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+/* END: Nav and header */
+
+.category-title {
+  margin-top:0;
+  text-transform: uppercase;
+  font-size: 160%;
+  font-weight: normal;
+}
 
 .carousel-control {
   &.left, &.right {
@@ -10,16 +56,19 @@ $font-family-base: 'Muli', Verdana, Helvetica, sans-serif;
   }
 }
 
+.back-to-category-xs {
+  font-size: 75%;
+  text-transform: uppercase;
+}
+
 ol.breadcrumb {
   background-color: white;
-  font-size: 85%;
+  font-size: 75%;
   padding-left:0;
+  text-transform: uppercase;
 }
 
-.navbar {
-  border-radius: 0;
-}
-
+/* thumbnail */
 .thumbnail {
   border: 0 none;
   box-shadow: none;
@@ -39,11 +88,9 @@ ol.breadcrumb {
 .thumbnail .caption .price {
   font-size: 12.5px;
 }
+/* END: thumbnail */
 
-.category-title {
-  margin-top:0;
-}
-
+/* carousel */
 .carousel-control {
   color: #656565;
   font-size: 10px;
@@ -65,4 +112,4 @@ ol.breadcrumb {
   height: 8px;
   width: 8px;
 }
-
+/* END: carousel */
