@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#<%= id %>">
+        <span class="left"><%= nice_name.html_safe %></span><span class="right glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </h4>
+  </div>
+  <div id="<%= id %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <% content.split("\n").each do |text| %>
+       <p><%= text %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

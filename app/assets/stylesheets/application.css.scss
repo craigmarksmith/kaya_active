@@ -1,13 +1,54 @@
 $font-family-base: 'Muli', Verdana, Helvetica, sans-serif;
 $grid-float-breakpoint: 100px;
+$font-size-base: 12px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-h1, h2 {
+h1, h2, h4.panel-title {
   font-size: 160%;
   text-transform: uppercase;
 }
+
+
+/* accordion style */
+#accordion > .panel-default {
+  border: 0px;
+  margin-top:2px;
+}
+
+#accordion > .panel-default > .panel-heading {
+  background-color: #656565;
+  color: white;
+  border-radius: 0;
+}
+
+#accordion h4.panel-title {
+  font-size: 95%;
+  font-weight: normal;
+}
+
+#accordion .panel-title > a {
+  display: inline-block;
+  width:100%;
+  padding: 10px 15px;
+}
+
+#accordion .panel-title > a span.left {
+  display: inline-block;
+  text-align: left;
+  width:90%;
+}
+#accordion .panel-title > a span.right {
+  text-align: right;
+  width:10%;
+  display: inline-block;
+}
+
+#accordion .panel-heading {
+  padding:0;
+}
+/* END: accordion style */
 
 /* Nav and header */
 .header-logo {

@@ -77,41 +77,40 @@
       <% end %>
     <% end %>
 
+    <p>Made in Brazil, sweatshop free.</p>
+
     <div class="addthis_native_toolbox"></div>
     <div class="addthis_sharing_toolbox"></div>
 
-    <% if @product.fabric_and_feel.present? %>
-      <h4>Fabric & Feel</h4>
-      <% @product.fabric_and_feel.split("\n").each do |text| %>
-       <p><%= text %></p>
+    <div class="panel-group" id="accordion">
+      <% {fabric_and_feel: 'Fabric &amp; Feel',fit_and_size: 'Fit &amp; Size',measurements: 'Measurements'}.each do |method, nice_name| %>
+        <% if @product.send(method).present? %>
+          <%= render partial: 'detail_accordion', locals: {nice_name: nice_name, content: @product.send(method), id: method} %>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if @product.fit_and_size.present? %>
-      <h4>Fit & Size</h4>
-      <% @product.fit_and_size.split("\n").each do |text| %>
-       <p><%= text %></p>
-      <% end %>
-    <% end %>
-    <% if @product.measurements.present? %>
-      <h4>Measurements</h4>
-      <% @product.measurements.split("\n").each do |text| %>
-       <p><%= text %></p>
-      <% end %>
-    <% end %>
-    <h4>Care Instructions</h4>
-    <p>Cool wash only. Do not tumble dry.</p>
-    <p>Made in Brazil, sweatshop free.</p>
+      <%= render partial: 'detail_accordion', locals: {nice_name: 'Care Instructions', content: 'Cool wash only. Do not tumble dry.', id: 'care_instruction'} %>
+    </div>
   </div>
-
 </div>
 
 <script>
   $(document).ready(function() {
-       $("#productImages").swiperight(function() {
-          $(this).carousel('prev');
-          });
-       $("#productImages").swipeleft(function() {
-          $(this).carousel('next');
-     });
+    // swipe
+    $("#productImages").swiperight(function() {
+      $(this).carousel('prev');
+    });
+    $("#productImages").swipeleft(function() {
+      $(this).carousel('next');
+    });
+
+    // accordion arrow change
+    $('.panel-collapse').on('show.bs.collapse', function () {
+      $(this).parent().find('span.right.glyphicon').removeClass('glyphicon-chevron-right');
+      $(this).parent().find('span.right.glyphicon').addClass('glyphicon-chevron-down');
+    });
+    $('.panel-collapse').on('hide.bs.collapse', function () {
+      $(this).parent().find('span.right.glyphicon').removeClass('glyphicon-chevron-down');
+      $(this).parent().find('span.right.glyphicon').addClass('glyphicon-chevron-right');
+    });
   });
 </script>
