@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products.where!(category:params[:category]) if params[:category]
     @products.limit!(10) if Rails.env=='development'
-    @products.order!(sold_out: :asc, created_at: :asc)
+    @products.order!(:sort_order)
   end
 
   def show
