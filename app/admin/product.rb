@@ -14,7 +14,7 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :price, :category, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
+  permit_params :name, :price, :category, :sold_out, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
   remove_filter :fabric_and_feel
   remove_filter :fit_and_size
   remove_filter :measurements
@@ -38,6 +38,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :price, label: "Price in cents"
       f.input :category, as: :select, collection: [['Leggings','leggings'], ['Belts','belts'], ['Body Suit','body-suits']]
+      f.input :sold_out
       f.input :kind
       f.input :slug
       f.input :description
