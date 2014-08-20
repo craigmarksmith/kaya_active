@@ -1,5 +1,6 @@
 <% if params[:category].present? %>
   <% content_for :title, "#{params[:category].titleize.gsub(/-/, " ")} | " %>
+  <% content_for :description, "Kaya Active | Our range of high quality and inspiring #{params[:category].titleize.gsub(/-/, " ")} are perfect for yoga, crossfit, pilates, running, and bikram. Be Active, be inspired and feel beautiful." %>
 <% end %>
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
