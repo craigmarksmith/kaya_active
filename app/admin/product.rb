@@ -38,7 +38,7 @@ ActiveAdmin.register Product do
     f.inputs do
       f.input :name
       f.input :price, label: "Price in cents"
-      f.input :category, as: :select, collection: [['Leggings','leggings'], ['Belts','belts'], ['Body Suit','body-suits']]
+      f.input :category, as: :select, collection: Product::Categories
       f.input :sort_order
       f.input :sold_out
       f.input :kind

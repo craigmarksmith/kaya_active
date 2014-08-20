@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
+    unless Product::Categories.map{|c| c[1]}.include? params[:category] or params[:category].nil?
+      render_404
+      return
+    end
+
     @products = Product.all
     @products.where!(category:params[:category]) if params[:category]
     @products.limit!(10) if Rails.env=='development'

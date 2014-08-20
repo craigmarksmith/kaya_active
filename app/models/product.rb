@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
 
+  Categories = [['Leggings','leggings'], ['Belts','belts'], ['Body Suit','body-suits']]
+
   validates :slug, uniqueness: true
   validates :category, presence: true, allow_blank: false
 
