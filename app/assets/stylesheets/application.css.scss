@@ -10,6 +10,23 @@ h1, h2, h4.panel-title {
   text-transform: uppercase;
 }
 
+.homepage-text {
+  text-align: center;
+  padding: 40px;
+}
+
+.homepage-text > p {
+  padding: 10px;
+}
+
+@media screen and (min-width: 368px) {
+    .homepage-text > p{
+      width:500px;
+      margin:auto;
+    }
+
+}
+
 
 /* accordion style */
 #accordion > .panel-default {
