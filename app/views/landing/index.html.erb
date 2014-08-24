@@ -13,14 +13,16 @@
     <div class="col-md-4 col-xs-4">
       <div class="thumbnail">
         <a href="<%= category_products_path(category: 'leggings') %>">
-          <%= cl_image_tag @leggings_product.images.first.cloudinary_ref,
-                        alt: "View all leggings",
-                        height: 500,
-                        width: 275,
-                        crop: :fill,
-                        gravity: :south,
-                        fetch_format: :auto
-          %>
+          <% if @leggings_product %>
+            <%= cl_image_tag @leggings_product.images.first.cloudinary_ref,
+                          alt: "View all leggings",
+                          height: 500,
+                          width: 275,
+                          crop: :fill,
+                          gravity: :south,
+                          fetch_format: :auto
+            %>
+          <% end %>
           <div class="caption text-center">
             <h3>View all Leggings</h3>
           </div>
@@ -31,13 +33,15 @@
     <div class="col-md-4 col-xs-4">
       <div class="thumbnail">
         <a href="<%= category_products_path(category: 'body-suits') %>">
-          <%= cl_image_tag @body_suit_product.images.first.cloudinary_ref,
-                        alt: "View all leggings",
-                        height: 500,
-                        width: 275,
-                        crop: :fill,
-                        fetch_format: :auto
-          %>
+          <% if @body_suit_product %>
+            <%= cl_image_tag @body_suit_product.images.first.cloudinary_ref,
+                          alt: "View all leggings",
+                          height: 500,
+                          width: 275,
+                          crop: :fill,
+                          fetch_format: :auto
+            %>
+          <% end %>
           <div class="caption text-center">
             <h3>View all Body Suits</h3>
           </div>
@@ -49,13 +53,15 @@
     <div class="col-md-4 col-xs-4">
       <div class="thumbnail">
         <a href="<%= category_products_path(category: 'belts') %>">
-          <%= cl_image_tag @belt_product.images.first.cloudinary_ref,
-                        alt: "View all leggings",
-                        height: 500,
-                        width: 275,
-                        crop: :fill,
-                        fetch_format: :auto
-          %>
+          <% if @belt_product %>
+            <%= cl_image_tag @belt_product.images.first.cloudinary_ref,
+                          alt: "View all leggings",
+                          height: 500,
+                          width: 275,
+                          crop: :fill,
+                          fetch_format: :auto
+            %>
+          <% end %>
           <div class="caption text-center">
             <h3>View all Belts</h3>
           </div>
