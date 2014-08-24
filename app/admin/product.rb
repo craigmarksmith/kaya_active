@@ -28,6 +28,13 @@ ActiveAdmin.register Product do
 
   index do
     column :name
+    column :image do |product|
+      if product.default_image
+        cl_image_tag product.default_image.cloudinary_ref,alt: "#{product.name}",height: 100,width: 100,crop: :pad,fetch_format: :auto
+      else
+        ''
+      end
+    end
     column :price do |product|
       number_to_currency product.price_in_dollars
     end
