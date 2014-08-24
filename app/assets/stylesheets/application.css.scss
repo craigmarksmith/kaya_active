@@ -10,6 +10,32 @@ h1, h2, h4.panel-title {
   text-transform: uppercase;
 }
 
+.navbar.homepage {
+  margin-bottom: 0;
+}
+
+.homepage-text {
+  text-align: center;
+  padding: 40px;
+}
+
+.homepage-text > p {
+  padding: 10px;
+}
+
+.homepage-text > ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+@media screen and (min-width: 368px) {
+    .homepage-text > p{
+      width:80%;
+      margin:auto;
+    }
+
+}
+
 
 /* accordion style */
 #accordion > .panel-default {

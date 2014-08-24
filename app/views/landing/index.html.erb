@@ -1,0 +1,67 @@
+<img src="<%= cl_image_path('BSC_90_0613_copy2_1_zu9lyw', fetch_format: :auto, quality: 50) %>" class='img-responsive'>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xs-12 homepage-text">
+      <p>Kaya as a name means the sea; restful place, yew tree, forgiveness; a place of rest and relaxation: a home; stone; willow, wise child; the one with the beautiful body. Kaya in Buddhism refers to the physical and mental body.</p>
+
+      <p>Our brand is as much renowned for its meticulous attention to detail, fit, shape, quality and colour as it is for its willingness to experiment – to reinvent “Classics” by playfully mixing materials, formats, styling and patterns to offer something truly special and unique. To this end we retain a proud tradition of working with, and taking inspiration from, people and things we feel manifest the same free spirit, integrity and creativity. They may be artists, illustrators, inventors, musicians or just plain original thinkers, or it may just be something that caught our eyes and ears on the way to work - but they are all at the beating heart of what we do.</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-4 col-xs-4">
+      <div class="thumbnail">
+        <a href="<%= category_products_path(category: 'leggings') %>">
+          <%= cl_image_tag @leggings_product.images.first.cloudinary_ref,
+                        alt: "View all leggings",
+                        height: 500,
+                        width: 275,
+                        crop: :fill,
+                        gravity: :south,
+                        fetch_format: :auto
+          %>
+          <div class="caption text-center">
+            <h3>View all Leggings</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-4">
+      <div class="thumbnail">
+        <a href="<%= category_products_path(category: 'body-suits') %>">
+          <%= cl_image_tag @body_suit_product.images.first.cloudinary_ref,
+                        alt: "View all leggings",
+                        height: 500,
+                        width: 275,
+                        crop: :fill,
+                        fetch_format: :auto
+          %>
+          <div class="caption text-center">
+            <h3>View all Body Suits</h3>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 col-xs-4">
+      <div class="thumbnail">
+        <a href="<%= category_products_path(category: 'belts') %>">
+          <%= cl_image_tag @belt_product.images.first.cloudinary_ref,
+                        alt: "View all leggings",
+                        height: 500,
+                        width: 275,
+                        crop: :fill,
+                        fetch_format: :auto
+          %>
+          <div class="caption text-center">
+            <h3>View all Belts</h3>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>

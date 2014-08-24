@@ -28,7 +28,7 @@
   <div class="header-logo">
     <%= link_to image_tag('kaya_logo.jpg', alt: 'Kaya Active Logo', class:'small-on-mobile'), root_path %>
   </div>
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default <%= 'homepage' if homepage? %>" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -57,9 +57,13 @@
     </div>
   </nav>
 
-  <div class="container">
+  <% if homepage? %>
     <%= yield %>
-  </div>
+  <% else %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  <% end %>
 
   <!-- GA -->
   <script>
