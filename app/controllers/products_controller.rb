@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products.where!(category:params[:category]) if params[:category]
     @products.limit!(10) if Rails.env=='development'
-    @products.order!(:sort_order)
+    @products.order!(:position)
   end
 
   def show

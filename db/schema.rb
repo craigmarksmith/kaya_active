@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819055155) do
+ActiveRecord::Schema.define(version: 20140824082242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140819055155) do
     t.string   "category"
     t.integer  "price"
     t.boolean  "sold_out",        default: false
-    t.integer  "sort_order"
+    t.integer  "position"
   end
 
 end

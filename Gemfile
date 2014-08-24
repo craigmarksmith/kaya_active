@@ -21,6 +21,9 @@ gem 'turbolinks'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'acts_as_list'
+gem 'activeadmin-sortable'
+
 gem 'cloudinary'
 
 # Use SCSS for stylesheets

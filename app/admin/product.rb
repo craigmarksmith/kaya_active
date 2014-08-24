@@ -14,19 +14,25 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :price, :category, :sort_order, :sold_out, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
+  permit_params :name, :price, :category, :position, :sold_out, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
   remove_filter :fabric_and_feel
   remove_filter :fit_and_size
   remove_filter :measurements
   remove_filter :description
   remove_filter :care
 
+  config.sort_order = 'position_asc' # assumes you are using 'position' for your acts_as_list column
+  config.paginate   = false # optional; drag-and-drop across pages is not supported
+
+  sortable
+
   index do
     column :name
     column :price do |product|
       number_to_currency product.price_in_dollars
     end
-    column :sort_order
+    sortable_handle_column
+    # column :position
     column :slug
     column :category
     column :created_at
@@ -39,7 +45,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :price, label: "Price in cents"
       f.input :category, as: :select, collection: Product::Categories
-      f.input :sort_order
+      f.input :position
       f.input :sold_out
       f.input :kind
       f.input :slug
