@@ -10,6 +10,10 @@ h1, h2, h4.panel-title {
   text-transform: uppercase;
 }
 
+.navbar.homepage {
+  margin-bottom: 0;
+}
+
 .homepage-text {
   text-align: center;
   padding: 40px;
@@ -26,7 +30,7 @@ h1, h2, h4.panel-title {
 
 @media screen and (min-width: 368px) {
     .homepage-text > p{
-      width:500px;
+      width:80%;
       margin:auto;
     }
 
