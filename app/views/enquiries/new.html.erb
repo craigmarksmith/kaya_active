@@ -1,0 +1,51 @@
+<%= form_for @enquiry, html: {class: 'form-horizontal'} do |f| %>
+
+<%= f.hidden_field :product_id%>
+
+<fieldset>
+
+<!-- Form Name -->
+<legend>Enquiry about our products</legend>
+<p>If you're interested in the <%= @enquiry.product.name %> or any of our products, just fill in the form including your emails address or phone number and we'll be in touch.</p>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email_address">Your name</label>
+  <div class="col-md-4">
+    <%= f.text_field :name, class: 'form-control input-m'%>
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email_address">Email Address</label>
+  <div class="col-md-4">
+    <%= f.text_field :email_address, class: 'form-control input-m'%>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="mobile_number">Mobile Number</label>
+  <div class="col-md-4">
+    <%= f.text_field :mobile_number, class: 'form-control input-m'%>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="message">Message</label>
+  <div class="col-md-4">
+    <%= f.text_area :message, class: 'form-control', rows: 10 %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Send message</button>
+  </div>
+</div>
+
+</fieldset>
+<% end %>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
 
   get 'contact-us' => 'contact#show', as: 'contact'
+  resources :enquiries, only: [:new, :create]
+  get 'enquiry/sent' => 'enquiries#thankyou', as: 'thankyou'
 
   # Example resource route with options:
   #   resources :products do
