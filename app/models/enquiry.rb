@@ -13,7 +13,7 @@ private
   def default_message
     <<-eos
 Hi Kaya,
-I'm interested in "#{product.name}"
+I'm interested in the "#{product.name}"
 
 How can I get hold of these beautiful #{product.category}?
     eos

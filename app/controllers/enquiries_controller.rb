@@ -7,6 +7,7 @@ class EnquiriesController < ApplicationController
   def create
     @enquiry = Enquiry.new(enquiry_params)
     if @enquiry.valid?
+      @enquiry.save!
       redirect_to action: :thankyou
     else
       render :new
