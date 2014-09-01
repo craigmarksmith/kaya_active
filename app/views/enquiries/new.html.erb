@@ -9,6 +9,13 @@
 <%= f.input :email_address %>
 <%= f.input :mobile_number %>
 <%= f.input :message, input_html: {rows: 6, value: @enquiry.message} %>
-<%= f.button :submit, "Send Message" %>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <%= f.button :submit, "Send Message" %>
+    <!--<button id="singlebutton" name="singlebutton" class="btn btn-primary">Send message</button>-->
+  </div>
+</div>
 </fieldset>
 <% end %>
