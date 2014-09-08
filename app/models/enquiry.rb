@@ -3,6 +3,7 @@ class Enquiry < ActiveRecord::Base
   belongs_to :product
 
   validates :name, presence: true
+  validates :email_address, presence: true
   validates :message, presence: true
 
   def message
