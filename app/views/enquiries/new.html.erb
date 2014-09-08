@@ -1,7 +1,7 @@
 <%= simple_form_for @enquiry, html: {class: 'form-horizontal'}, defaults: { label_html: {class: 'col-md-4 control-label'}, input_html: { class: 'form-control input-m' } } do |f| %>
 <fieldset>
-<legend>Enquiry about our products</legend>
-<p>If you're interested in the <%= @enquiry.product.name %> or any of our products, just fill in the form including your emails address or phone number and we'll be in touch.</p>
+<legend>Enquire about our products</legend>
+<p>If you're interested in the <%= @enquiry.product.name %> or any of our products, just fill in the form including your emails address or phone number and we'll be in touch really soon.</p>
 <%= f.error_notification %>
 
 <%= f.hidden_field :product_id%>

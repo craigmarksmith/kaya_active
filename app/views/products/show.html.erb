@@ -69,8 +69,13 @@
       </span>
     <% end %>
 
-    <p><%= link_to "Pre-order", contact_path, class: "btn btn-info btn-lg" %></p>
-    <!--<p><%= link_to "How to buy", new_enquiry_path(product: @product.slug), class: "btn btn-info btn-lg" %></p>-->
+    <!--<p><%= link_to "Pre-order", contact_path, class: "btn btn-info btn-lg" %></p>-->
+    <p>
+      <a href="<%= new_enquiry_path(product: @product.slug) %>" class="btn btn-info btn-lg">
+        How to buy
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </p>
 
     <% if @product.description.present? %>
       <% @product.description.split("\n").each do |paragraph| %>
