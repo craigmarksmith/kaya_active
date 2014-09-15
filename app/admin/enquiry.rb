@@ -1,18 +1,27 @@
 ActiveAdmin.register Enquiry do
 
+  actions :all, except: [:destroy, :edit]
 
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
+  controller do
+    def scoped_collection
+      Enquiry.where(archived: false)
+    end
+  end
 
+  index do
+    column :name
+    column :email_address
+    column :mobile_number
+    column :message
+    column "Received at", :created_at
+    actions defaults: true do |enquiry|
+      link_to 'Archive', archive_admin_enquiry_path(enquiry), data: {method: :post, confirm: "Are you sure?"}
+    end
+  end
+
+  member_action :archive, method: :post do
+    Enquiry.find(params[:id]).update_attribute(:archived, true)
+    redirect_to :back
+  end
 
 end
