@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
   validates :category, presence: true, allow_blank: false
 
   has_many :images
+  accepts_nested_attributes_for :images
 
   before_validation :set_slug
 

@@ -14,7 +14,7 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :price, :category, :position, :sold_out, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care
+  permit_params :name, :price, :category, :position, :sold_out, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care, images_attributes: [ :id, :cloudinary_ref ]
   remove_filter :fabric_and_feel
   remove_filter :fit_and_size
   remove_filter :measurements
@@ -61,6 +61,14 @@ ActiveAdmin.register Product do
       f.input :fit_and_size
       f.input :measurements
     end
+
+    f.inputs do
+      f.has_many :images, :heading => 'Images' do |image|
+        image.input :cloudinary_ref
+        image.input :id, as: 'hidden'
+      end
+    end
+
     f.actions
   end
 

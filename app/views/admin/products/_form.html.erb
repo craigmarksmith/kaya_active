@@ -1,0 +1,32 @@
+<%= semantic_form_for [:admin, @product] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :price, label: "Price in cents" %>
+    <%= f.input :category, as: :select, collection: Product::Categories %>
+    <%= f.input :position %>
+    <%= f.input :sold_out %>
+    <%= f.input :kind %>
+    <%= f.input :slug %>
+    <%= f.input :description %>
+    <%= f.input :fabric_and_feel %>
+    <%= f.input :fit_and_size %>
+    <%= f.input :measurements %>
+  <% end %>
+
+  <%= f.inputs do %>
+    <% @product.images.each do |image| %>
+      <%= cl_image_tag image.cloudinary_ref,
+          alt: "#{@product.name}",
+          height: 200,
+          width: 200,
+          crop: :pad,
+          fetch_format: :auto,
+          class: 'img-responsive center-block',
+          itemprop: 'image'
+      %>
+    <% end %>
+    <%= cl_image_upload_tag(:image_id) %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>
