@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
       return
     end
 
-    @products = Product.all
+    @products = Product.where(publish: true)
     @products.where!(category:params[:category]) if params[:category]
     @products.limit!(10) if Rails.env=='development'
     @products.order!(:position)

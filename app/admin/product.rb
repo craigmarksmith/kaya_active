@@ -14,7 +14,7 @@ ActiveAdmin.register Product do
   #  permitted
   # end
 
-  permit_params :name, :price, :category, :position, :sold_out, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care, images_attributes: [ :id, :cloudinary_ref ]
+  permit_params :name, :price, :category, :position, :sold_out, :publish, :kind, :slug, :description, :fabric_and_feel, :fit_and_size, :measurements, :care, images_attributes: [ :id, :cloudinary_ref ]
   remove_filter :fabric_and_feel
   remove_filter :fit_and_size
   remove_filter :measurements
@@ -53,6 +53,7 @@ ActiveAdmin.register Product do
       f.input :price, label: "Price in cents"
       f.input :category, as: :select, collection: Product::Categories
       f.input :position
+      f.input :publish
       f.input :sold_out
       f.input :kind
       f.input :slug
