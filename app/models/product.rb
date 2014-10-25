@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   before_validation :set_slug
 
   def set_slug(overwrite=false)
-    self.slug = "#{name.strip}-#{kind.strip}".downcase.gsub(/\W/, '-') unless slug and !overwrite
+    self.slug = "#{name.strip}".downcase.gsub(/\W/, '-') unless slug and !overwrite
   end
 
   def price_in_dollars
