@@ -61,7 +61,7 @@
 
   <div class="col-md-4 col-xs-12">
     <h1 itemprop="name"><%= "#{@product.name.strip.titleize}" -%></h1>
-    <p itemprop="brand" itemscope itemtype="http://schema.org/Brand">from <span itemprop="name" itemprop="brand">BrasilSul</span></p>
+    <p itemprop="brand" itemscope itemtype="http://schema.org/Brand">from <span itemprop="name" itemprop="brand"><%= @product.brand %></span></p>
 
     <% if @product.price.present? and @product.price > 0 %>
       <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -83,7 +83,7 @@
       <% end %>
     <% end %>
 
-    <p>Made in Brazil, sweatshop free.</p>
+    <p><%= @product.made_in %></p>
 
     <div class="addthis_native_toolbox"></div>
     <div class="addthis_sharing_toolbox"></div>

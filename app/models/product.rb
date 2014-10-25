@@ -26,4 +26,14 @@ class Product < ActiveRecord::Base
   def default_image
     images.first
   end
+
+  def brand
+    return 'La Vie Boheme Yoga mats' if category == 'yoga-mats'
+    'BrasilSul'
+  end
+
+  def made_in
+    return 'Made in California' if category == 'yoga-mats'
+    'Made in Brazil, sweatshop free.'
+  end
 end
