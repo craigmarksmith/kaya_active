@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   acts_as_list
 
   validates :slug, uniqueness: true
+  validates :slug, format: { with: /\A[a-zA-Z0-9\-]+\Z/ }
   validates :category, presence: true, allow_blank: false
 
   has_many :images
