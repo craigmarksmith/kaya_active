@@ -1,8 +1,7 @@
 <div class="col-md-3 col-xs-6 landing-category">
   <div class="thumbnail">
     <a href="<%= category_products_path(category: category) %>">
-      <%= image_tag "categories/#{category}.png" %>
-      <%#= cl_image_tag image_id,
+      <%= cl_image_tag image_id,
                     alt: "View all #{category}",
                     height: 200,
                     width: 200,
