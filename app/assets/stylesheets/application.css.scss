@@ -5,6 +5,8 @@ $font-size-base: 13px;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "landing";
+
 h1, h2, h4.panel-title {
   font-size: 150%;
   text-transform: uppercase;

@@ -1,0 +1,15 @@
+.landing-category .thumbnail{
+  border: 1px solid #777;
+  border-radius: 0;
+  position:relative;
+}
+
+.landing-category .caption {
+  position:absolute;
+  top:0px;
+  left:0px;
+  font-size: 18px;
+  font-weight: thin;
+  color: #777;
+  letter-spacing: -2px;
+}

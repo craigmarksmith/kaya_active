@@ -1,0 +1,18 @@
+<div class="col-md-3 col-xs-6 landing-category">
+  <div class="thumbnail">
+    <a href="<%= category_products_path(category: category) %>">
+      <%= image_tag "categories/#{category}.png" %>
+      <%#= cl_image_tag image_id,
+                    alt: "View all #{category}",
+                    height: 200,
+                    width: 200,
+                    crop: :fill,
+                    gravity: :south,
+                    fetch_format: :auto
+      %>
+      <div class="caption text-center">
+        <h3><%= title.upcase %></h3>
+      </div>
+    </a>
+  </div>
+</div>
