@@ -3,11 +3,9 @@
     <a href="<%= category_products_path(category: category) %>">
       <%= cl_image_tag image_id,
                     alt: "View all #{category}",
-                    height: 200,
-                    width: 200,
-                    crop: :fill,
                     gravity: :south,
-                    fetch_format: :auto
+                    fetch_format: :auto,
+                    quality: 10
       %>
       <div class="caption text-center">
         <h3><%= title.upcase %></h3>
