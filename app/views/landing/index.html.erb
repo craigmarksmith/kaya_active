@@ -1,77 +1,13 @@
 <div class="row">
   <div class="col-md-12 col-xs-12 homepage-image">
-    <img src="<%= cl_image_path('BSC_90_0613_copy2_udqbfk', fetch_format: :auto, quality: 50) %>" class='img-responsive'>
+    <img src="<%= cl_image_path('banner_pfo3ee', fetch_format: :auto, quality: 50) %>" class='img-responsive'>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 col-xs-12 homepage-text">
-      <p>Kaya as a name means the sea; restful place, yew tree, forgiveness; a place of rest and relaxation: a home; stone; willow, wise child; the one with the beautiful body. Kaya in Buddhism refers to the physical and mental body.</p>
-
-      <p>Our brand is as much renowned for its meticulous attention to detail, fit, shape, quality and colour as it is for its willingness to experiment – to reinvent “Classics” by playfully mixing materials, formats, styling and patterns to offer something truly special and unique. To this end we retain a proud tradition of working with, and taking inspiration from, people and things we feel manifest the same free spirit, integrity and creativity. They may be artists, illustrators, inventors, musicians or just plain original thinkers, or it may just be something that caught our eyes and ears on the way to work - but they are all at the beating heart of what we do.</p>
-    </div>
+  <%= render partial: 'category_box', locals: {category: 'leggings', title: 'Leggings', image_id: 'BS_90_0321_e1flsq'} %>
+  <%= render partial: 'category_box', locals: {category: 'body-suits', title: 'Body Suits', image_id: 'BS_90_0018_otnxml'} %>
+  <%= render partial: 'category_box', locals: {category: 'tops', title: 'Tops', image_id: 'BS_90_0882_ywemqq'} %>
+  <%= render partial: 'category_box', locals: {category: 'yoga-mats', title: 'Yoga Mats', image_id: 'mandala_grey_big_l4amre'} %>
   </div>
-  <div class="row">
-
-    <div class="col-md-4 col-xs-4">
-      <div class="thumbnail">
-        <a href="<%= category_products_path(category: 'leggings') %>">
-          <% if @leggings_product %>
-            <%= cl_image_tag @leggings_product.images.first.cloudinary_ref,
-                          alt: "View all leggings",
-                          height: 500,
-                          width: 275,
-                          crop: :fill,
-                          gravity: :south,
-                          fetch_format: :auto
-            %>
-          <% end %>
-          <div class="caption text-center">
-            <h3>View all Leggings</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-xs-4">
-      <div class="thumbnail">
-        <a href="<%= category_products_path(category: 'body-suits') %>">
-          <% if @body_suit_product %>
-            <%= cl_image_tag @body_suit_product.images.first.cloudinary_ref,
-                          alt: "View all leggings",
-                          height: 500,
-                          width: 275,
-                          crop: :fill,
-                          fetch_format: :auto
-            %>
-          <% end %>
-          <div class="caption text-center">
-            <h3>View all Body Suits</h3>
-          </div>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="col-md-4 col-xs-4">
-      <div class="thumbnail">
-        <a href="<%= category_products_path(category: 'belts') %>">
-          <% if @belt_product %>
-            <%= cl_image_tag @belt_product.images.first.cloudinary_ref,
-                          alt: "View all leggings",
-                          height: 500,
-                          width: 275,
-                          crop: :fill,
-                          fetch_format: :auto
-            %>
-          <% end %>
-          <div class="caption text-center">
-            <h3>View all Belts</h3>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</div>
