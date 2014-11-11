@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019101937) do
+ActiveRecord::Schema.define(version: 20141109210503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20141019101937) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "colour_groups", force: true do |t|
+    t.integer  "product_id"
+    t.text     "colour_ids", default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "enquiries", force: true do |t|
     t.string   "name"
     t.string   "email_address"
@@ -82,6 +89,21 @@ ActiveRecord::Schema.define(version: 20141019101937) do
     t.boolean  "sold_out",        default: false
     t.integer  "position"
     t.boolean  "publish",         default: false
+  end
+
+  create_table "purchases", force: true do |t|
+    t.string  "name"
+    t.string  "email_address"
+    t.string  "address_line_1"
+    t.string  "address_line_2"
+    t.string  "city"
+    t.string  "state"
+    t.string  "post_code"
+    t.string  "country"
+    t.string  "name_on_card"
+    t.integer "amount"
+    t.string  "stripe_token"
+    t.string  "last_4_digits"
   end
 
 end

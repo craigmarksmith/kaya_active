@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :enquiries, only: [:new, :create]
   get 'enquiry/sent' => 'enquiries#thankyou', as: 'thankyou'
 
+  resources :purchases
+
   # Example resource route with options:
   #   resources :products do
   #     member do
