@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(version: 20141109210503) do
     t.datetime "updated_at"
   end
 
+  create_table "line_items", force: true do |t|
+    t.integer  "purchase_id"
+    t.integer  "product_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -92,18 +100,20 @@ ActiveRecord::Schema.define(version: 20141109210503) do
   end
 
   create_table "purchases", force: true do |t|
-    t.string  "name"
-    t.string  "email_address"
-    t.string  "address_line_1"
-    t.string  "address_line_2"
-    t.string  "city"
-    t.string  "state"
-    t.string  "post_code"
-    t.string  "country"
-    t.string  "name_on_card"
-    t.integer "amount"
-    t.string  "stripe_token"
-    t.string  "last_4_digits"
+    t.string   "name"
+    t.string   "email_address"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "post_code"
+    t.string   "country"
+    t.string   "name_on_card"
+    t.integer  "amount"
+    t.string   "stripe_token"
+    t.string   "last_4_digits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

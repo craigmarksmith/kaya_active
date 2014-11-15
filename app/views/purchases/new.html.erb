@@ -1,81 +1,24 @@
-<%= simple_form_for @purchase do |form| %>
+<%= simple_form_for @purchase, html: {class: 'form-horizontal checkout'}, defaults: { label_html: {class: 'col-md-4 control-label'}, input_html: { class: 'form-control input-m' } } do |form| %>
   <%= form_auth_field %>
   <%= hidden_field_tag :product_id, @product.id %>
-  <div class='row'>
-  </div>
-  <div class='row'>
-    <div class='col-md-2'></div>
-    <div class='col-md-8'>
-
       <legend>About You</legend>
-        <%= form.input :name, placeholder: 'Name', input_html: {class: 'form-control'}, wrapper_html: {class: 'col-xs-12'} %>
-
-      <div class='form-row'>
-        <div class='col-xs-12 form-group required'>
-          <label class='control-label'>Name</label>
-          <%= form.text_field :name, class: 'form-control', placeholder: 'Name' %>
-        </div>
-      </div>
-
-      <div class='form-row'>
-        <div class='col-xs-12 form-group required'>
-          <label class='control-label'>Email Address</label>
-          <%= form.text_field :email_address, class: 'form-control', placeholder: 'Email Address' %>
-        </div>
-      </div>
+      <%= form.input :name, placeholder: 'Name' %>
+      <%= form.input :email_address, placeholder: 'Email Address' %>
 
       <legend>Delivery Address Details</legend>
       <%= render partial: 'delivery_address', locals: {form: form} %>
 
       <legend>Card Details</legend>
-      <div class='form-row'>
-        <div class='col-xs-12 form-group required'>
-          <label class='control-label'>Name on Card</label>
-          <%= form.text_field :name_on_card, class: 'form-control', placeholder: 'Name on Card' %>
+      <%= render partial: 'credit_card', locals: {form: form} %>
+
+      <div class="buttons">
+        <div class='form-control total btn btn-info'>
+          Total:
+          <span class='amount'><%= number_to_currency(@purchase.total_in_dollars) %></span>
         </div>
+
+        <button class='form-control btn btn-primary submit-button' type='submit'>Pay »</button>
       </div>
-
-      <div class='form-row'>
-        <div class='col-xs-12 form-group required'>
-          <label class='control-label'>Card Number</label>
-          <input type="text" size="20" data-stripe="number" class="form-control" placeholder="Card Number"/>
-        </div>
-      </div>
-
-      <div class='form-row'>
-        <div class='col-xs-12 form-group required'>
-          <label class='control-label'>CVC</label>
-          <input type="text" size="4" data-stripe="cvc" class="form-control" placeholder="CVC"/>
-        </div>
-
-        <div class='col-xs-4 form-group expiration required'>
-          <label class='control-label'>Expiration</label>
-          <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' data-stripe="exp-month">
-        </div>
-        <div class='col-xs-4 form-group expiration required'>
-          <label class='control-label'> </label>
-          <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' data-stripe="exp-year">
-        </div>
-      </div>
-
-      <div class='form-row'>
-        <div class='col-md-12'>
-          <div class='form-control total btn btn-info'>
-            Total:
-            <span class='amount'><%= number_to_currency(@purchase.total_in_dollars) %></span>
-          </div>
-        </div>
-      </div>
-
-      <div class='form-row'>
-        <div class='col-md-12 form-group'>
-          <button class='form-control btn btn-primary submit-button' type='submit'>Pay »</button>
-        </div>
-      </div>
-
-    </div>
-    <div class='col-md-2'></div>
-  </div>
 <% end %>
 
 <%= javascript_tag do %>

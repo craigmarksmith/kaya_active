@@ -1,46 +1,6 @@
-<!-- Text input-->
-<div class="form-row">
-  <div class='col-xs-12 form-group required'>
-    <label class="col-sm-2 control-label" for="textinput">Line 1</label>
-    <%= form.text_field :address_line_1, class: 'form-control', placeholder: 'Address Line 1' %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-row">
-  <div class='col-xs-12 form-group required'>
-    <label class="col-sm-2 control-label" for="textinput">Line 2</label>
-    <%= form.text_field :address_line_2, class: 'form-control', placeholder: 'Address Line 2' %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-row">
-  <div class='col-xs-12 form-group required'>
-    <label class="col-sm-2 control-label" for="textinput">City</label>
-    <%= form.text_field :city, class: 'form-control', placeholder: 'City' %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-row">
-  <div class='col-xs-4 form-group required'>
-    <label class="col-sm-2 control-label" for="textinput">State</label>
-    <%= form.text_field :state, class: 'form-control', placeholder: 'State' %>
-  </div>
-
-  <div class='col-xs-4 form-group required'>
-    <label class="col-sm-2 control-label" for="textinput">Postcode</label>
-    <%= form.text_field :post_code, class: 'form-control', placeholder: 'Post Code' %>
-  </div>
-</div>
-
-
-
-<!-- Text input-->
-<div class="form-row">
-  <div class='col-xs-12 form-group required'>
-    <label class="col-sm-2 control-label" for="textinput">Country</label>
-    <%= form.text_field :country, class: 'form-control', placeholder: 'Country' %>
-  </div>
-</div>
+<%= form.input :address_line_1, placeholder: 'Address Line 1' %>
+<%= form.input :address_line_2, placeholder: 'Address Line 2' %>
+<%= form.input :city, placeholder: 'City' %>
+<%= form.input :state, placeholder: 'State' %>
+<%= form.input :post_code, placeholder: 'Post Code' %>
+<%= form.input :country, placeholder: 'Country' %>

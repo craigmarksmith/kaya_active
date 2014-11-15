@@ -4,6 +4,7 @@ class Purchase < ActiveRecord::Base
 
   validates_presence_of \
     :name,
+    :name_on_card,
     :email_address,
     :address_line_1,
     :city,

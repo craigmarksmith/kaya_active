@@ -1,0 +1,29 @@
+<%= form.input :name_on_card, placeholder: 'Name on Card' %>
+
+<div class="form-group control-group string required purchase_card_number">
+  <label class="string required control-label col-md-4 control-label" for="purchase_card_number">
+    <abbr title="required">*</abbr> Card Number
+  </label>
+  <div class="col-md-4 controls">
+    <input type="text" data-stripe="number" class="string required form-control input-m" placeholder="Card Number" id="purchase_card_number"/>
+  </div>
+</div>
+
+<div class="form-group control-group string required purchase_cvc">
+  <label class="string required control-label col-md-4 control-label" for="purchase_cvc">
+    <abbr title="required">*</abbr> CVC
+  </label>
+  <div class="col-md-4 controls">
+    <input type="text" data-stripe="cvc" class="string required form-control input-m" placeholder="CVC" id="purchase_cvc"/>
+  </div>
+</div>
+
+<div class="form-group control-group string required purchase_expiration">
+  <label class="string required control-label col-md-4 control-label" for="purchase_expiration">
+    <abbr title="required">*</abbr> Expiration
+  </label>
+  <div class="col-md-4 controls expiration">
+    <input type="text" maxlength="2" data-stripe="exp-month" class="string required form-control input-m" placeholder="MM"/>
+    <input type="text" maxlength="4" data-stripe="exp-year" class="string required form-control input-m" placeholder="YYYY"/>
+  </div>
+</div>

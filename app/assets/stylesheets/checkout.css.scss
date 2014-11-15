@@ -1,0 +1,15 @@
+.checkout {
+  margin-bottom: 50px;
+  .expiration input {
+    width: 80px;
+    display: inline-block;
+  }
+
+  .buttons > div, .buttons > button{
+    margin-bottom:10px;
+  }
+
+  .error {
+    color:red;
+  }
+}
