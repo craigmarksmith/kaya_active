@@ -29,5 +29,7 @@ class CreatePurchase < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_column :products, :multiple_sizes, :boolean, default: false
   end
 end

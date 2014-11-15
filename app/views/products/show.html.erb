@@ -69,11 +69,14 @@
       </span>
     <% end %>
 
-    <%= form_tag new_purchase_path, method: 'get' do |form| %>
+    <%= form_tag new_purchase_path, method: 'get', class: 'js-buy-online-form' do |form| %>
       <%= hidden_field_tag :product, @product.slug %>
-        <div class="form-group">
-          <%= select_tag('size',options_for_select([['Small/Medium'],['Medium/Large']])) %>
-        </div>
+        <% if @product.multiple_sizes? %>
+          <div class="form-group">
+            <label for='size'>Size:</label>
+            <%= select_tag('size',options_for_select([['Small/Medium'],['Medium/Large']]), {id: 'size'}) %>
+          </div>
+        <% end %>
         <div class="form-group">
           <button class="btn btn-info btn-lg" type='submit'>
             Buy Online <span class="glyphicon glyphicon-chevron-right"></span>
@@ -130,5 +133,6 @@
       $(this).parent().find('span.right.glyphicon').removeClass('glyphicon-chevron-down');
       $(this).parent().find('span.right.glyphicon').addClass('glyphicon-chevron-right');
     });
+
   });
 </script>
