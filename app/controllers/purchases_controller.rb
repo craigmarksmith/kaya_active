@@ -7,11 +7,10 @@ class PurchasesController < ApplicationController
   end
 
   def create
-
     begin
       @product = Product.find(params[:product_id])
       @purchase = Purchase.create!(purchase_params)
-      @purchase.line_items.create(price: product.price, product_id: product.id)
+      @purchase.line_items.create(price: @product.price, product_id: @product.id)
       @purchase.pay!
 
       #confirmation email
@@ -20,9 +19,17 @@ class PurchasesController < ApplicationController
       @purchase.line_items = [LineItem.new(price: @product.price, product_id: @product.id)]
       render :new
       return
+    rescue Stripe::CardError => e
+      render :new
+      return
     end
 
+    redirect_to :complete
   end
+
+  # def update
+  #   @purchase.find(params[:id])
+  # end
 
   def purchase_params
     params.require(:purchase).permit(

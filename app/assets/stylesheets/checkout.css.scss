@@ -1,5 +1,10 @@
 .checkout {
   margin-bottom: 50px;
+
+  .js-stripe-error {
+    display: none;
+  }
+
   .expiration input {
     width: 80px;
     display: inline-block;

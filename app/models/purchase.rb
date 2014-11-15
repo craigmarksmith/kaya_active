@@ -26,7 +26,8 @@ class Purchase < ActiveRecord::Base
         :description => description
       )
     rescue Stripe::CardError => e
-      # The card has been declined
+      errors.add(:card, e.message)
+      raise e
     end
   end
 

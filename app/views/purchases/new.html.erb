@@ -1,4 +1,13 @@
 <%= simple_form_for @purchase, html: {class: 'form-horizontal checkout'}, defaults: { label_html: {class: 'col-md-4 control-label'}, input_html: { class: 'form-control input-m' } } do |form| %>
+
+  <% if @purchase.errors[:card].first %>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      <%= @purchase.errors[:card].first %>
+    </div>
+  <% end %>
+
   <%= form_auth_field %>
   <%= hidden_field_tag :product_id, @product.id %>
       <legend>About You</legend>
@@ -42,6 +51,7 @@ function stripeResponseHandler(status, response) {
   if (response.error) {
     // Show the errors on the form
     $form.find('.payment-errors').text(response.error.message);
+    $form.find('.js-stripe-error').show();
     $form.find('button').prop('disabled', false);
   } else {
     // response contains id and card, which contains additional card details
