@@ -45,7 +45,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def total
-    line_items.inject(0){|sum, ps| sum += ps.price; sum}
+    line_items.inject(0){|sum, line_item| sum += line_item.price; sum}
   end
 
   def total_in_dollars
