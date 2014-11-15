@@ -1,5 +1,6 @@
-<%= form_for @purchase do |form| %>
+<%= simple_form_for @purchase do |form| %>
   <%= form_auth_field %>
+  <%= hidden_field_tag :product_id, @product.id %>
   <div class='row'>
   </div>
   <div class='row'>
@@ -7,6 +8,7 @@
     <div class='col-md-8'>
 
       <legend>About You</legend>
+        <%= form.input :name, placeholder: 'Name', input_html: {class: 'form-control'}, wrapper_html: {class: 'col-xs-12'} %>
 
       <div class='form-row'>
         <div class='col-xs-12 form-group required'>
@@ -60,7 +62,7 @@
         <div class='col-md-12'>
           <div class='form-control total btn btn-info'>
             Total:
-            <span class='amount'>$300</span>
+            <span class='amount'><%= number_to_currency(@purchase.total_in_dollars) %></span>
           </div>
         </div>
       </div>

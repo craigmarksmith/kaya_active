@@ -15,6 +15,16 @@ class CreatePurchase < ActiveRecord::Migration
       t.integer :amount
       t.string :stripe_token
       t.string :last_4_digits
+
+      t.timestamps
+    end
+
+    create_table :line_items do |t|
+      t.belongs_to :purchase
+      t.belongs_to :product
+      t.integer :price
+
+      t.timestamps
     end
   end
 end

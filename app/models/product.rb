@@ -20,7 +20,7 @@ class Product < ActiveRecord::Base
   end
 
   def price_in_dollars
-  	price/100.00 if price
+    price/100.00 if price
   end
 
   def default_image

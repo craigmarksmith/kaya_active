@@ -1,12 +1,15 @@
 class Purchase < ActiveRecord::Base
 
-  after_initialize :set_amount
+  has_many :line_items
 
-  # need
-  # delivery address
-  # name
-  # email address
-  # phone number
+  validates_presence_of \
+    :name,
+    :email_address,
+    :address_line_1,
+    :city,
+    :state,
+    :post_code,
+    :country
 
   def pay!
     # Set your secret key: remember to change this to your live secret key in production
@@ -16,7 +19,7 @@ class Purchase < ActiveRecord::Base
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
       charge = Stripe::Charge.create(
-        :amount => amount, # amount in cents, again
+        :amount => total, # amount in cents, again
         :currency => "aud",
         :card => stripe_token,
         :description => description
@@ -27,11 +30,15 @@ class Purchase < ActiveRecord::Base
   end
 
   def description
-    "email: #{email}"
+    "email: #{email_address}"
   end
 
-  def set_amount
-    self.amount = 8500
+  def total
+    line_items.inject(0){|sum, ps| sum += ps.price; sum}
+  end
+
+  def total_in_dollars
+    total/100.00
   end
 
 end

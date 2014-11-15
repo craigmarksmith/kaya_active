@@ -39,8 +39,11 @@ gem 'devise'
 gem 'newrelic_rpm'
 
 gem 'simple_form'
+gem 'country_select'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'pry-remote', group: [:development]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
