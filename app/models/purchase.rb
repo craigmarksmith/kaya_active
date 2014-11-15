@@ -1,5 +1,7 @@
 class Purchase < ActiveRecord::Base
 
+  before_save :pay!
+
   has_many :line_items
 
   validates_presence_of \

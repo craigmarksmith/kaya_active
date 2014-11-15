@@ -7,29 +7,26 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    begin
-      @product = Product.find(params[:product_id])
-      @purchase = Purchase.create!(purchase_params)
-      @purchase.line_items.create(price: @product.price, product_id: @product.id)
-      @purchase.pay!
 
-      #confirmation email
-    rescue ActiveRecord::RecordInvalid => e
-      @purchase = e.record
-      @purchase.line_items = [LineItem.new(price: @product.price, product_id: @product.id)]
+    @product = Product.find(params[:product_id])
+    @purchase = Purchase.new(purchase_params)
+    @purchase.line_items.new(price: @product.price, product_id: @product.id)
+
+    if !@purchase.valid?
       render :new
       return
+    end
+
+    begin
+      @purchase.save!
+      #confirmation email
     rescue Stripe::CardError => e
       render :new
       return
     end
 
-    redirect_to :complete
+    redirect_to :show
   end
-
-  # def update
-  #   @purchase.find(params[:id])
-  # end
 
   def purchase_params
     params.require(:purchase).permit(
