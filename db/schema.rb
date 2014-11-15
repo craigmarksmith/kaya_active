@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20141109210503) do
   end
 
   create_table "purchases", force: true do |t|
+    t.string   "code"
     t.string   "name"
     t.string   "email_address"
     t.string   "address_line_1"

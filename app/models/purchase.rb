@@ -1,5 +1,6 @@
 class Purchase < ActiveRecord::Base
 
+  after_initialize :set_code
   before_save :pay!
 
   has_many :line_items
@@ -13,6 +14,11 @@ class Purchase < ActiveRecord::Base
     :state,
     :post_code,
     :country
+
+  def set_code
+    o = [('A'..'Z')].map { |i| i.to_a }.flatten
+    self.code = (0...10).map { o[rand(o.length)] }.join
+  end
 
   def pay!
     # Set your secret key: remember to change this to your live secret key in production

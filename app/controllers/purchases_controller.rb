@@ -6,26 +6,30 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(line_items: [line_item])
   end
 
-  def create
+  def complete
+    @purchase = Purchase.find(session[:purchase_id])
+  end
 
+  def create
     @product = Product.find(params[:product_id])
     @purchase = Purchase.new(purchase_params)
     @purchase.line_items.new(price: @product.price, product_id: @product.id)
 
-    if !@purchase.valid?
+    unless @purchase.valid?
       render :new
       return
     end
 
     begin
       @purchase.save!
-      #confirmation email
     rescue Stripe::CardError => e
       render :new
       return
     end
 
-    redirect_to :show
+    session[:purchase_id] = @purchase.id
+    #confirmation email
+    redirect_to action: :complete
   end
 
   def purchase_params
