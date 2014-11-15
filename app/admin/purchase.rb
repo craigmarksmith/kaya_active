@@ -17,4 +17,55 @@ ActiveAdmin.register Purchase do
     end
   end
 
+  show do |ad|
+    attributes_table do
+      row :id
+      row :code
+      row :stripe_token
+      row :name
+      row :email_address
+      row :address_line_1
+      row :address_line_2
+      row :city
+      row :state
+      row :post_code
+      row :country
+      row :total_in_dollars
+      row :created_at
+    end
+    panel "Products" do
+      table_for purchase.line_items do
+        column "Product ID" do |item|
+          item.product.id
+        end
+        column "Name" do |item|
+          item.product.name
+        end
+        column "Size" do |item|
+          item.size
+        end
+        column "Price" do |item|
+          item.price_in_dollars
+        end
+      end
+    end
+    active_admin_comments
+  end
+
+  # show do
+  #   panel "Products" do
+  #     table_for purchase.line_items do
+  #       column "Product ID" do |item|
+  #         item.product.id
+  #       end
+  #       column "Name" do |item|
+  #         item.product.name
+  #       end
+  #       column "Size" do |item|
+  #         item.size
+  #       end
+  #     end
+  #   end
+  # end
+
 end

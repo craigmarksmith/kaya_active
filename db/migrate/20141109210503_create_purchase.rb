@@ -25,6 +25,7 @@ class CreatePurchase < ActiveRecord::Migration
       t.belongs_to :purchase
       t.belongs_to :product
       t.integer :price
+      t.string :size
 
       t.timestamps
     end

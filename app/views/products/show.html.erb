@@ -69,12 +69,18 @@
       </span>
     <% end %>
 
-    <p>
-      <a href="<%= new_purchase_path(product: @product.slug) %>" class="btn btn-info btn-lg">
-        Buy Online
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </p>
+    <%= form_tag new_purchase_path, method: 'get' do |form| %>
+      <%= hidden_field_tag :product, @product.slug %>
+        <div class="form-group">
+          <%= select_tag('size',options_for_select([['Small/Medium'],['Medium/Large']])) %>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-info btn-lg" type='submit'>
+            Buy Online <span class="glyphicon glyphicon-chevron-right"></span>
+          </button>
+        </div>
+
+    <% end %>
 
     <% if @product.description.present? %>
       <% @product.description.split("\n").each do |paragraph| %>

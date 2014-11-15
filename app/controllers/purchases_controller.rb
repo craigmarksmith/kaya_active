@@ -13,7 +13,7 @@ class PurchasesController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @purchase = Purchase.new(purchase_params)
-    @purchase.line_items.new(price: @product.price, product_id: @product.id)
+    @purchase.line_items.new(price: @product.price, product_id: @product.id, size: params[:size])
 
     unless @purchase.valid?
       render :new
