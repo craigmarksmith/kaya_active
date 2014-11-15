@@ -1,5 +1,5 @@
 ActiveAdmin.register Purchase do
-  config.sort_order = 'created_at_asc' # assumes you are using 'position' for your acts_as_list column
+  config.sort_order = 'created_at_desc' # assumes you are using 'position' for your acts_as_list column
 
   index do
     column :code

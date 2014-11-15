@@ -16,6 +16,7 @@ class Purchase < ActiveRecord::Base
     :country
 
   def set_code
+    return if code
     o = [('A'..'Z')].map { |i| i.to_a }.flatten
     self.code = (0...10).map { o[rand(o.length)] }.join
   end
