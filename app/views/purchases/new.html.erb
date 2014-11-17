@@ -8,6 +8,34 @@
     </div>
   <% end %>
 
+  <legend>Order Summary</legend>
+  <table class="table order-summary">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @product.name %></td>
+        <td><%= params[:size] %></td>
+        <td><%= number_to_currency(@product.price_in_dollars) %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Delivery Price</td>
+        <td><strong>Free</strong></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Total Price</td>
+        <td><strong><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
   <%= form_auth_field %>
   <%= hidden_field_tag :product_id, @product.id %>
   <%= hidden_field_tag :size, params[:size]  %>
@@ -21,14 +49,11 @@
       <legend>Card Details</legend>
       <%= render partial: 'credit_card', locals: {form: form} %>
 
-      <div class="buttons">
-        <div class='form-control total btn btn-info'>
-          Total:
-          <span class='amount'><%= number_to_currency(@purchase.total_in_dollars) %></span>
-        </div>
-
-        <button class='form-control btn btn-primary submit-button' type='submit'>Pay »</button>
+      <div class="buttons col-md-4"></div>
+      <div class="buttons col-md-4">
+        <button class='form-control btn btn-primary submit-button' type='submit'>Pay <%= number_to_currency(@purchase.total_in_dollars) %> »</button>
       </div>
+      <div class="buttons col-md-4"></div>
 <% end %>
 
 <%= javascript_tag do %>
