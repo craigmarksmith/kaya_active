@@ -30,7 +30,12 @@ ActiveAdmin.register Purchase do
       row :state
       row :post_code
       row :country
-      row :total_in_dollars
+      row :delivery_price do |purchase|
+        number_to_currency(purchase.delivery_price/100.00)
+      end
+      row :total_in_dollars do |purchase|
+        number_to_currency(purchase.total_in_dollars)
+      end
       row :created_at
     end
     panel "Products" do

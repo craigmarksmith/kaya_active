@@ -26,12 +26,12 @@
       <tr>
         <td></td>
         <td>Delivery Price</td>
-        <td><strong>Free</strong></td>
+        <td><strong class="js-delivery-price">Free</strong></td>
       </tr>
       <tr>
         <td></td>
         <td>Total Price</td>
-        <td><strong><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
+        <td><strong class="js-total-price"><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
       </tr>
     </tbody>
   </table>
@@ -51,7 +51,7 @@
 
       <div class="buttons col-md-4"></div>
       <div class="buttons col-md-4">
-        <button class='form-control btn btn-primary submit-button' type='submit'>Pay <%= number_to_currency(@purchase.total_in_dollars) %> »</button>
+        <button class='form-control btn btn-primary submit-button' type='submit'>Pay <span class="js-total-price"><%= number_to_currency(@purchase.total_in_dollars) %></span> »</button>
       </div>
       <div class="buttons col-md-4"></div>
 <% end %>
@@ -68,6 +68,39 @@ jQuery(function($) {
 
     // Prevent the form from submitting with the default action
     return false;
+  });
+
+  $('#purchase_country').change(function(event){
+
+    var klass = this
+    $.ajax({
+      dataType: "json",
+      url: '<%= purchase_price_path(format: :json) %>',
+      data: {country: this.value, total_price: <%= @purchase.total %>},
+      success: function(result){
+        $('.js-total-price').html(result['total_price_in_dollars'])
+        $('.js-delivery-price').html(result['delivery_price_in_dollars'])
+        bootbox.alert("Notice: Delivery price and total price have been updated.");
+      }
+    });
+
+    //disable the submit button
+    // get the new price
+    // apply the new price to the delivery price
+    // apply the new price to the total
+    // enable the checkout button
+    // show a message advising this has happened
+
+//var delivery_pricing = <%= raw @delivery_pricing.to_json %>;
+  //  var country = this.value;
+    //if(country in delivery_pricing){
+   //   # apply the delivery price
+    //} else {
+     // #apply the default
+    //}
+
+
+
   });
 });
 

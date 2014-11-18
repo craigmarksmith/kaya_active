@@ -14,7 +14,7 @@ class CreatePurchase < ActiveRecord::Migration
       t.string :country
 
       t.string :name_on_card
-      t.integer :amount
+      t.integer :delivery_price
       t.string :stripe_token
       t.string :last_4_digits
 

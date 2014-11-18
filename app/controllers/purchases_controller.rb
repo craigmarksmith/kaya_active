@@ -1,5 +1,26 @@
 class PurchasesController < ApplicationController
 
+  include ActionView::Helpers::NumberHelper
+
+  def price
+    delivery_price = calculate_delivery(params[:country])
+    new_total = params[:total_price].to_i+delivery_price
+    result = {
+      delivery_price_in_dollars: delivery_price > 0 ? number_to_currency(delivery_price/100.00) : 'FREE',
+      total_price_in_dollars: number_to_currency(new_total/100.00)
+    }
+    render json: result
+  end
+
+  def calculate_delivery(country_code)
+    delivery_prices = {
+      'AU' => 0,
+      'NZ' => 2000
+    }
+    default_price = 2520
+    delivery_prices[country_code] || default_price
+  end
+
   def new
     @product = Product.find_by_slug(params[:product])
     line_item = LineItem.new(price: @product.price, product_id: @product.id)
@@ -14,6 +35,7 @@ class PurchasesController < ApplicationController
     @product = Product.find(params[:product_id])
     @purchase = Purchase.new(purchase_params)
     @purchase.line_items.new(price: @product.price, product_id: @product.id, size: params[:size])
+    @purchase.delivery_price = calculate_delivery(purchase_params[:country_code])
 
     unless @purchase.valid?
       render :new
