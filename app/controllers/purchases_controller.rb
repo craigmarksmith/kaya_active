@@ -15,7 +15,9 @@ class PurchasesController < ApplicationController
   def calculate_delivery(country_code)
     delivery_prices = {
       'AU' => 0,
-      'NZ' => 2000
+      'US' => 2110,
+      'CA' => 2110,
+      'NZ' => 1755
     }
     default_price = 2520
     delivery_prices[country_code] || default_price
