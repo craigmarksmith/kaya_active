@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20141109210503) do
     t.integer  "purchase_id"
     t.integer  "product_id"
     t.integer  "price"
+    t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 20141109210503) do
     t.boolean  "sold_out",        default: false
     t.integer  "position"
     t.boolean  "publish",         default: false
+    t.boolean  "multiple_sizes",  default: false
   end
 
   create_table "purchases", force: true do |t|
@@ -110,7 +112,7 @@ ActiveRecord::Schema.define(version: 20141109210503) do
     t.string   "post_code"
     t.string   "country"
     t.string   "name_on_card"
-    t.integer  "amount"
+    t.integer  "delivery_price"
     t.string   "stripe_token"
     t.string   "last_4_digits"
     t.datetime "created_at"

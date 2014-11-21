@@ -66,6 +66,37 @@
       <%= yield %>
     </div>
   <% end %>
+  <footer class="footer">
+    <div class="container">
+      <div class='col-md-3'>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="<%= category_products_path(category:'leggings') %>">Leggings</a></li>
+          <li><a href="<%= category_products_path(category:'tops') %>">Tops</a></li>
+          <li><a href="<%= category_products_path(category:'yoga-mats') %>">Yoga Mats</a></li>
+          <li><a href="<%= category_products_path(category:'body-suits') %>">Body Suits</a></li>
+          <li><a href="<%= category_products_path(category:'belts') %>">Belts</a></li>
+        </ul>
+      </div>
+      <div class='col-md-3'>
+        <h4>Customer Service</h4>
+        <ul>
+          <li><%= link_to "Shipping", shipping_path %></li>
+          <li><%= link_to "Contact Us", contact_path %></li>
+          <!--<li><%= link_to "Privacy Policy", privacy_path %></li>
+          <li><%= link_to "Term and Conditions", terms_path %></li>-->
+        </ul>
+      </div>
+      <div class='col-md-3'>
+        <h4>Social</h4>
+        <ul>
+          <li><%= link_to "Instagram", "http://instagram.com/kayaactive" %></li>
+          <li><%= link_to "Facebook", "http://facebook.com/kayaactive" %></li>
+          <li><%= link_to "Pinterest", "http://pinterest.com/kayaactive" %></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
   <!-- GA -->
   <script>

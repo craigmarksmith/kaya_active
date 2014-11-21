@@ -8,9 +8,22 @@ $font-size-base: 13px;
 @import "landing";
 @import "checkout";
 
-h1, h2, h4.panel-title {
-  font-size: 150%;
-  text-transform: uppercase;
+.footer {
+  background-color: #646464;
+  color: white;
+  font-size: 10px;
+
+  a {
+    color: white;
+  }
+
+  h4 {
+    font-size: 12px;
+  }
+  .footer-social {
+    background-color: red;
+    height:1px;
+  }
 }
 
 .navbar.homepage {

@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   get 'purchases/complete' => 'purchases#complete', as: 'complete'
   get 'purchases/price' => 'purchases#price', as: 'purchase_price'
 
+  get 'shipping' => 'static#shipping', as:'shipping'
+  get 'privacy' => 'static#privacy', as:'privacy'
+  get 'terms' => 'static#terms', as:'terms'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
