@@ -52,7 +52,7 @@ class PurchasesController < ApplicationController
     end
 
     session[:purchase_id] = @purchase.id
-    PurchaseMailer.confirmation(@purchase).deliver
+    # PurchaseMailer.confirmation(@purchase).deliver
     redirect_to action: :complete
   end
 
