@@ -25,6 +25,11 @@
       </tr>
       <tr>
         <td></td>
+        <td>Voucher Discount</td>
+        <td><strong class="js-voucher-discount">$0.00</strong></td>
+      </tr>
+      <tr>
+        <td></td>
         <td>Delivery Price</td>
         <td><strong class="js-delivery-price">Free</strong></td>
       </tr>
@@ -45,6 +50,9 @@
 
       <legend>Delivery Address Details</legend>
       <%= render partial: 'delivery_address', locals: {form: form} %>
+
+      <legend>Voucher</legend>
+      <%= form.input :voucher_code, placeholder: 'Voucher Code' %>
 
       <legend>Card Details</legend>
       <%= render partial: 'credit_card', locals: {form: form} %>
@@ -70,8 +78,25 @@ jQuery(function($) {
     return false;
   });
 
-  $('#purchase_country').change(function(event){
+  $('#purchase_voucher_code').focusout(function(event){
+    $.ajax({
+      dataType: "json",
+      url: '<%= purchase_price_path(format: :json) %>',
+      data: {voucher_code: this.value, country: $('#purchase_country').val(), total_price: <%= @purchase.total %>},
+      success: function(result){
+        if(result['valid_voucher'] == 'true'){
+          $('.js-total-price').html(result['total_price_in_dollars'])
+          $('.js-voucher-discount').html(result['voucher_price_in_dollars'])
+          $('.js-delivery-price').html(result['delivery_price_in_dollars'])
+          bootbox.alert("Notice: Delivery price and total price have been updated.");
+        } else {
+          console.log('voucher not valid')
+        }
+      }
+    });
+  });
 
+  $('#purchase_country').change(function(event){
     var klass = this
     $.ajax({
       dataType: "json",
@@ -83,24 +108,6 @@ jQuery(function($) {
         bootbox.alert("Notice: Delivery price and total price have been updated.");
       }
     });
-
-    //disable the submit button
-    // get the new price
-    // apply the new price to the delivery price
-    // apply the new price to the total
-    // enable the checkout button
-    // show a message advising this has happened
-
-//var delivery_pricing = <%= raw @delivery_pricing.to_json %>;
-  //  var country = this.value;
-    //if(country in delivery_pricing){
-   //   # apply the delivery price
-    //} else {
-     // #apply the default
-    //}
-
-
-
   });
 });
 

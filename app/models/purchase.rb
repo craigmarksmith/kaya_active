@@ -4,6 +4,7 @@ class Purchase < ActiveRecord::Base
   before_save :pay!
 
   has_many :line_items
+  has_one :voucher
 
   validates_presence_of \
     :name,
@@ -50,6 +51,10 @@ class Purchase < ActiveRecord::Base
 
   def total_in_dollars
     total/100.00
+  end
+
+  def voucher_code
+    voucher ? voucher.code : ''
   end
 
 end

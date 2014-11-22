@@ -3,12 +3,16 @@ class PurchasesController < ApplicationController
   include ActionView::Helpers::NumberHelper
 
   def price
+    voucher = Voucher.find_by_code(params[:voucher_code])
     delivery_price = calculate_delivery(params[:country])
     new_total = params[:total_price].to_i+delivery_price
     result = {
       delivery_price_in_dollars: delivery_price > 0 ? number_to_currency(delivery_price/100.00) : 'FREE',
+      voucher_price_in_dollars: voucher ? number_to_currency(voucher.discount_in_dollars) : '$0.00',
+      valid_voucher: !voucher.nil?,
       total_price_in_dollars: number_to_currency(new_total/100.00)
     }
+
     render json: result
   end
 
