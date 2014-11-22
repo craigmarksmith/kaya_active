@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   resources :purchases, only: [:new, :create]
   get 'purchases/complete' => 'purchases#complete', as: 'complete'
   get 'purchases/price' => 'purchases#price', as: 'purchase_price'
-  get 'test' => 'purchases#test', as:'test'
 
   get 'shipping' => 'static#shipping', as:'shipping'
   get 'returns' => 'static#returns', as:'returns'
