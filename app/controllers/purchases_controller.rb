@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
   def test
     @product = Product.find_by_slug('blue-lizard-long-leggings')
     line_item = LineItem.new(price: @product.price, product_id: @product.id)
-    @purchase = Purchase.new(line_items: [line_item], country:'AU', delivery_price: calculate_delivery('AU'))
+    @purchase = Purchase.new(line_items: [line_item], country:'AU', delivery_price: calculate_delivery('AU'), email_address:'craigmarksmith@gmail.com')
     PurchaseMailer.confirmation(@purchase).deliver
     render text: 'wat ever'
   end
