@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
   def new
     @product = Product.find_by_slug(params[:product])
     line_item = LineItem.new(price: @product.price, product_id: @product.id)
-    @purchase = Purchase.new(line_items: [line_item])
+    @purchase = Purchase.new(line_items: [line_item], country:'AU')
   end
 
   def complete
@@ -37,7 +37,7 @@ class PurchasesController < ApplicationController
     @product = Product.find(params[:product_id])
     @purchase = Purchase.new(purchase_params)
     @purchase.line_items.new(price: @product.price, product_id: @product.id, size: params[:size])
-    @purchase.delivery_price = calculate_delivery(purchase_params[:country_code])
+    @purchase.delivery_price = calculate_delivery(purchase_params[:country])
 
     unless @purchase.valid?
       render :new
