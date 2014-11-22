@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'purchases/price' => 'purchases#price', as: 'purchase_price'
 
   get 'shipping' => 'static#shipping', as:'shipping'
+  get 'returns' => 'static#returns', as:'returns'
   get 'privacy' => 'static#privacy', as:'privacy'
   get 'terms' => 'static#terms', as:'terms'
 
