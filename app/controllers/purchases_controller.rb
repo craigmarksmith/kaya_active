@@ -2,6 +2,14 @@ class PurchasesController < ApplicationController
 
   include ActionView::Helpers::NumberHelper
 
+  def test
+    @product = Product.find_by_slug('blue-lizard-long-leggings')
+    line_item = LineItem.new(price: @product.price, product_id: @product.id)
+    @purchase = Purchase.new(line_items: [line_item], country:'AU', delivery_price: calculate_delivery('AU'))
+    PurchaseMailer.confirmation(@purchase).deliver
+    render text: 'wat ever'
+  end
+
   def price
     delivery_price = calculate_delivery(params[:country])
     new_total = params[:total_price].to_i+delivery_price
