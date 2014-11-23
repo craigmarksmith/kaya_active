@@ -117,7 +117,8 @@ ActiveRecord::Schema.define(version: 20141122064134) do
     t.string   "last_4_digits"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "voucher_id"
+    t.string   "voucher_code"
+    t.integer  "voucher_discount_amount"
   end
 
   create_table "vouchers", force: true do |t|

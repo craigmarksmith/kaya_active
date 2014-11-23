@@ -44,7 +44,8 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     @purchase.line_items.new(price: @product.price, product_id: @product.id, size: params[:size])
     @purchase.delivery_price = calculate_delivery(purchase_params[:country])
-    @purchase.voucher = voucher if voucher
+    @purchase.voucher_code = voucher.code if voucher
+    @purchase.voucher_discount_amount = voucher.fixed_discount_amount_in_cent if voucher
 
     unless @purchase.valid?
       render :new
@@ -75,7 +76,8 @@ class PurchasesController < ApplicationController
       :city,
       :state,
       :post_code,
-      :country
+      :country,
+      :voucher_code
     )
   end
 

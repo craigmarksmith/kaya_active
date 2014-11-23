@@ -33,6 +33,10 @@ ActiveAdmin.register Purchase do
       row :delivery_price do |purchase|
         number_to_currency(purchase.delivery_price/100.00)
       end
+      row :voucher_code
+      row :voucher_discount_amount do |purchase|
+        number_to_currency(purchase.voucher_discount_amount/100.00)
+      end
       row :total_in_dollars do |purchase|
         number_to_currency(purchase.total_in_dollars)
       end

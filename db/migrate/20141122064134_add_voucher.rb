@@ -6,6 +6,7 @@ class AddVoucher < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_column :purchases, :voucher_id, :integer
+    add_column :purchases, :voucher_code, :string
+    add_column :purchases, :voucher_discount_amount, :integer
   end
 end
