@@ -26,7 +26,11 @@
       <tr>
         <td></td>
         <td>Voucher Discount</td>
-        <td><strong class="js-voucher-discount">$0.00</strong></td>
+        <td>
+          <strong class="js-voucher-discount">
+            <%= @purchase.voucher ? number_to_currency(@purchase.voucher.discount_in_dollars) : "$0.00" %>
+          </strong>
+        </td>
       </tr>
       <tr>
         <td></td>
@@ -84,13 +88,13 @@ jQuery(function($) {
       url: '<%= purchase_price_path(format: :json) %>',
       data: {voucher_code: this.value, country: $('#purchase_country').val(), total_price: <%= @purchase.total %>},
       success: function(result){
-        if(result['valid_voucher'] == 'true'){
+        if(result['valid_voucher'] == true){
           $('.js-total-price').html(result['total_price_in_dollars'])
           $('.js-voucher-discount').html(result['voucher_price_in_dollars'])
           $('.js-delivery-price').html(result['delivery_price_in_dollars'])
           bootbox.alert("Notice: Delivery price and total price have been updated.");
         } else {
-          console.log('voucher not valid')
+          bootbox.alert("Notice: The voucher code you have entered is invalid. No discount will be applied.");
         }
       }
     });

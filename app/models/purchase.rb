@@ -1,10 +1,10 @@
 class Purchase < ActiveRecord::Base
 
   after_initialize :set_code
-  before_save :pay!
+  # before_save :pay!
 
   has_many :line_items
-  has_one :voucher
+  belongs_to :voucher
 
   validates_presence_of \
     :name,
@@ -46,7 +46,9 @@ class Purchase < ActiveRecord::Base
   end
 
   def total
-    line_items.inject(0){|sum, line_item| sum += line_item.price; sum}+(self.delivery_price||0)
+    t = line_items.inject(0){|sum, line_item| sum += line_item.price; sum}+(self.delivery_price||0)
+    t -= voucher.fixed_discount_amount_in_cent if voucher
+    t
   end
 
   def total_in_dollars
