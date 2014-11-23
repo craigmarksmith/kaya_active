@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109210503) do
+ActiveRecord::Schema.define(version: 20141122064134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,15 @@ ActiveRecord::Schema.define(version: 20141109210503) do
     t.integer  "delivery_price"
     t.string   "stripe_token"
     t.string   "last_4_digits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "voucher_code"
+    t.integer  "voucher_discount_amount"
+  end
+
+  create_table "vouchers", force: true do |t|
+    t.string   "code"
+    t.integer  "fixed_discount_amount_in_cent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

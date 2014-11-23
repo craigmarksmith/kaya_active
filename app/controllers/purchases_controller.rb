@@ -3,12 +3,17 @@ class PurchasesController < ApplicationController
   include ActionView::Helpers::NumberHelper
 
   def price
+    voucher = Voucher.find_by_code(params[:voucher_code])
     delivery_price = calculate_delivery(params[:country])
-    new_total = params[:total_price].to_i+delivery_price
+    new_total = (params[:total_price].to_i+delivery_price)
+    new_total -= voucher.fixed_discount_amount_in_cent if voucher
     result = {
       delivery_price_in_dollars: delivery_price > 0 ? number_to_currency(delivery_price/100.00) : 'FREE',
+      voucher_price_in_dollars: voucher ? number_to_currency(voucher.discount_in_dollars) : '$0.00',
+      valid_voucher: !voucher.nil?,
       total_price_in_dollars: number_to_currency(new_total/100.00)
     }
+
     render json: result
   end
 
@@ -34,10 +39,13 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    voucher = Voucher.find_by_code(params[:purchase][:voucher_code])
     @product = Product.find(params[:product_id])
     @purchase = Purchase.new(purchase_params)
     @purchase.line_items.new(price: @product.price, product_id: @product.id, size: params[:size])
     @purchase.delivery_price = calculate_delivery(purchase_params[:country])
+    @purchase.voucher_code = voucher.code if voucher
+    @purchase.voucher_discount_amount = voucher.fixed_discount_amount_in_cent if voucher
 
     unless @purchase.valid?
       render :new
@@ -68,7 +76,8 @@ class PurchasesController < ApplicationController
       :city,
       :state,
       :post_code,
-      :country
+      :country,
+      :voucher_code
     )
   end
 
