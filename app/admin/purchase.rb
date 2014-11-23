@@ -35,7 +35,7 @@ ActiveAdmin.register Purchase do
       end
       row :voucher_code
       row :voucher_discount_amount do |purchase|
-        number_to_currency(purchase.voucher_discount_amount/100.00)
+        number_to_currency((purchase.voucher_discount_amount||0)/100.00)
       end
       row :total_in_dollars do |purchase|
         number_to_currency(purchase.total_in_dollars)
