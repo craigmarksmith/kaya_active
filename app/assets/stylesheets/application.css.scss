@@ -97,31 +97,7 @@ $font-size-base: 13px;
 /* END: accordion style */
 
 /* Nav and header */
-.header-logo {
-  text-align: center;
-}
-
-@media screen and (max-width: 368px) {
-    img.small-on-mobile{
-        max-height: 100px;
-    }
-
-}
-
-.navbar-default {
-  background-color: white;
-  border-color: white;
-}
-
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  text-transform: uppercase;
-}
-
-.navbar .navbar-collapse {
-  text-align: center;
-}
+@import "nav-and-header";
 /* END: Nav and header */
 
 .category-title {

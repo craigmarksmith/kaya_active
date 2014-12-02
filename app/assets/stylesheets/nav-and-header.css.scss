@@ -1,0 +1,44 @@
+.header-logo {
+  text-align: center;
+}
+
+@media screen and (max-width: 368px) {
+    img.small-on-mobile{
+        max-height: 100px;
+    }
+
+}
+
+.navbar-default {
+  background-color: white;
+  border-color: white;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  text-transform: uppercase;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.mobile-nav a {
+  color: #777;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ebebeb;
+}
+
+ul.mobile-nav > li {
+  margin-top: 0;
+}
+
+.mobile-nav li:hover {
+  background-color: white;
+}
+
+.mobile-nav a:hover {
+  background-color: white;
+  border-bottom: 1px solid #777;
+}
