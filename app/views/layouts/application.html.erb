@@ -12,27 +12,15 @@
   <% end %>
   <!--// active admin wanted these -->
 
-  <div class="header-logo">
-    <%= link_to image_tag('kaya_logo.jpg', alt: 'Kaya Active Logo', class:'small-on-mobile'), root_path %>
-  </div>
-  <% if category_page? %>
-    <%= render partial: 'shared/mobile_category_menu' %>
-  <% end %>
-  <nav class="navbar navbar-default <%= 'homepage' if homepage? %> hidden-xs" role="navigation">
-    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+          <%= link_to image_tag('kaya_logo_plain.png', alt: 'Kaya Active Logo', class: 'navbar-brand'), root_path %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav hidden-xs">
-          <li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Summer Collection <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<%= category_products_path(category:'leggings') %>">Leggings</a></li>
                 <li><a href="<%= category_products_path(category:'tops') %>">Tops</a></li>
@@ -44,17 +32,25 @@
           </li>
           <li><%= link_to "Contact Us", contact_path %></li>
         </ul>
+        <div class="navbar-text navbar-right social">
+          <a href="https://www.facebook.com/kayaactive" class="fa fa-facebook-square"></a>
+          <a href="http://instagram.com/kayaactive" class="fa fa-instagram"></a>
+          <a href="http://www.pinterest.com/kayaactive/" class="fa fa-pinterest-square"></a>
+        </div>
       </div>
-    </div>
+     </div>
   </nav>
+  <% if category_page? %>
+    <%= render partial: 'shared/mobile_category_menu' %>
+  <% end %>
 
-    <% if homepage? %>
+  <% if homepage? %>
+    <%= yield %>
+  <% else %>
+    <div class="container">
       <%= yield %>
-    <% else %>
-      <div class="container">
-        <%= yield %>
-      </div>
-    <% end %>
+    </div>
+  <% end %>
 
 
   <%= render partial: 'shared/footer' %>
