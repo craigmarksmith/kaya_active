@@ -1,12 +1,17 @@
-<div class="row">
-  <div class="col-md-12 col-xs-12 homepage-image">
-    <a href="<%= products_path %>">
-      <%= image_tag 'summer_collection_banner.jpg', class: 'img-responsive' %>
-    </a>
-  </div>
-</div>
-
 <div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xs-12 homepage-image">
+      <a href="<%= products_path %>">
+        <%= image_tag 'wood_banner.png', class: 'img-responsive' %>
+        <div>
+          <p>Shop now</p><p>the latest styles<p>
+          <p class='small'>BrasilSul Summer 2015</span></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <br>
+
   <div class="row">
   <%= render partial: 'category_box', locals: {category: 'leggings', title: 'Leggings', image_id: 'leggings_gynsd6'} %>
   <%= render partial: 'category_box', locals: {category: 'body-suits', title: 'Body Suits', image_id: 'body-suits_hq12ud'} %>
