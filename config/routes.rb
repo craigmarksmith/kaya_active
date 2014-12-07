@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'returns' => 'static#returns', as:'returns'
   get 'privacy' => 'static#privacy', as:'privacy'
   get 'terms' => 'static#terms', as:'terms'
+  get 'about' => 'static#about', as:'about'
 
   # Example resource route with options:
   #   resources :products do
