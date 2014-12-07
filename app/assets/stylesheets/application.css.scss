@@ -76,7 +76,7 @@ $font-size-base: 13px;
   color: white;
   font-weight: bold;
   font-family: 'Lato';
-  font-size: 80px;
+  font-size: 500%;
   text-shadow: 1px 1px #7D8C98;
   text-transform: uppercase;
 }
@@ -88,9 +88,22 @@ $font-size-base: 13px;
   text-transform: none;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 500px) {
   .homepage-image div {
     font-size: 20px;
+  }
+
+  .homepage-image div .small {
+    margin-top: 30px;
+    font-size: 10px;
+    font-weight: normal;
+    text-transform: none;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 720px) {
+  .homepage-image div {
+    font-size: 350%;
   }
 
   .homepage-image div .small {
