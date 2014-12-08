@@ -16,4 +16,7 @@
 //= require turbolinks
 //= require jquery.mobile.custom.min
 //= require bootstrap
+//= require bootbox.min
+//= require stripe
+//= require checkout
 
