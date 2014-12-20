@@ -1,8 +1,8 @@
 <ul class="nav nav-stacked visible-xs mobile-nav">
-  <li><a href="<%= products_path %>">Summer Collection</a></li>
-  <li><a href="<%= category_products_path(category:'leggings') %>">Leggings</a></li>
-  <li><a href="<%= category_products_path(category:'tops') %>">Tops</a></li>
-  <li><a href="<%= category_products_path(category:'yoga-mats') %>">Yoga Mats</a></li>
-  <li><a href="<%= category_products_path(category:'body-suits') %>">Body Suits</a></li>
-  <li><a href="<%= category_products_path(category:'belts') %>">Belts</a></li>
+  <%= menu_list_item(nil, 'Summer Collection') %>
+  <%= menu_list_item('leggings', 'Leggings') %>
+  <%= menu_list_item('tops', 'Tops') %>
+  <%= menu_list_item('yoga-mats', 'Yoga Mats') %>
+  <%= menu_list_item('body-suits', 'Body Suits') %>
+  <%= menu_list_item('belts', 'Belts') %>
 </ul>

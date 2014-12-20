@@ -51,23 +51,29 @@
 .mobile-nav {
   clear:left;
   background-color: white;
-}
 
-.mobile-nav a {
-  color: #777;
-  text-transform: uppercase;
-  border-bottom: 1px solid #ebebeb;
+  a {
+    color: #777;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  li.active, li.active:hover {
+    background-color: #777;
+    a {
+      color: white;
+    }
+  }
+
+  li:hover {
+    background-color: white;
+    a {
+      border-bottom: 1px solid #777;
+    }
+  }
+
 }
 
 ul.mobile-nav > li {
   margin-top: 0;
-}
-
-.mobile-nav li:hover {
-  background-color: white;
-}
-
-.mobile-nav a:hover {
-  background-color: white;
-  border-bottom: 1px solid #777;
 }
