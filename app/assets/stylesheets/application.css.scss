@@ -135,6 +135,17 @@ $font-size-base: 13px;
     }
 }
 
+/* product index accordion */
+#product-index-category-accordion {
+  .panel-title {
+    text-transform: uppercase;
+  }
+  .panel-body {
+    padding:0;
+  }
+}
+/* END: product index accordion */
+
 /* accordion style */
 #accordion > .panel-default {
   border: 0px;
@@ -158,12 +169,12 @@ $font-size-base: 13px;
   padding: 10px 15px;
 }
 
-#accordion .panel-title > a span.left {
+#accordion .panel-title > a span.left, #product-index-category-accordion .panel-title > a span.left {
   display: inline-block;
   text-align: left;
   width:90%;
 }
-#accordion .panel-title > a span.right {
+#accordion .panel-title > a span.right, #product-index-category-accordion .panel-title > a span.right {
   text-align: right;
   width:10%;
   display: inline-block;

@@ -123,16 +123,6 @@
     $("#productImages").swipeleft(function() {
       $(this).carousel('next');
     });
-
-    // accordion arrow change
-    $('.panel-collapse').on('show.bs.collapse', function () {
-      $(this).parent().find('span.right.glyphicon').removeClass('glyphicon-chevron-right');
-      $(this).parent().find('span.right.glyphicon').addClass('glyphicon-chevron-down');
-    });
-    $('.panel-collapse').on('hide.bs.collapse', function () {
-      $(this).parent().find('span.right.glyphicon').removeClass('glyphicon-chevron-down');
-      $(this).parent().find('span.right.glyphicon').addClass('glyphicon-chevron-right');
-    });
-
   });
 </script>
+<%= javascript_include_tag 'accordion', 'data-turbolinks-track' => true %>

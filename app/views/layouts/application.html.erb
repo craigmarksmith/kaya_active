@@ -17,7 +17,23 @@
   </div>
   <%= render partial: 'shared/desktop_category_menu' %>
   <% if category_page? %>
-    <%= render partial: 'shared/mobile_category_menu' %>
+    <div class="panel-group visible-xs" id="product-index-category-accordion">
+      <div class="panel">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <span class="left">Categories</span><span class="right glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <%= render partial: 'shared/mobile_category_menu' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag 'accordion', 'data-turbolinks-track' => true %>
   <% end %>
 
   <% if homepage? %>
