@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
 
   Categories = [
-    ['Leggings','leggings'], ['Belts','belts'], ['Body Suit','body-suits'], ['Yoga Mats', 'yoga-mats'], ['Tops', 'tops']
+    ['Leggings','leggings'], ['Belts','belts'], ['Bodysuit','bodysuits'], ['Yoga Mats', 'yoga-mats'], ['Tops', 'tops']
   ]
 
   acts_as_list
