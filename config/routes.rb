@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'terms' => 'static#terms', as:'terms'
   get 'about' => 'static#about', as:'about'
 
+  get 'status' => 'status#show', as:'status'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
