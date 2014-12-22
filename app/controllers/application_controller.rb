@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
 
+  include Mobylette::RespondToMobileRequests
+
+  mobylette_config do |config|
+    config[:skip_user_agents] = [:ipad]
+  end
+
   # don't add this just yet, I want to keep things refreshing since we have no traffic and changes are frequent.
   # before_action do
   #   expires_in 1.hour, public: true unless Rails.env.development? || Rails.env.test?

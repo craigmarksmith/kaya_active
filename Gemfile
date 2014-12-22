@@ -43,7 +43,10 @@ gem 'country_select'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
-gem 'pry-remote', group: [:development]
+gem 'mobylette'
+
+gem 'pry-remote', group: :development
+gem 'quiet_assets', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
