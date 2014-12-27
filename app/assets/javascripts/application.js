@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require jquery.mobile.custom.min
 //= require bootstrap
+//= require accordion
 

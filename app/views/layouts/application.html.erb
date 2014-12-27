@@ -33,7 +33,6 @@
         </div>
       </div>
     </div>
-    <%= javascript_include_tag 'accordion', 'data-turbolinks-track' => true %>
   <% end %>
 
   <% if homepage? %>
@@ -46,6 +45,10 @@
 
 
   <%= render partial: 'shared/footer' %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield :custom_javascript %>
+
   <%= render partial: 'shared/ga' %>
 
 </body>

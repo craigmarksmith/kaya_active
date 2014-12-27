@@ -116,16 +116,17 @@
   </div>
 </div>
 
-<script>
-  $(document).ready(function() {
-    // swipe
-    $("#productImages").swiperight(function() {
-      $(this).carousel('prev');
+<% content_for :custom_javascript do %>
+  <script>
+    $(document).ready(function() {
+      // swipe
+      $("#productImages").swiperight(function() {
+        $(this).carousel('prev');
+      });
+      $("#productImages").swipeleft(function() {
+        $(this).carousel('next');
+      });
     });
-    $("#productImages").swipeleft(function() {
-      $(this).carousel('next');
-    });
-  });
-</script>
-<%= javascript_include_tag 'accordion', 'data-turbolinks-track' => true %>
+  </script>
+<% end %>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53e613d16ba0cdc7"></script>
