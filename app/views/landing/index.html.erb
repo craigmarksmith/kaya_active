@@ -5,11 +5,7 @@
         <% if is_mobile_request? %>
             <%= image_tag 'wood_banner_small-min.jpg', class: 'img-responsive' %>
         <% else %>
-          <%= cl_image_tag 'wood_banner_desktop',
-              alt: "Shop now with Kaya Active",
-              fetch_format: :auto,
-              class: 'img-responsive'
-          %>
+          <%= image_tag 'wood_banner-min.jpg', class: 'img-responsive' %>
         <% end %>
         <div>
           <p>Shop now</p><p>the latest styles<p>
