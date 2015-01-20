@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.1.2"
+ruby "2.2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -46,6 +46,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'mobylette'
 
 gem 'sprockets-image_compressor'
+gem 'kramdown'
 
 gem 'pry-remote', group: :development
 gem 'quiet_assets', group: :development

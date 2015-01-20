@@ -113,6 +113,7 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kramdown (1.5.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -225,6 +226,7 @@ DEPENDENCIES
   country_select
   devise
   jquery-rails
+  kramdown
   mobylette
   newrelic_rpm
   pg

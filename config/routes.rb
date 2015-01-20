@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'collection/' => 'products#index', as: :products
   get 'collection/:category' => 'products#index', as: :category_products
 
+  get 'blog' => 'blog_posts#index', as: :blog_posts
+  get 'blog/:blog_post_slug' => 'blog_posts#show', as: :blog_post
 
   get 'contact-us' => 'contact#show', as: 'contact'
   resources :enquiries, only: [:new, :create]
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
   get 'privacy' => 'static#privacy', as:'privacy'
   get 'terms' => 'static#terms', as:'terms'
   get 'about' => 'static#about', as:'about'
+
+
 
   get 'status' => 'status#show', as:'status'
 

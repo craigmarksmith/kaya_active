@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def markdown_format(text)
+    Kramdown::Document.new(text).to_html
+  end
+
   def homepage?
     current_page? action: :index, controller: :landing
   end
