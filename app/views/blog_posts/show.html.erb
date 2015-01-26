@@ -1,14 +1,12 @@
-<article itemscope itemtype="http://schema.org/Article" role='article'>
+<div class="col-md-2 hidden-xs"></div>
+<div class="col-md-8">
+  <article itemscope itemtype="http://schema.org/Article" role='article' id='blogPost'>
   <header>
     <h1 itemprop="name"><%= @post.title %></h1>
   </header>
   <div itemprop='articleBody'>
-    <%= raw(markdown_format @post.content) %>
+    <%= raw(markdown_format(erb_compile(@post.content))) %>
   </div>
-
-<video width="320" height="240" controls>
-  <source src="<%= path_to_video 'kaya_active_join_the_movement.mp4' %>" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 </article>
+</div>
+<div class="col-md-2 hidden-xs"></div>

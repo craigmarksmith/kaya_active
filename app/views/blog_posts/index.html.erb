@@ -1,9 +1,12 @@
 <h1>#morethanbeautiful Blog</h1>
 
-<% @posts.each do |post| %>
-  <article>
-    <%= link_to blog_post_path(post.slug) do %>
-      <h2><%= post.title %></h2>
-    <% end %>
-  </article>
-<% end %>
+<div class="text-center">
+  <% @posts.each do |post| %>
+    <article>
+      <%= link_to blog_post_path(post.slug) do %>
+        <%= image_tag("blog/#{post.slug}.png", class:'img-responsive') %>
+        <h2><%= post.title %></h2>
+      <% end %>
+    </article>
+  <% end %>
+</div>
