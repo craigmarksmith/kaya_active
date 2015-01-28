@@ -1,23 +1,4 @@
-require 'erb'
 module ApplicationHelper
-
-  def markdown_format(text)
-    Kramdown::Document.new(text).to_html
-  end
-
-  def erb_compile(text)
-    ERB.new(text).result(binding)
-  end
-
-  def youtube_tag(id)
-    content_tag(:div, class:"embed-responsive embed-responsive-16by9") do
-      content_tag(:iframe, {}, src:"//www.youtube.com/embed/nJuzAXjobPQ", class: "embed-responsive-item", allowfullscreen: true)
-    end
-  end
-
-  def blog_image(filename)
-    image_tag("blog/#{filename}", class: "img-responsive center-block")
-  end
 
   def homepage?
     current_page? action: :index, controller: :landing

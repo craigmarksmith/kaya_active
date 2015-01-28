@@ -8,7 +8,7 @@
   <header>
     <h1 itemprop="name"><%= @post.title %></h1>
   </header>
-  <div itemprop='articleBody'>
+  <div itemprop='articleBody' class='articleBody'>
     <%= raw(markdown_format(erb_compile(@post.content))) %>
   </div>
 </article>

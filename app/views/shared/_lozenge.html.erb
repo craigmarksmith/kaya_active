@@ -1,0 +1,19 @@
+<div class="thumbnail">
+  <a href="<%= product_path(slug: product.slug, category: product.category.downcase) %>">
+    <% if product.default_image %>
+      <%= cl_image_tag product.default_image.cloudinary_ref,
+                    alt: "#{product.name}",
+                    height: 500,
+                    width: 275,
+                    crop: :pad,
+                    mobile_width: 200,
+                    mobile_height: 350,
+                    fetch_format: :auto
+      %>
+    <% end %>
+    <div class="caption text-center">
+      <h3><%= product.name.titleize %></h3>
+      <p class="price"><%= number_to_currency(product.price_in_dollars) if product.price_in_dollars.present?  %></p>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,8 @@
+<div class="row">
+  <% products.each do |product| %>
+    <% next if product.nil? or product.images.first.nil? %>
+    <div class="col-xs-6 col-sm-6 col-lg-3 col-md-3">
+      <%= render partial: 'shared/lozenge', locals: {product: product} %>
+    </div>
+  <% end %>
+</div>
