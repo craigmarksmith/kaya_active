@@ -43,8 +43,6 @@ gem 'country_select'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
-gem 'mobylette'
-
 gem 'sprockets-image_compressor'
 gem 'kramdown'
 

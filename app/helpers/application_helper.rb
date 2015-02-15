@@ -26,4 +26,8 @@ module ApplicationHelper
 
     super image_id, options
   end
+
+  def is_mobile_request?
+    !!(request.user_agent =~ /Mobile|webOS/ and !(request.user_agent =~ /iPad/))
+  end
 end
