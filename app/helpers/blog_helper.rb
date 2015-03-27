@@ -18,7 +18,7 @@ module BlogHelper
     image_tag("blog/#{filename}", class: "img-responsive center-block")
   end
 
-  def related_products(*product_slugs)
+  def related_products(product_slugs)
     render partial: 'shared/product_list', locals: {products: Product.where("slug IN (?)", product_slugs)}
   end
 end
