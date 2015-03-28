@@ -16,7 +16,7 @@
         <% if item.content_type == 'text' %>
           <%= raw(markdown_format(erb_compile(item.content))) %>
         <% elsif item.content_type == 'image' %>
-          <%= blog_image "#{@post.slug}/#{item.reference}" %>
+          <%= cl_image_tag item.reference, {class: 'img-responsive'} %>
         <% elsif item.content_type == 'youtube' %>
           <%= youtube_tag item.reference %>
         <% elsif item.content_type == 'product' %>
