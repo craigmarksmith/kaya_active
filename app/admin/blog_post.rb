@@ -1,11 +1,12 @@
 ActiveAdmin.register BlogPost do
 
-  permit_params :title, :slug, :publish, :content, blog_post_items_attributes: [ :id, :reference, :content, :content_type ]
+  permit_params :title, :slug, :banner_image_ref, :publish, :content, blog_post_items_attributes: [ :id, :reference, :content, :content_type ]
 
   form do |f|
     f.inputs do
       f.input :title
       f.input :slug
+      f.input :banner_image_ref
       f.input :publish
       f.input :content
     end
