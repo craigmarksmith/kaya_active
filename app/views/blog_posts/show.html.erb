@@ -9,15 +9,19 @@
     <h1 itemprop="name"><%= @post.title %></h1>
   </header>
   <div itemprop='articleBody' class='articleBody'>
-    <% @post.blog_post_items.each do |item| %>
-      <% if item.content_type == 'text' %>
-        <%= raw(markdown_format(erb_compile(item.content))) %>
-      <% elsif item.content_type == 'image' %>
-        <%= blog_image item.reference %>
-      <% elsif item.content_type == 'youtube' %>
-        <%= youtube_tag item.reference %>
-      <% elsif item.content_type == 'product' %>
-        <%= related_products item.reference.split(',') %>
+    <% if @post.content.present? %>
+      <%= raw(markdown_format(erb_compile(@post.content))) %>
+    <% else %>
+      <% @post.blog_post_items.each do |item| %>
+        <% if item.content_type == 'text' %>
+          <%= raw(markdown_format(erb_compile(item.content))) %>
+        <% elsif item.content_type == 'image' %>
+          <%= blog_image item.reference %>
+        <% elsif item.content_type == 'youtube' %>
+          <%= youtube_tag item.reference %>
+        <% elsif item.content_type == 'product' %>
+          <%= related_products item.reference.split(',') %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
