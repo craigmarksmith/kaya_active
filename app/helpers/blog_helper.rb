@@ -10,7 +10,7 @@ module BlogHelper
 
   def youtube_tag(id)
     content_tag(:div, class:"embed-responsive embed-responsive-16by9") do
-      content_tag(:iframe, {}, src:"//www.youtube.com/embed/nJuzAXjobPQ", class: "embed-responsive-item", allowfullscreen: true)
+      content_tag(:iframe, {}, src:"//www.youtube.com/embed/#{id}", class: "embed-responsive-item", allowfullscreen: true)
     end
   end
 
@@ -18,7 +18,7 @@ module BlogHelper
     image_tag("blog/#{filename}", class: "img-responsive center-block")
   end
 
-  def related_products(*product_slugs)
+  def related_products(product_slugs)
     render partial: 'shared/product_list', locals: {products: Product.where("slug IN (?)", product_slugs)}
   end
 end
