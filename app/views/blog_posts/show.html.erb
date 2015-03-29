@@ -12,7 +12,7 @@
     <% if @post.content.present? %>
       <%= raw(markdown_format(erb_compile(@post.content))) %>
     <% else %>
-      <% @post.blog_post_items.each do |item| %>
+      <% @post.blog_post_items.order(:id).each do |item| %>
         <% if item.content_type == 'text' %>
           <%= raw(markdown_format(erb_compile(item.content))) %>
         <% elsif item.content_type == 'image' %>
