@@ -1,6 +1,14 @@
 ActiveAdmin.register BlogPost do
 
-  permit_params :title, :slug, :banner_image_ref, :publish, :content, blog_post_items_attributes: [ :id, :reference, :content, :content_type ]
+  permit_params :title, :slug, :banner_image_ref, :publish, blog_post_items_attributes: [ :id, :reference, :content, :content_type ]
+
+  index do
+    column :title
+    column :slug
+    column :created_at
+    column :updated_at
+    actions
+  end
 
   form do |f|
     f.inputs do
@@ -8,7 +16,6 @@ ActiveAdmin.register BlogPost do
       f.input :slug
       f.input :banner_image_ref
       f.input :publish
-      f.input :content
     end
 
     f.inputs do
