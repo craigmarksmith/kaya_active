@@ -1,26 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 col-xs-12 homepage-image">
-      <a href="<%= products_path %>">
-        <% if is_mobile_request? %>
-            <%= image_tag 'background.jpg', class: 'img-responsive' %>
-        <% else %>
-          <%= image_tag 'background.jpg', class: 'img-responsive' %>
-        <% end %>
-        <div>
-          <p>Shop now</p><p>our latest styles<p>
-        </div>
-      </a>
+<div class="site-wrapper">
+  <div class='site-wrapper-inner'>
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <%= link_to image_tag('kaya_logo_white.png', alt: 'Kaya Active Logo', class: 'navbar-brand'), root_path %>
+      </div>
+      <div class="inner cover">
+        <h1>Awake your inner goddess</h1>
+        <p>Activewear &amp; yoga clothing made especially for women.</p>
+        <%= link_to "Shop Now", products_path, class: 'btn btn-lg btn-info' %>
+      </div>
     </div>
-  </div>
-  <br>
-
-  <div class="row">
-  <%= render partial: 'category_box', locals: {category: 'leggings', title: 'Leggings', image_id: 'leggings_kbxbq3'} %>
-  <%= render partial: 'category_box', locals: {category: 'bodysuits', title: 'Bodysuits', image_id: 'bodysuits_hq12ud'} %>
-  <%= render partial: 'category_box', locals: {category: 'tops', title: 'Tops', image_id: 'tops_wtinjk'} %>
-  <%= render partial: 'category_box', locals: {category: 'yoga-mats', title: 'Yoga Mats', image_id: 'yoga-mats_hka43c'} %>
+    <footer>
+      <ul class="social">
+        <li><a href="https://www.facebook.com/kayaactive" class="fa fa-facebook-square" target="_blank"></a></li>
+        <li><a href="http://instagram.com/kayaactive" class="fa fa-instagram" target="_blank"></a></li>
+        <li><a href="http://www.pinterest.com/kayaactive/" class="fa fa-pinterest-square" target="_blank"></a></li>
+      </ul>
+    </footer>
   </div>
 </div>
-
-<%= render partial: 'shared/mobile_category_menu' %>
