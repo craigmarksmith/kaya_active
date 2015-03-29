@@ -19,10 +19,10 @@ ActiveAdmin.register BlogPost do
     end
 
     f.inputs do
-      f.has_many :blog_post_items, :heading => 'Content' do |image|
-        image.input :content_type, :label => 'Type', :as => :select, :collection => ['image', 'text', 'youtube', 'product']
-        image.input :reference
-        image.input :content
+      f.has_many :blog_post_items, :sortable => :created_at, :heading => 'Content' do |item|
+        item.input :content_type, :label => 'Type', :as => :select, :collection => ['image', 'text', 'youtube', 'product']
+        item.input :reference
+        item.input :content
       end
     end
 
