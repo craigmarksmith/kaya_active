@@ -3,6 +3,12 @@
     <div class="cover-container">
       <div class="masthead clearfix">
         <%= link_to image_tag('kaya_logo_white.png', alt: 'Kaya Active Logo', class: 'navbar-brand'), root_path %>
+        <ul class="navigation">
+          <li><%= link_to "Our Story", about_path %></li>
+          <li><%= link_to "Blog", blog_posts_path %></li>
+          <li><%= link_to "Contact Us", contact_path %></li>
+        </ul>
+
       </div>
       <div class="inner cover">
         <h1>Awake your inner goddess</h1>
