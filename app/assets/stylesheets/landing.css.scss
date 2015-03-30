@@ -11,6 +11,27 @@ html {
     background-size: cover;
     height: 80%;
 
+    .navbar {
+      border-bottom: 0;
+      background-color:rgba(0,0,0,0.2);
+      ul.navigation {
+        margin-bottom: 0;
+        text-align: center;
+        li {
+          a {
+            color: white;
+          }
+          padding: 0 20px;
+          display: inline;
+          .navbar-brand {
+            height: auto;
+            width:170px;
+            float: none;
+          }
+        }
+      }
+    }
+
     .site-wrapper {
       text-align: center;
       display: table;
@@ -20,21 +41,6 @@ html {
       .site-wrapper-inner {
         display: table-cell;
         vertical-align: middle;
-
-        .masthead {
-          text-align: center;
-          width: 100%;
-          margin-right: auto;
-          margin-left: auto;
-          .navbar-brand {
-            height: auto;
-            @media screen and (max-width: 500px) {
-              width:200px;
-            }
-            width:300px;
-            float: none;
-          }
-        }
 
         .cover-container {
           width: 50%;
