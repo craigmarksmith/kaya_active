@@ -36,13 +36,9 @@
     </div>
   <% end %>
 
-  <% if homepage? %>
+  <div class="container">
     <%= yield %>
-  <% else %>
-    <div class="container">
-      <%= yield %>
-    </div>
-  <% end %>
+  </div>
 
 
   <%= render partial: 'shared/footer' %>

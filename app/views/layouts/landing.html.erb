@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= render partial: 'shared/head' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body class="landing">
+  <%= yield %>
+  <%= yield :custom_javascript %>
+  <%= render partial: 'shared/ga' %>
+</body>
+</html>
