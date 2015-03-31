@@ -6,7 +6,8 @@ html {
     color: white;
     background: url(asset_path('background.jpg')) no-repeat 90% 30% fixed;
     @media screen and (max-width: 500px) {
-     background: url(asset_path('background-mobile.jpg')) no-repeat 90% top fixed;
+     background-position: 90% top;
+     // background: url(asset_path('background-mobile.jpg')) no-repeat 90% top fixed;
     }
     background-size: cover;
     height: 80%;
