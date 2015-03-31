@@ -4,9 +4,9 @@ html {
   body.landing {
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
     color: white;
-    background: url('http://res.cloudinary.com/kaya-active/image/upload/c_fit,f_auto,h_1800,w_1800/bk2-1PSre_qe01qw') no-repeat 90% 30% fixed;
+    background: url(asset_path('background.jpg')) no-repeat 90% 30% fixed;
     @media screen and (max-width: 500px) {
-     background-position: 90% top;
+     background: url(asset_path('background-mobile.jpg')) no-repeat 90% top fixed;
     }
     background-size: cover;
     height: 80%;
