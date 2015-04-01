@@ -13,8 +13,6 @@ html {
     height: 80%;
 
     .navbar {
-      border-bottom: 0;
-
       background: rgba(0,0,0,0.15);
       background: -moz-linear-gradient(top, rgba(0,0,0,0.15) 0%, rgba(255,255,255,0) 100%);
       background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.15)), color-stop(100%, rgba(255,255,255,0)));
@@ -24,41 +22,22 @@ html {
       background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(255,255,255,0) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
 
-
       ul.navigation {
-        margin-bottom: 0;
-        text-align: center;
         li {
           a {
             color: white;
           }
-          padding: 0 20px;
-          display: inline;
-          .navbar-brand {
-            height: auto;
-            width:170px;
-            float: none;
-          }
         }
       }
       .burger-menu {
-        position: fixed;
-        top: 10px;
-        left:0;
-        width:100%;
         .panel{
-          .panel-body {
-            border-top: 0;
-            padding: 0;
-          }
           background-color: inherit;
-          .panel-heading {
-            h4 {
-
-            }
+          .mobile-nav {
+            background-color: white;
           }
         }
       }
+
     }
 
     .site-wrapper {

@@ -1,38 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <ul class="navigation">
-      <li class="hidden-xs"><%= link_to "Shop", products_path %></li>
-      <li class="hidden-xs"><%= link_to "Our Story", about_path %></li>
-      <li><%= link_to image_tag('kaya_logo_white.png', alt: 'Kaya Active Logo', class: 'navbar-brand'), root_path %></li>
-      <li class="hidden-xs"><%= link_to "Blog", blog_posts_path %></li>
-      <li class="hidden-xs"><%= link_to "Contact Us", contact_path %></li>
-    </ul>
-
-    <div class="panel-group burger-menu visible-xs">
-      <div class="panel">
-        <div class="panel-heading" role="tab" id="headingOne">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <i class="fa fa-bars"></i>
-            </a>
-          </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            <ul class="nav nav-stacked visible-xs mobile-nav">
-              <li><%= link_to "Shop", products_path %></li>
-              <li><%= link_to "Our Story", about_path %></li>
-              <li><%= link_to "Blog", blog_posts_path %></li>
-              <li><%= link_to "Contact Us", contact_path %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-</nav>
+<%= render partial: 'shared/navbar' %>
 <div class="site-wrapper">
   <div class='site-wrapper-inner'>
     <div class="cover-container">

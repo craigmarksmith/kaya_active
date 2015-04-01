@@ -19,12 +19,8 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="free-shipping">
-    <i class="fa fa-truck"></i>
-    FREE SHIPPING IN AUSTRALIA
-  </div>
-  <%= render partial: 'shared/desktop_category_menu' %>
-  <div class="container">
+  <%= render partial: 'shared/navbar' %>
+  <div class="container body">
     <%= yield %>
   </div>
   <%= render partial: 'shared/footer' %>

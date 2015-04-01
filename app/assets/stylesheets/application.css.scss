@@ -38,6 +38,10 @@ $font-size-base: 13px;
 @import "checkout";
 @import "blog";
 
+.container.body {
+  margin-top:82px;
+}
+
 .footer {
   background-color: #646464;
   color: white;
@@ -60,81 +64,6 @@ $font-size-base: 13px;
   }
 }
 
-.navbar.homepage {
-  margin-bottom: 0;
-}
-
-.homepage-image {
-  position: relative;
-}
-
-.homepage-image div {
-  position: absolute;
-  top:20%;
-  left:20%;
-  text-align: center;
-  z-index: 2;
-  color: white;
-  font-weight: bold;
-  font-family: 'Lato';
-  font-size: 500%;
-  text-shadow: 1px 1px #7D8C98;
-  text-transform: uppercase;
-}
-
-.homepage-image div .small {
-  margin-top: 90px;
-  font-size: 30px;
-  font-weight: normal;
-  text-transform: none;
-}
-
-@media screen and (max-width: 500px) {
-  .homepage-image div {
-    font-size: 20px;
-  }
-
-  .homepage-image div .small {
-    margin-top: 30px;
-    font-size: 10px;
-    font-weight: normal;
-    text-transform: none;
-  }
-}
-
-@media screen and (min-width: 500px) and (max-width: 720px) {
-  .homepage-image div {
-    font-size: 350%;
-  }
-
-  .homepage-image div .small {
-    margin-top: 30px;
-    font-size: 10px;
-    font-weight: normal;
-    text-transform: none;
-  }
-}
-
-.homepage-text {
-  text-align: center;
-  padding: 40px;
-}
-
-.homepage-text > p {
-  padding: 10px;
-}
-
-.homepage-text > ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-@media screen and (min-width: 368px) {
-    .homepage-text > p{
-      width:80%;
-      margin:auto;
-    }
-}
 
 /* product index accordion */
 #product-index-category-accordion {

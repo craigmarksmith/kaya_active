@@ -1,79 +1,47 @@
-.free-shipping {
-  text-align: center;
-  font-weight: bold;
-  background-color: #75c9ca;
-  color: white;
-  padding:5px;
-
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
-  animation: fadein 2s;
-}
-
+/* Navigation */
 .navbar {
-  text-transform: uppercase;
-}
+  border-bottom: 0;
 
-.navbar-brand {
-  padding:10px 15px;
-  height: 60px;
-}
+  background: white;
 
-.navbar-nav > li > a {
-  padding-top: 25px;
-}
-
-.social a {
-  color:#777;
-  font-size: 20px;
-  padding-top: 3px;
-  padding-left: 15px;
-}
-
-.social a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-@media screen and (max-width: 368px) {
-  .navbar-brand {
-    height: 50px;
-  }
-  .social a {
-    font-size: 16px;
-    padding-top: 0px;
-    padding-left: 8px;
-  }
-}
-
-.mobile-nav {
-  clear:left;
-  background-color: white;
-
-  a {
-    color: #777;
-    text-transform: uppercase;
-    border-bottom: 1px solid #ebebeb;
-  }
-
-  li.active, li.active:hover {
-    background-color: #777;
-    a {
-      color: white;
+  ul.navigation {
+    margin-bottom: 0;
+    text-align: center;
+    .logo {
+      position: relative;
+      z-index: 1;
+    }
+    li {
+      a {
+        color: black;
+      }
+      padding: 0 20px;
+      display: inline;
+      .navbar-brand {
+        height: auto;
+        width:170px;
+        float: none;
+      }
     }
   }
+  .burger-menu {
+    text-shadow:none;
+    position: fixed;
+    top: 10px;
+    left:0;
+    width:100%;
+    .panel{
+      .panel-body {
+        border-top: 0;
+        padding: 0;
+      }
+      background-color: white;
+      .panel-heading {
+        h4 {
 
-  li:hover {
-    background-color: white;
-    a {
-      border-bottom: 1px solid #777;
+        }
+      }
     }
   }
-
 }
-
-ul.mobile-nav > li {
-  margin-top: 0;
-}
+/* END: Navigation */
