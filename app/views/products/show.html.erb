@@ -1,5 +1,6 @@
 <% content_for :title, "#{@product.name.titleize} - #{@product.kind.titleize} from Brasilsul | " %>
 <% content_for :description, "#{@product.name.titleize} - #{@product.description} | " %>
+<%= content_for :categories, render(partial: 'categories') %>
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
   <li><%= link_to "Collection", products_path %></li>

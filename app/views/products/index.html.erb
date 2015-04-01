@@ -5,6 +5,7 @@
   <% content_for :title, "Collection | All Products | " %>
   <% content_for :description, "Kaya Active | Our full range of high quality and inspiring are perfect for yoga, crossfit, pilates, running, and bikram. Be Active, be inspired and feel beautiful." %>
 <% end %>
+<%= content_for :categories, render(partial: 'categories') %>
 <ol class="breadcrumb hidden-xs">
   <li><%= link_to "Home", root_path %></li>
   <% if params[:category] %>
