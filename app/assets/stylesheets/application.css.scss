@@ -39,8 +39,9 @@ $font-size-base: 13px;
 @import "blog";
 
 .container.body { margin-top:60px;}
-@media screen and (min-width: 500px) {
-  .container.body.products.index, .container.body.products.show { margin-top: 95px;}
+.container.body.products.index, .container.body.products.show { margin-top: 95px;}
+@media screen and (max-width: 500px) {
+  .container.body.products.index, .container.body.products.show { margin-top: 100px;}
 }
 
 .footer {
