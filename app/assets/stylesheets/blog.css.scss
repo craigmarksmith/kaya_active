@@ -1,7 +1,13 @@
-#blogPost .articleBody > p{
-  font-size: 17px;
-  margin-bottom: 10px;
-  text-align: justify;
+#blogPost .articleBody {
+  > p, > ol {
+    font-size: 17px;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+
+  img {
+    padding: 20px 0;
+  }
 }
 
 .blog_posts.index {
