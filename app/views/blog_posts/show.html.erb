@@ -38,6 +38,20 @@
       <% end %>
     <% end %>
   </div>
+  <div class="share">
+    <h3>Share</h3>
+    <ul>
+      <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<%= URI::encode blog_post_url(slug: @post.slug) %>" rel="nofollow" class="fa fa-facebook-square" target="_blank"></a></li>
+
+      <li class="twitter"><a href="https://twitter.com/home?status=<%= URI::encode blog_post_url(slug: @post.slug) %>" rel="nofollow" class="fa fa-twitter" target="_blank"></a></li>
+
+      <li class="pinterest"><a href="https://www.pinterest.com/pin/create/button/
+        ?url=<%= URI::encode blog_post_url(slug: @post.slug) %>
+        &media=<%= URI::encode cl_image_path(@post.banner_image_ref) %>" target="_blank" rel="nofollow" class="fa fa-pinterest"></a></li>
+
+      <li class="googleplus"><a href="https://plus.google.com/share?url=<%= URI::encode blog_post_url(slug: @post.slug) %>" rel="nofollow" class="fa fa-google-plus-square" target="_blank"></a></li>
+    <ul>
+  </div>
 </article>
 </div>
 <div class="col-md-2 hidden-xs"></div>
