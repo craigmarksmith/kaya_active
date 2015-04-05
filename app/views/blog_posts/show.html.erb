@@ -38,6 +38,26 @@
       <% end %>
     <% end %>
   </div>
+  <div class="author">
+    <%=
+      cl_image_tag(
+        @post.author.cloudinary_ref,
+        fetch_format: :auto,
+        quality: 100,
+        height: 70,
+        width: 70,
+        mobile_quality: 100,
+        mobile_height: 50,
+        mobile_width: 50,
+        crop: :lfill,
+        gravity: :face,
+        radius: :max
+
+      )
+    %>
+    <div><%= @post.author.name %></div>
+    <div><%= @post.author.description %></div>
+  </div>
   <div class="share">
     <h3>Share</h3>
     <ul>

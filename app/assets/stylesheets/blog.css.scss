@@ -1,18 +1,23 @@
 #blogPost {
- .articleBody {
-  > p, > ol {
-    font-size: 17px;
-    margin-bottom: 10px;
-    text-align: justify;
-  }
+  .articleBody {
+    > p, > ol {
+      font-size: 17px;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
 
-  img {
-    margin-left: auto;
-    margin-right: auto;
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px 0;
+    }
+  }
+  .author {
+    text-align: center;
+    border-top: 1px solid #efefef;
     padding: 20px 0;
+    padding-top: 40px;
   }
-}
-
   .share {
     border-top: 1px solid #efefef;
     border-bottom: 1px solid #efefef;

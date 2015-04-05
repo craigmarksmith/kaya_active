@@ -1,6 +1,6 @@
 ActiveAdmin.register BlogPost do
 
-  permit_params :title, :slug, :banner_image_ref, :publish, blog_post_items_attributes: [ :id, :reference, :content, :content_type ]
+  permit_params :title, :slug, :author_id, :banner_image_ref, :publish, blog_post_items_attributes: [ :id, :reference, :content, :content_type ]
 
   index do
     column :title
@@ -15,6 +15,7 @@ ActiveAdmin.register BlogPost do
       f.input :title
       f.input :slug
       f.input :banner_image_ref
+      f.input :author_id, label: 'Author', as: :select, collection: Author.all.map{|a| [a.name, a.id]}
       f.input :publish
     end
 
