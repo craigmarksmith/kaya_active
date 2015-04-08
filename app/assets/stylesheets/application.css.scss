@@ -44,28 +44,7 @@ $font-size-base: 13px;
   .container.body.products.index, .container.body.products.show { margin-top: 100px;}
 }
 
-.footer {
-  background-color: #646464;
-  color: white;
-  font-size: 10px;
-
-  li {
-    list-style-type: none;
-  }
-
-  a {
-    color: white;
-  }
-
-  h4 {
-    font-size: 12px;
-  }
-  .footer-social {
-    background-color: red;
-    height:1px;
-  }
-}
-
+@import "footer";
 
 /* product index accordion */
 #product-index-category-accordion {

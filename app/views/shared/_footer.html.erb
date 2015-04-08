@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="container">
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <h4>Shop</h4>
       <ul>
         <li><a href="<%= category_products_path(category:'leggings') %>">Leggings</a></li>
@@ -10,7 +10,7 @@
         <li><a href="<%= category_products_path(category:'belts') %>">Belts</a></li>
       </ul>
     </div>
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <h4>Customer Service</h4>
       <ul>
         <li><%= link_to "Shipping", shipping_path %></li>
@@ -21,14 +21,25 @@
         <li><%= link_to "Term and Conditions", terms_path %></li>-->
       </ul>
     </div>
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <h4>Social</h4>
-      <ul>
-        <li><%= link_to "Blog", blog_posts_path %></li>
-        <li><a href="https://www.facebook.com/kayaactive" class="fa fa-facebook-square"> Facebook</a></li>
-        <li><a href="http://instagram.com/kayaactive" class="fa fa-instagram"> Instagram</a></li>
-        <li><a href="http://www.pinterest.com/kayaactive/" class="fa fa-pinterest-square"> Pinterest</a></li>
+      <ul class="social share">
+        <li class="facebook"><a href="https://www.facebook.com/kayaactive" target="_blank" class="fa fa-facebook-square"><span class="text-hide">Kaya Active on Facebook</span></a></li>
+        <li class="instagram"><a href="http://instagram.com/kayaactive" target="_blank" class="fa fa-instagram"><span class="text-hide">Kaya Active on Instagram</span></a></li>
+        <li class="pinterest"><a href="http://www.pinterest.com/kayaactive/" target="_blank" class="fa fa-pinterest-square"><span class="text-hide">Kaya Active on Pinterest</span></a></li>
       </ul>
     </div>
+  </div>
+  <div class="container address">
+    © <%= Time.now.year %> <a href="http://www.dharmabums.com.au">Kaya Active</a> ABN: 13348910186  |  All prices are in AUD.
+    <br>
+    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span itemprop="streetAddress">6/151 Blair Street,</span>
+      <span itemprop="addressLocality">North Bondi,</span>
+      <span itemprop="city">Sydney,</span>
+      <span itemprop="state">NSW</span>
+      <span itemprop="postalcode">2026</span>
+      <span itemprop="country">Australia</span>
+    </span>
   </div>
 </footer>
