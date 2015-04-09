@@ -13,6 +13,15 @@
   <loc>http://www.kayaactive.com.au/collection</loc>
 </url>
 <url>
+  <loc>http://www.kayaactive.com.au/about</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/contact-us</loc>
+</url>
+<url>
   <loc>http://www.kayaactive.com.au/collection/leggings</loc>
 </url>
 <url>
@@ -28,82 +37,64 @@
   <loc>http://www.kayaactive.com.au/collection/belts</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/about</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/iza-negro-long-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/blog</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/contact-us</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/shipping</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/returns</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/shiny-black-full-length</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/leggings/magic-moonlight-long-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/bodysuits/black-cherry-long-bodysuit</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/magic-moonlight-shorts</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/phoenix-long-leggings</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/leggings/tropical-nights-long-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/leo-lover-long-leggings</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/90-s-moon-dance-leggings</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/psychedelic-purple-full-length</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/transcend-crop-leggings</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/leggings/lollipop-love-long-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/bodysuits/funky-zebra-body-suit</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/leo-lover-long-leggings</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/leggings/psychedelic-purple-full-length</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/leggings/strawberry-crush-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/bodysuits/limitless-body-suit</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/magic-moonlight-shorts</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/aqua-forest-full-length</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/90-s-moon-dance-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/shiny-whiskey-full-length</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/highway-full-length-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/superb-designed-full-length-leggings</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/wild-flowers-full-length</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/bodysuits/aqua-forest-body-suit</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/transcend-crop-leggings</loc>
+  <loc>http://www.kayaactive.com.au/collection/bodysuits/funky-zebra-body-suit</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/leggings/infra-jack-leggings</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/leggings/funky-zebra-full-length</loc>
+  <loc>http://www.kayaactive.com.au/collection/bodysuits/limitless-body-suit</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/bodysuits/kaleidoscope-body-suit</loc>
+  <loc>http://www.kayaactive.com.au/collection/leggings/shiny-whiskey-full-length</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/tops/lollipop-love-crop-top</loc>
+  <loc>http://www.kayaactive.com.au/collection/bodysuits/aqua-forest-body-suit</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/leggings/superb-designed-full-length-leggings</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/leggings/kids-yoga-leggings</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/tops/yellow-rock-crop-top</loc>
@@ -112,31 +103,13 @@
   <loc>http://www.kayaactive.com.au/collection/tops/ocean-safari-crops-top</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/tops/tropical-nights-crop-top</loc>
+  <loc>http://www.kayaactive.com.au/collection/tops/watermelon-mint-crop-top</loc>
 </url>
 <url>
-  <loc>http://www.kayaactive.com.au/collection/tops/magic-moonlight-crop-top</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/belts/active-running-belt-black</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/belts/phone-holder</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/tops/cross-training-fitness-glove</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/yoga-mats/white-navajo-yoga-mat</loc>
+  <loc>http://www.kayaactive.com.au/collection/bodysuits/kaleidoscope-body-suit</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/yoga-mats/lavender-warrior-yoga-mat</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/yoga-mats/grey-mandala-yoga-mat</loc>
-</url>
-<url>
-  <loc>http://www.kayaactive.com.au/collection/yoga-mats/white-mandala-yoga-mat</loc>
 </url>
 <url>
   <loc>http://www.kayaactive.com.au/collection/yoga-mats/blue-warrior-yoga-mat</loc>
@@ -148,6 +121,51 @@
   <loc>http://www.kayaactive.com.au/collection/yoga-mats/purple-phoenix-yoga-mat</loc>
 </url>
 <url>
+  <loc>http://www.kayaactive.com.au/collection/belts/active-running-belt-black</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/yoga-mats/grey-mandala-yoga-mat</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/belts/phone-holder</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/tops/cross-training-fitness-glove</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/shipping</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/returns</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/angus-and-julia-stone-grizzly-bear</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/healthy-chocolate-recipes</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/healthy-easter-discout</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/how-to-do-a-mermaid-pose</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/instagram-kayaactive-galaxy-leggings</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/benefits-raw-food-diet</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/blog/10-valentines-day-gift-ideas</loc>
+</url>
+<url>
   <loc>http://www.kayaactive.com.au/blog/colourful-leggings-are-for-all-women</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/leggings/wild-flowers-full-length</loc>
+</url>
+<url>
+  <loc>http://www.kayaactive.com.au/collection/bodysuits/black-cherry-long-bodysuit</loc>
 </url>
 </urlset>
