@@ -1,5 +1,9 @@
 <div class="landing">
-  <div class="background"></div>
+  <div class="cycler">
+    <div class="background active" style="background-image: url(<%= asset_path('background.jpg') %>); background-position: 90% 30%;"></div>
+    <div class="background" style="background-image: url(<%= asset_path('background1.jpg') %>); background-position: 90% 30%;"></div>
+    <div class="background" style="background-image: url(<%= asset_path('background2.jpg') %>); background-position: 10% 25%;"></div>
+  </div>
   <%= render partial: 'shared/navbar' %>
   <div class="cover-container">
     <div class="inner cover">
@@ -16,3 +20,21 @@
     </ul>
   </footer>
 </div>
+
+<%= javascript_tag do %>
+
+function cycleImages(){
+  var $active = $('.cycler .active');
+  var $next = ($active.next().length > 0) ? $active.next() : $('.cycler .background:first');
+  $next.css('z-index',2);//move the next image up the pile
+  $active.fadeOut(1500,function(){//fade out the top image
+    $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
+    $next.css('z-index',3).addClass('active');//make the next image the top one
+  });
+}
+
+$(document).ready(function(){
+  setInterval('cycleImages()', 7000);
+})
+
+<% end %>

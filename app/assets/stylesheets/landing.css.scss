@@ -4,10 +4,20 @@ html {
     height: 100%;
   }
   .landing {
+    .cycler {
+      position: fixed;
+    }
+    .background.active {
+      z-index: 3;
+    }
     .background {
-      background: url(asset_path('background.jpg')) no-repeat 90% 30% fixed;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       background-size: cover;
       height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index:1
     }
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
     color: white;
