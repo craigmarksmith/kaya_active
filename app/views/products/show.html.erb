@@ -8,9 +8,11 @@
   <li class="active"><%= "#{@product.name.titleize}" %> </li>
 </ol>
 
-<div class="visible-xs back-to-category-xs">
-  <span class="fa fa-arrow-circle-left"></span>
-  <%= link_to "All "+@product.category.titleize.gsub(/-/, " "), category_products_path(category: @product.category) %>
+<div class="back visible-xs">
+  <a href="<%= blog_posts_path %>">
+    <span class="fa fa-chevron-circle-left"></span>
+    <span><%= "All "+@product.category.titleize.gsub(/-/, " ") %></span>
+  </a>
 </div>
 
 <div itemscope itemtype="http://schema.org/Product" class="row">
