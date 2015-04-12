@@ -1,5 +1,5 @@
 /* Navigation */
-.navbar {
+nav.navbar {
   border-bottom: 0;
 
   background: -moz-linear-gradient(top,  rgba(255,255,255,1) 77%, rgba(255,255,255,0.26) 94%, rgba(255,255,255,0) 100%); /* FF3.6+ */
@@ -48,6 +48,25 @@
       }
     }
   }
+
+  .panel{
+    box-shadow: none;
+    .panel-body {
+      border-top: 0;
+      padding: 0;
+      background-color: #efefef;
+      a {
+        color: black;
+        font-weight: bold;
+      }
+    }
+    background-color: white;
+    .panel-heading {
+      padding: 4px 15px;
+    }
+  }
+
+
   .burger-menu {
     text-shadow:none;
     position: fixed;
@@ -57,22 +76,6 @@
     .fa-bars {
       font-size: 24px;
     };
-    .panel{
-      box-shadow: none;
-      .panel-body {
-        border-top: 0;
-        padding: 0;
-        background-color: #efefef;
-        a {
-          color: black;
-          font-weight: bold;
-        }
-      }
-      background-color: white;
-      .panel-heading {
-        padding: 4px 15px;
-      }
-    }
   }
 }
 /* END: Navigation */

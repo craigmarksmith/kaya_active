@@ -5,22 +5,22 @@
 </ul>
 
 <div class="panel-group visible-xs" id="product-index-category-accordion">
-      <div class="panel">
-        <div class="panel-heading" role="tab" id="headingOne">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" class="collapsed">
-              <span class="left">Categories</span><span class="right glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" style="height: 0px;">
-          <div class="panel-body">
-            <ul class="nav nav-stacked visible-xs mobile-nav">
-              <% categories.each do |cat| %>
-                <li><a href="<%= cat[:path] %>"><%= cat[:name] %></a></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+  <div class="panel">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" class="collapsed">
+          <span class="left">Categories</span><span class="right glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" style="height: 0px;">
+      <div class="panel-body">
+        <ul class="nav nav-stacked visible-xs mobile-nav">
+          <% categories.each do |cat| %>
+            <li><a href="<%= cat[:path] %>"><%= cat[:name] %></a></li>
+          <% end %>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
