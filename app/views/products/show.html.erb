@@ -9,9 +9,9 @@
 </ol>
 
 <div class="back visible-xs">
-  <a href="<%= blog_posts_path %>">
+  <a href="<%= category_products_path(category: @product.category) %>">
     <span class="fa fa-chevron-circle-left"></span>
-    <span><%= "All "+@product.category.titleize.gsub(/-/, " ") %></span>
+    <span><%= "back to all "+@product.category.titleize.gsub(/-/, " ") %></span>
   </a>
 </div>
 
