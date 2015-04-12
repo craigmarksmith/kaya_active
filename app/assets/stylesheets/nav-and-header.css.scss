@@ -54,17 +54,23 @@
     top: 10px;
     left:0;
     width:100%;
+    .fa-bars {
+      font-size: 24px;
+    };
     .panel{
       box-shadow: none;
       .panel-body {
         border-top: 0;
         padding: 0;
+        background-color: #efefef;
+        a {
+          color: black;
+          font-weight: bold;
+        }
       }
       background-color: white;
       .panel-heading {
-        h4 {
-
-        }
+        padding: 4px 15px;
       }
     }
   }
