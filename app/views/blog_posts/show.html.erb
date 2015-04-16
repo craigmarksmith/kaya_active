@@ -2,7 +2,6 @@
 <% content_for :description, "#{@post.title} | Kaya Active Blog | #morethanbeautiful Blog " %>
 <% content_for :img_src do %><link rel="image_src" href="<%= cl_image_path(@post.banner_image_ref) %>" / ><% end %>
 
-<div class="col-md-2 hidden-xs"></div>
 <div class="col-md-8">
   <article itemscope itemtype="http://schema.org/Article" role='article' id='blogPost'>
   <header>
@@ -74,4 +73,6 @@
   </div>
 </article>
 </div>
-<div class="col-md-2 hidden-xs"></div>
+<div class="col-md-4 sidebar">
+  <%= render partial: 'sidebar' %>
+</div>
