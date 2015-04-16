@@ -1,8 +1,8 @@
 <div class="landing">
   <div class="cycler">
-    <div class="background active" style="background-image: url(<%= asset_path('background.jpg') %>); background-position: 90% 30%;"></div>
+    <div class="background" style="background-image: url(<%= asset_path('background.jpg') %>); background-position: 90% 30%;"></div>
     <div class="background" style="background-image: url(<%= asset_path('background1.jpg') %>); background-position: 90% 30%;"></div>
-    <div class="background" style="background-image: url(<%= asset_path('background2.jpg') %>); background-position: 10% 25%;"></div>
+    <div class="background active" style="background-image: url(<%= asset_path('background2.jpg') %>); background-position: 10% 25%;"></div>
   </div>
   <%= render partial: 'shared/navbar' %>
   <div class="cover-container">
@@ -34,7 +34,7 @@ function cycleImages(){
 }
 
 $(document).ready(function(){
-  setInterval('cycleImages()', 7000);
+  setInterval('cycleImages()', 5000);
 })
 
 <% end %>
