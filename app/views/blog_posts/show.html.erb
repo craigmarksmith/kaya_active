@@ -26,7 +26,8 @@
               mobile_quality: 70,
               mobile_height: 300,
               mobile_width: 300,
-              crop: :fit
+              crop: :fit,
+              alt: item.content.present? ? item.content : @post.title
             )
           %>
         <% elsif item.content_type == 'youtube' %>
