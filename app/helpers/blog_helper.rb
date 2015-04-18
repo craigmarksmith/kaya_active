@@ -8,12 +8,6 @@ module BlogHelper
     ERB.new(text).result(binding)
   end
 
-  def youtube_tag(id)
-    content_tag(:div, class:"embed-responsive embed-responsive-16by9") do
-      content_tag(:iframe, {}, src:"//www.youtube.com/embed/#{id}", class: "embed-responsive-item", allowfullscreen: true)
-    end
-  end
-
   def blog_image(filename)
     image_tag("blog/#{filename}", class: "img-responsive center-block")
   end

@@ -30,4 +30,11 @@ module ApplicationHelper
   def is_mobile_request?
     !!(request.user_agent =~ /Mobile|webOS/ and !(request.user_agent =~ /iPad/))
   end
+
+  def youtube_tag(id)
+    content_tag(:div, class:"embed-responsive embed-responsive-16by9") do
+      content_tag(:iframe, {}, src:"//www.youtube.com/embed/#{id}", class: "embed-responsive-item", allowfullscreen: true)
+    end
+  end
+
 end
