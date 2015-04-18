@@ -38,6 +38,16 @@ $font-size-base: 13px;
 @import "checkout";
 @import "blog";
 
+#pinit {
+  font-size: 20px;
+  color: #ca2026;
+}
+
+#pinit:hover {
+  text-decoration: none;
+  color: #9c2021;
+}
+
 .container.body { margin-top:60px;}
 .container.body.products.index, .container.body.products.show { margin-top: 95px;}
 @media screen and (max-width: 500px) {
