@@ -18,4 +18,15 @@ class ApplicationController < ActionController::Base
   def render_404
     render template: 'shared/404', layout: 'application', status: :not_found
   end
+
+  def set_sidebar_assets
+    @products = Product.where(publish: true)
+    @products.where!(category:'leggings')
+    @products.limit!(4)
+
+    @recent_articles = BlogPost.all
+    @recent_articles.where!("slug != ?", params[:blog_post_slug]) if params[:blog_post_slug]
+    @recent_articles.order!('created_at DESC')
+    @recent_articles.limit!(3)
+  end
 end

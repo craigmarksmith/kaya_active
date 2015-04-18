@@ -77,28 +77,6 @@
   }
 }
 
-.blog_posts.show {
-  .sidebar {
-    .section {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #efefef;
-    }
-    article .row {
-      padding-top: 15px;
-      padding-bottom: 10px;
-      border-bottom :1px dotted #efefef;
-
-      h5 {
-        margin: 0;
-      }
-    }
-    article .row.last {
-      border-bottom: 0;
-    }
-  }
-}
-
 .blog_posts.index {
   article {
     padding-bottom: 30px;
