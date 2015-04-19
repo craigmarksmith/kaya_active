@@ -34,6 +34,6 @@ class Product < ActiveRecord::Base
 
   def made_in
     return 'Made in California' if category == 'yoga-mats'
-    'Made in Brazil, sweatshop free.'
+    ''
   end
 end
