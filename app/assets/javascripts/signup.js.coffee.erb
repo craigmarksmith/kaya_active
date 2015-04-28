@@ -1,0 +1,19 @@
+$ ->
+  $('#signup form').on 'submit', (e) ->
+    e.preventDefault()
+
+    data = new FormData()
+    $form = $(@)
+    data.append 'signup[email_address]', $form.find('#signup_email_address').val()
+
+    $.ajax
+      url: "<%= Rails.application.routes.url_helpers.signup_path %>"
+      type: "POST"
+      data: data
+      cache: false
+      dataType: "json"
+      processData: false # Don't process the files
+      contentType: false # Set content type to false as jQuery will tell the server its a query string request
+      success: (data, textStatus, jqXHR) =>
+        $form.find('.alert-success').show()
+        $form.find('.alert-success').delay(5000).fadeOut()

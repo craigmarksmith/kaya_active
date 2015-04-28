@@ -18,4 +18,5 @@
 //= require bootstrap
 //= require accordion
 //= require pinterest
+//= require signup
 

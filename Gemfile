@@ -46,6 +46,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'sprockets-image_compressor'
 gem 'kramdown'
 
+gem 'email_validator'
+
 gem 'pry-remote', group: :development
 gem 'quiet_assets', group: :development
 

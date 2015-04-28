@@ -11,6 +11,17 @@
   }
 
   .container {
+
+    #signup {
+      .alert-success{
+        width: 164px;
+        padding:5px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
     padding: 10px 0;
     ul {
       padding-left: 0;
@@ -22,7 +33,7 @@
       font-size: 12px;
     }
     ul.social {
-      height:1px;
+      height:30px;
 
       li {
         display: inline;

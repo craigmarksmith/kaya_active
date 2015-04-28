@@ -94,6 +94,8 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
+    email_validator (1.5.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.2.1)
     formtastic (2.3.0.rc3)
@@ -231,6 +233,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   devise
+  email_validator
   jquery-rails
   kramdown
   newrelic_rpm

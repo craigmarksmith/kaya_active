@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get 'terms' => 'static#terms', as:'terms'
   get 'about' => 'static#about', as:'about'
 
-
+  resource :signup
 
   get 'status' => 'status#show', as:'status'
 
