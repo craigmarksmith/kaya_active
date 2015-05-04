@@ -1,0 +1,44 @@
+<legend>Basket Summary</legend>
+<table class="table basket-summary">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Qty</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @basket.line_items.each do |line_item| %>
+      <% product = line_item.product %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= line_item.size %></td>
+        <td><%= line_item.qty %></td>
+        <td><%= number_to_currency(product.price_in_dollars) %></td>
+      </tr>
+      <tr>
+    <% end %>
+      <td></td>
+      <td></td>
+      <td>Voucher Discount</td>
+      <td>
+        <strong class="js-voucher-discount">
+          <%= @basket.voucher ? number_to_currency(@basket.voucher.discount_in_dollars) : "$0.00" %>
+        </strong>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Delivery Price</td>
+      <td><strong class="js-delivery-price">Free</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Total Price</td>
+      <td><strong class="js-total-price"><%= number_to_currency(@basket.total_in_dollars) %></strong></td>
+    </tr>
+  </tbody>
+</table>

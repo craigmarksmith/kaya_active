@@ -74,7 +74,7 @@
       </span>
     <% end %>
 
-    <%= form_tag new_purchase_path, method: 'get', class: 'js-buy-online-form' do |form| %>
+    <%= form_tag basket_path, method: 'puts', class: 'js-buy-online-form' do |form| %>
       <%= hidden_field_tag :product, @product.slug %>
         <% if @product.multiple_sizes? %>
           <div class="form-group">
@@ -84,7 +84,7 @@
         <% end %>
         <div class="form-group">
           <button class="btn btn-info btn-lg" type='submit'>
-            Buy Now <span class="glyphicon glyphicon-chevron-right"></span>
+            Add to Basket <span class="glyphicon glyphicon-chevron-right"></span>
           </button>
         </div>
 
