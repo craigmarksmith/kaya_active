@@ -15,7 +15,7 @@
         <td><%= product.name %></td>
         <td><%= line_item.size %></td>
         <td><%= line_item.qty %></td>
-        <td><%= number_to_currency(product.price_in_dollars) %></td>
+        <td><%= number_to_currency(line_item.total_in_dollars) %></td>
       </tr>
       <tr>
     <% end %>
@@ -42,3 +42,5 @@
     </tr>
   </tbody>
 </table>
+
+<button class='form-control btn btn-primary submit-button' type='submit'>Checkout now</button>

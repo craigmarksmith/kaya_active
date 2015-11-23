@@ -16,6 +16,14 @@ class BasketLineItem
     @qty += qty
   end
 
+  def total_in_cents
+    product.price * @qty
+  end
+
+  def total_in_dollars
+    (total_in_cents)/100
+  end
+
   def to_hash
     {product_slug: @product_slug, size: @size, qty: @qty}
   end

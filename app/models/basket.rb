@@ -1,5 +1,7 @@
 class Basket
 
+  attr_accessor :line_items
+
   def initialize(session)
     @session = session
     if @session[:products]
@@ -20,11 +22,7 @@ class Basket
     @session[:products] = @line_items.map{|item| item.to_hash}
   end
 
-  #don't think I need this
-  def line_items
-    @line_items
-  end
-
+  # do I need this?
   def voucher
   end
 
@@ -34,7 +32,7 @@ class Basket
 
   def total
     line_items.inject(0) do |sum, item|
-      sum += item.product.price
+      sum += item.total_in_cents
       sum
     end
   end
