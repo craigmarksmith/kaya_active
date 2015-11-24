@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
     @recent_articles.order!('created_at DESC')
     @recent_articles.limit!(3)
   end
+
+  def clear_basket_products
+    session[:products] = []
+  end
 end

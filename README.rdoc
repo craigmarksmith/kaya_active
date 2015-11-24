@@ -6,4 +6,4 @@
 * basket to checkout - DONE
 * set all qty to 1 - don't need to, DONE
 * check the size is saved on the line item - DONE
-* clear the basket after successful checkout
+* clear the basket after successful checkout - DONE
