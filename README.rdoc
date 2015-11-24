@@ -7,3 +7,15 @@
 * set all qty to 1 - don't need to, DONE
 * check the size is saved on the line item - DONE
 * clear the basket after successful checkout - DONE
+
+Before release
+* cart empty message - DONE
+* Add product image to basket
+* Remove item
+* Adjust quantity
+* change url to cart
+* add discount code on basket
+
+After release
+* Add basket logo with number of items
+* Add paypal
