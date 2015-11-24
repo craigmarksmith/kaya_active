@@ -14,39 +14,42 @@
       <tr>
         <th>Name</th>
         <th>Size</th>
+        <th>Qty</th>
         <th>Price</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><%= @product.name %></td>
-        <td><%= params[:size] %></td>
-        <td><%= number_to_currency(@product.price_in_dollars) %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Voucher Discount</td>
-        <td>
-          <strong class="js-voucher-discount">
-            <%= @purchase.voucher ? number_to_currency(@purchase.voucher.discount_in_dollars) : "$0.00" %>
-          </strong>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Delivery Price</td>
-        <td><strong class="js-delivery-price">Free</strong></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Total Price</td>
-        <td><strong class="js-total-price"><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
-      </tr>
+      <% @purchase.line_items.each do |line_item| %>
+        <tr>
+          <td><%= line_item.product.name %></td>
+          <td><%= params[:size] %></td>
+          <td><%= line_item.qty %></td>
+          <td><%= number_to_currency(line_item.line_price_in_dollars) %></td>
+        </tr>
+      <% end %>
+        <tr>
+          <td></td>
+          <td>Voucher Discount</td>
+          <td>
+            <strong class="js-voucher-discount">
+              <%= @purchase.voucher ? number_to_currency(@purchase.voucher.discount_in_dollars) : "$0.00" %>
+            </strong>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Delivery Price</td>
+          <td><strong class="js-delivery-price">Free</strong></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Total Price</td>
+          <td><strong class="js-total-price"><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
+        </tr>
     </tbody>
   </table>
 
   <%= form_auth_field %>
-  <%= hidden_field_tag :product_id, @product.id %>
   <%= hidden_field_tag :size, params[:size]  %>
       <legend>About You</legend>
       <%= form.input :name, placeholder: 'Name' %>

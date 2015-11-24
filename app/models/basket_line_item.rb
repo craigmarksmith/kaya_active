@@ -28,4 +28,8 @@ class BasketLineItem
     {product_slug: @product_slug, size: @size, qty: @qty}
   end
 
+  def to_line_item
+    LineItem.new(price: product.price, product_id: product.id, qty: @qty)
+  end
+
 end
