@@ -22,7 +22,7 @@
       <% @purchase.line_items.each do |line_item| %>
         <tr>
           <td><%= line_item.product.name %></td>
-          <td><%= params[:size] %></td>
+          <td><%= line_item.size %></td>
           <td><%= line_item.qty %></td>
           <td><%= number_to_currency(line_item.line_price_in_dollars) %></td>
         </tr>

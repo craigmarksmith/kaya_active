@@ -29,7 +29,7 @@ class BasketLineItem
   end
 
   def to_line_item
-    LineItem.new(price: product.price, product_id: product.id, qty: @qty)
+    LineItem.new(price: product.price, product_id: product.id, qty: @qty, size: @size)
   end
 
 end
