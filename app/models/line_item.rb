@@ -8,4 +8,5 @@ class LineItem < ActiveRecord::Base
   def line_price_in_dollars
     (price * qty)/100.00
   end
+  alias_method :total_in_dollars, :line_price_in_dollars
 end

@@ -10,22 +10,9 @@
 
   <legend>Order Summary</legend>
   <table class="table order-summary">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Qty</th>
-        <th>Price</th>
-      </tr>
-    </thead>
     <tbody>
       <% @purchase.line_items.each do |line_item| %>
-        <tr>
-          <td><%= line_item.product.name %></td>
-          <td><%= line_item.size %></td>
-          <td><%= line_item.qty %></td>
-          <td><%= number_to_currency(line_item.line_price_in_dollars) %></td>
-        </tr>
+        <%= render partial: 'shared/basket_row', locals: {product: line_item.product, line_item: line_item} %>
       <% end %>
         <tr>
           <td></td>
