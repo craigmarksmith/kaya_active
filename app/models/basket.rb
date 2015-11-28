@@ -33,10 +33,6 @@ class Basket
     @session[:products] = @line_items.map{|item| item.to_hash}
   end
 
-  # do I need this?
-  def voucher
-  end
-
   def total_in_dollars
     total/100.00
   end
