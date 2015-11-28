@@ -10,4 +10,10 @@ class BasketsController < ApplicationController
     redirect_to basket_path
   end
 
+  def destroy
+    @basket = Basket.new(session)
+    @basket.remove(params[:product_slug], params[:size])
+    redirect_to basket_path
+  end
+
 end

@@ -22,6 +22,17 @@ class Basket
     @session[:products] = @line_items.map{|item| item.to_hash}
   end
 
+  def remove(product_slug, size)
+    @line_items.delete_if do |li|
+      if size.empty?
+        li.product_slug == product_slug
+      else
+        li.product_slug == product_slug && li.size == size
+      end
+    end
+    @session[:products] = @line_items.map{|item| item.to_hash}
+  end
+
   # do I need this?
   def voucher
   end
