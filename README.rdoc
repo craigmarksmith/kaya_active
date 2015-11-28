@@ -11,12 +11,12 @@
 Before release
 * cart empty message - DONE
 * Add product image to basket - DONE
-* Slide order summary on purchase page
-* Remove itemm - DONE
-* Adjust quantity
+* Remove item - DONE
 * change url to cart
 * add discount code on basket
+* Add basket logo with number of items
 
 After release
-* Add basket logo with number of items
+* Adjust quantity
 * Add paypal
+* Slide order summary on purchase page
