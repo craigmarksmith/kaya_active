@@ -20,7 +20,8 @@ class BasketsController < ApplicationController
 
   def count
     @basket = Basket.new(session)
-    render json: {items: pluralize(@basket.count, 'Item')}
+    response = pluralize(@basket.count, 'Item') if @basket.count > 0
+    render json: {items: response}
   end
 
 end

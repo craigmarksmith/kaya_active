@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
   $(".panel-collapse").on "show.bs.collapse", ->
     $(this).parent().find("span.right.glyphicon").removeClass "glyphicon-chevron-right"
     $(this).parent().find("span.right.glyphicon").addClass "glyphicon-chevron-down"
@@ -8,3 +8,7 @@ $(document).ready ->
     $(this).parent().find("span.right.glyphicon").removeClass "glyphicon-chevron-down"
     $(this).parent().find("span.right.glyphicon").addClass "glyphicon-chevron-right"
     return
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

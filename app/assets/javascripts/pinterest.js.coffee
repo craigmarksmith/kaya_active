@@ -1,4 +1,4 @@
-$ ->
+ready = ->
   $pinit = $('#pinit')
   $('.pinable').mouseover (event) ->
     $(this).height()
@@ -17,3 +17,7 @@ $ ->
   $('.pinable').mouseout ->
     if (!$pinit.is(":hover"))
       $pinit.hide()
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
