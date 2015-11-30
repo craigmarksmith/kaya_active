@@ -46,7 +46,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def total
-    t = line_items.inject(0){|sum, line_item| sum += (line_item.price * line_item.qty); sum}+(self.delivery_price||0)
+    t = line_items.inject(0){|sum, line_item| sum += (line_item.price * line_item.qty.to_i); sum}+(self.delivery_price||0)
     t -= self.voucher_discount_amount||0
     t
   end
