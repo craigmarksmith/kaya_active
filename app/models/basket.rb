@@ -44,4 +44,11 @@ class Basket
     end
   end
 
+  def count
+    line_items.inject(0) do |sum, item|
+      sum += item.qty
+      sum
+    end
+  end
+
 end

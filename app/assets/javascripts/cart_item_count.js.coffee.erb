@@ -1,0 +1,10 @@
+ready = ->
+  $.ajax
+    url: "<%= Rails.application.routes.url_helpers.basket_count_path %>"
+    type: "GET"
+    success: (data, textStatus, jqXHR) =>
+      $countElement = $('#js-cart-item-count')
+      $countElement.html(data['items'])
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

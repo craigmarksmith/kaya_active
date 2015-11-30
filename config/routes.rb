@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'purchases/price' => 'purchases#price', as: 'purchase_price'
 
   resource :basket, only: [:show, :create, :destroy]
+  get 'basket/count' => 'baskets#count', as: 'basket_count'
 
   get 'shipping' => 'static#shipping', as:'shipping'
   get 'returns' => 'static#returns', as:'returns'
