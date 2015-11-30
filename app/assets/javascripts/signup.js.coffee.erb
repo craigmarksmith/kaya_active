@@ -1,4 +1,4 @@
-$ ->
+ready = ->
   $('#signup form').on 'submit', (e) ->
     e.preventDefault()
 
@@ -17,3 +17,7 @@ $ ->
       success: (data, textStatus, jqXHR) =>
         $form.find('.alert-success').show()
         $form.find('.alert-success').delay(5000).fadeOut()
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

@@ -19,4 +19,5 @@
 //= require accordion
 //= require pinterest
 //= require signup
+//= require cart_item_count
 

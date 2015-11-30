@@ -10,53 +10,43 @@
 
   <legend>Order Summary</legend>
   <table class="table order-summary">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Price</th>
-      </tr>
-    </thead>
     <tbody>
-      <tr>
-        <td><%= @product.name %></td>
-        <td><%= params[:size] %></td>
-        <td><%= number_to_currency(@product.price_in_dollars) %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Voucher Discount</td>
-        <td>
-          <strong class="js-voucher-discount">
-            <%= @purchase.voucher ? number_to_currency(@purchase.voucher.discount_in_dollars) : "$0.00" %>
-          </strong>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Delivery Price</td>
-        <td><strong class="js-delivery-price">Free</strong></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Total Price</td>
-        <td><strong class="js-total-price"><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
-      </tr>
+      <% @purchase.line_items.each do |line_item| %>
+        <%= render partial: 'shared/basket_row', locals: {product: line_item.product, line_item: line_item} %>
+      <% end %>
+        <tr>
+          <td></td>
+          <td>Voucher Discount</td>
+          <td>
+            <strong class="js-voucher-discount">
+              <%= @purchase.voucher ? number_to_currency(@purchase.voucher.discount_in_dollars) : "$0.00" %>
+            </strong>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Delivery Price</td>
+          <td><strong class="js-delivery-price">Free</strong></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Total Price</td>
+          <td><strong class="js-total-price"><%= number_to_currency(@purchase.total_in_dollars) %></strong></td>
+        </tr>
     </tbody>
   </table>
 
   <%= form_auth_field %>
-  <%= hidden_field_tag :product_id, @product.id %>
   <%= hidden_field_tag :size, params[:size]  %>
+      <legend>Voucher</legend>
+      <%= form.input :voucher_code, placeholder: 'Voucher Code' %>
+
       <legend>About You</legend>
       <%= form.input :name, placeholder: 'Name' %>
       <%= form.input :email_address, placeholder: 'Email Address' %>
 
       <legend>Delivery Address Details</legend>
       <%= render partial: 'delivery_address', locals: {form: form} %>
-
-      <legend>Voucher</legend>
-      <%= form.input :voucher_code, placeholder: 'Voucher Code' %>
 
       <legend>Card Details</legend>
       <%= render partial: 'credit_card', locals: {form: form} %>

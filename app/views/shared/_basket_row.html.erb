@@ -1,0 +1,38 @@
+<tr>
+  <td class='details'>
+    <div class="row">
+      <div class="col-xs-4">
+        <%= cl_image_tag product.default_image.cloudinary_ref,
+          alt: "#{product.name}",
+          height: 150,
+          width: 175,
+          crop: :pad,
+          mobile_height: 100,
+          mobile_width: 80,
+          fetch_format: :auto
+        %>
+      </div>
+      <div class="col-xs-8">
+        <p class='lead'><%= product.name %></p>
+        <%= line_item.size %>
+      </div>
+    </div>
+    <div class='remove'>
+      <%= form_tag basket_path, method: 'delete' do |form| %>
+        <%= hidden_field_tag :product_slug, line_item.product.slug %>
+        <%= hidden_field_tag :size, line_item.size %>
+        <button type='submit' class="fa fa-times"></button>
+      <% end %>
+    </div>
+  </td>
+  <td class='qty'><%= line_item.qty %></td>
+  <td class='total'><%= number_to_currency(line_item.total_in_dollars) %></td>
+  <td class='hidden-xs'>
+    <%= form_tag basket_path, method: 'delete' do |form| %>
+      <%= hidden_field_tag :product_slug, line_item.product.slug %>
+      <%= hidden_field_tag :size, line_item.size %>
+      <button type='submit' class="fa fa-times"></button>
+    <% end %>
+  </td>
+
+</tr>

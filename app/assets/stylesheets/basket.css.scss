@@ -1,0 +1,48 @@
+.basket-summary, .order-summary {
+  div.remove {
+    display: none;
+  }
+  @media screen and (max-width: 500px) {
+    tr {
+      border: 1px solid #ddd;
+
+      td {
+        display: block;
+        border-top: 0 !important;
+      }
+
+      td.details {
+        position: relative;
+        width: 100%;
+        div.remove {
+          display: block;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 100000000;
+        }
+      }
+      td:before {
+        margin-right: 30px;
+        display:inline-block;
+        text-align: right;
+        align: right;
+        width: 25%;
+      }
+
+      td.price:before {
+        content: 'Price';
+
+      }
+
+      td.total:before {
+        content: 'Total';
+
+      }
+
+      td.qty:before {
+        content: 'Quantity';
+      }
+    }
+  }
+}

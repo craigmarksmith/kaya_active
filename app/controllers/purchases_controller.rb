@@ -29,9 +29,9 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    @product = Product.find_by_slug(params[:product])
-    line_item = LineItem.new(price: @product.price, product_id: @product.id)
-    @purchase = Purchase.new(line_items: [line_item], country:'AU')
+    @basket = Basket.new(session)
+    line_items = @basket.line_items.map{|bli| bli.to_line_item }
+    @purchase = Purchase.new(line_items: line_items, country:'AU')
   end
 
   def complete
@@ -40,9 +40,13 @@ class PurchasesController < ApplicationController
 
   def create
     voucher = Voucher.find_by_code(params[:purchase][:voucher_code])
-    @product = Product.find(params[:product_id])
+    basket = Basket.new(session)
+
     @purchase = Purchase.new(purchase_params)
-    @purchase.line_items.new(price: @product.price, product_id: @product.id, size: params[:size])
+
+    line_items = basket.line_items.map{|bli| bli.to_line_item }
+    @purchase.line_items = line_items
+
     @purchase.delivery_price = calculate_delivery(purchase_params[:country])
     @purchase.voucher_code = voucher.code if voucher
     @purchase.voucher_discount_amount = voucher.fixed_discount_amount_in_cent if voucher
@@ -60,6 +64,7 @@ class PurchasesController < ApplicationController
     end
 
     session[:purchase_id] = @purchase.id
+    clear_basket_products
     PurchaseMailer.confirmation(@purchase).deliver
     redirect_to action: :complete
   end

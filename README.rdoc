@@ -1,28 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+= TODO
 
-Things you may want to cover:
+* Basket qty bug - DONE
+* basket to checkout - DONE
+* set all qty to 1 - don't need to, DONE
+* check the size is saved on the line item - DONE
+* clear the basket after successful checkout - DONE
 
-* Ruby version
+Before release
+* cart empty message - DONE
+* Add product image to basket - DONE
+* Remove item - DONE
+* change url to cart
+* add discount code on basket - Not doing
+* Add basket logo - DONE
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+After release
+* Adjust quantity
+* Add paypal
+* Slide order summary on purchase page
+* Add number of items to basket logo

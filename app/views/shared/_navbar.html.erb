@@ -10,6 +10,12 @@
       <% end %>
       <li class="hidden-xs"><%= link_to "Blog", blog_posts_path %></li>
       <li class="hidden-xs"><%= link_to "Contact Us", contact_path %></li>
+      <li class="basket">
+        <%= link_to basket_path, class: 'fa fa-shopping-cart' do %>
+          <span id="js-cart-item-count"></span</li>
+        <% end %>
+      </li>
+
     </ul>
 
     <div class="panel-group burger-menu visible-xs">
