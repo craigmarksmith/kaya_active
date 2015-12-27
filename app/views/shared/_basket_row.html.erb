@@ -17,22 +17,26 @@
         <%= line_item.size %>
       </div>
     </div>
-    <div class='remove'>
+    <% unless on_purchase %>
+      <div class='remove'>
+        <%= form_tag basket_path, method: 'delete' do |form| %>
+          <%= hidden_field_tag :product_slug, line_item.product.slug %>
+          <%= hidden_field_tag :size, line_item.size %>
+          <button type='submit' class="fa fa-times"></button>
+        <% end %>
+      </div>
+    <% end %>
+  </td>
+  <td class='qty'><%= line_item.qty %></td>
+  <td class='total'><%= number_to_currency(line_item.total_in_dollars) %></td>
+  <% unless on_purchase %>
+    <td class='hidden-xs'>
       <%= form_tag basket_path, method: 'delete' do |form| %>
         <%= hidden_field_tag :product_slug, line_item.product.slug %>
         <%= hidden_field_tag :size, line_item.size %>
         <button type='submit' class="fa fa-times"></button>
       <% end %>
-    </div>
-  </td>
-  <td class='qty'><%= line_item.qty %></td>
-  <td class='total'><%= number_to_currency(line_item.total_in_dollars) %></td>
-  <td class='hidden-xs'>
-    <%= form_tag basket_path, method: 'delete' do |form| %>
-      <%= hidden_field_tag :product_slug, line_item.product.slug %>
-      <%= hidden_field_tag :size, line_item.size %>
-      <button type='submit' class="fa fa-times"></button>
-    <% end %>
-  </td>
+    </td>
+  <% end %>
 
 </tr>

@@ -6,7 +6,7 @@
     <tbody>
       <% @basket.line_items.each do |line_item| %>
         <% product = line_item.product %>
-        <%= render partial: 'shared/basket_row', locals: {product: product, line_item: line_item} %>
+        <%= render partial: 'shared/basket_row', locals: {product: product, line_item: line_item,on_purchase: false} %>
       <% end %>
       <tr>
         <td class='hidden-xs'></td>

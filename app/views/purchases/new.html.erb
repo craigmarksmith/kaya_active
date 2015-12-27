@@ -12,7 +12,7 @@
   <table class="table order-summary">
     <tbody>
       <% @purchase.line_items.each do |line_item| %>
-        <%= render partial: 'shared/basket_row', locals: {product: line_item.product, line_item: line_item} %>
+        <%= render partial: 'shared/basket_row', locals: {product: line_item.product, line_item: line_item, on_purchase: true} %>
       <% end %>
         <tr>
           <td></td>
