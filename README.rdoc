@@ -6,7 +6,9 @@
 * Add paypal
 * Slide order summary on purchase page
 * add continue shopping on order confirmation - DONE
-* change order email
+* change order email - DONE
 * change how the price and name are shown ( consider mobile )
 * add stripe for development - DONE
 * upgrade to new rails
+
+* make product image upload better

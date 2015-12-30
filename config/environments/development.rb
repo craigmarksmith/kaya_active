@@ -37,4 +37,6 @@ Rails.application.configure do
 
   #came from active admin install
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  config.action_mailer.preview_path = "#{Rails.root}/test/mailer_previews"
 end
