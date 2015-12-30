@@ -10,5 +10,6 @@
 * change how the price and name are shown ( consider mobile )
 * add stripe for development - DONE
 * upgrade to new rails
+* Add continue shopping to basket
 
 * make product image upload better
