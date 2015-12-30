@@ -9,17 +9,15 @@
 
     <p>Hi <%= @purchase.name %>,</p>
 
-    <p>Thanks for placing your order with <%= link_to "KAYA ACTIVE", root_path %>. We have received your order and will process it shortly.</p>
+    <p>Thanks for shopping at <%= link_to "KAYA ACTIVE", root_path %>. We have received your order and will process it shortly.</p>
 
     <p>Your order number is: <%= @purchase.code %>.</p>
 
     <p>For your reference, below are your order details and shipping address:</p>
 
-    <p><strong>You ordered these items</strong></p>
-
-    <p>
+    <p><strong>You ordered these items</strong><br>
       <% @purchase.line_items.each do |item| %>
-        1 X <%= item.product.name %> at <%= number_to_currency(item.price_in_dollars) %><br/>
+        <%= item.qty %> x <%= item.product.name %> at <%= number_to_currency(item.price_in_dollars) %><br/>
       <% end %>
       Shipping: <%= @purchase.delivery_price  == 0 ? "FREE!" : "#{number_to_currency(@purchase.delivery_price/100.00)} AUD" %>
     </p>
