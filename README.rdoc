@@ -2,22 +2,11 @@
 
 = TODO
 
-* Basket qty bug - DONE
-* basket to checkout - DONE
-* set all qty to 1 - don't need to, DONE
-* check the size is saved on the line item - DONE
-* clear the basket after successful checkout - DONE
-
-Before release
-* cart empty message - DONE
-* Add product image to basket - DONE
-* Remove item - DONE
-* change url to cart
-* add discount code on basket - Not doing
-* Add basket logo - DONE
-
-After release
 * Adjust quantity
 * Add paypal
 * Slide order summary on purchase page
-* Add number of items to basket logo
+* add continue shopping on order confirmation
+* change order email
+* change how the price and name are shown ( consider mobile )
+* add stripe for development - DONE
+* upgrade to new rails
