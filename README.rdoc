@@ -5,7 +5,7 @@
 * Adjust quantity
 * Add paypal
 * Slide order summary on purchase page
-* add continue shopping on order confirmation
+* add continue shopping on order confirmation - DONE
 * change order email
 * change how the price and name are shown ( consider mobile )
 * add stripe for development - DONE

@@ -4,6 +4,9 @@
   <h2>Your order number is: <%= @purchase.code %></h2>
 
   <p>You will receive an email confirmation shortly at: <%= @purchase.email_address %></p>
+
+  <p><%= link_to 'Continue Shopping', products_path, class: "btn btn-info" %></p>
+
 </div>
 
 <%= render partial: 'shared/google_conversion_tracking' %>
