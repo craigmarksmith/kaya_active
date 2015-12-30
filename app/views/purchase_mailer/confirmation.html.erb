@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <%= image_tag attachments['image.jpg'].url %>
+
+    <p>Hi <%= @purchase.name %>,</p>
+
+    <p>Thanks for placing your order with <%= link_to "KAYA ACTIVE", root_path %>. We have received your order and will process it shortly.</p>
+
+    <p>Your order number is: <%= @purchase.code %>.</p>
+
+    <p>For your reference, below are your order details and shipping address:</p>
+
+    <p><strong>You ordered these items</strong></p>
+
+    <p>
+      <% @purchase.line_items.each do |item| %>
+        1 X <%= item.product.name %> at <%= number_to_currency(item.price_in_dollars) %><br/>
+      <% end %>
+      Shipping: <%= @purchase.delivery_price  == 0 ? "FREE!" : "#{number_to_currency(@purchase.delivery_price/100.00)} AUD" %>
+    </p>
+
+    <p>
+      <strong>Total: <%= number_to_currency(@purchase.total_in_dollars) %> AUD</strong>
+    </p>
+
+    <p>
+      <strong>Shipping Address</strong><br>
+      <%= @purchase.name %><br>
+      <%= @purchase.address_line_1 %><br>
+      <% unless @purchase.address_line_2.empty? %>
+        <%= @purchase.address_line_2 %><br>
+      <% end %>
+      <%= @purchase.city %><br>
+      <%= @purchase.state %><br>
+      <%= @purchase.post_code %><br>
+      <%= ISO3166::Country[@purchase.country] %>
+    </p>
+
+    <p>If you have any questions about your order call please email us on kaya@kayaactive.com or phone 0406 030 074.</p>
+
+    <p>Thanks for shopping with us.</p>
+    <p>Much Love and Light,</p>
+
+    <div>
+      Renata<br>
+      <strong>KAYA ACTIVE</strong><br>
+      <%= link_to "www.kayaactive.com.au", root_path %><br>
+      +61 406 030 074
+      <div style="font-size:12.8px;color:rgb(136,136,136)">
+        Follow us on <a href="https://www.facebook.com/kayaactive" style="color:rgb(17,85,204)" target="_blank">facebook.com/kayaactive</a><br>
+      </div>
+      <div style="font-size:12.8px;color:rgb(136,136,136)">
+        Follow us on <a href="http://instagram.com/kayaactive.com.au" style="color:rgb(17,85,204)" target="_blank">instagram.com/kayaactive.com.au</a>
+      </div>
+    </div>
+  </body>
+</html>
