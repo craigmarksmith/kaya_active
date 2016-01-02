@@ -39,4 +39,16 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   config.action_mailer.preview_path = "#{Rails.root}/test/mailer_previews"
+
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+      login: "kayaactivewear-facilitator_api1.gmail.com",
+      password: "PCZCNL63UDT4TH2A",
+      signature: "ALgkD5W8dGqppLd17C5a-U8fflVUA4wE7TVdPF22e3uFzYNZg6zyyO.R"
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
+
 end

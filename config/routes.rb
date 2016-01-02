@@ -20,7 +20,10 @@ Rails.application.routes.draw do
 
   resources :purchases, only: [:new, :create]
   get 'purchases/complete' => 'purchases#complete', as: 'complete'
+  get 'purchases/express_checkout' => 'purchases#express_checkout', as: 'express_checkout'
+  get 'purchases/express_checkout_complete' => 'purchases#express_checkout_complete', as: 'express_checkout_complete'
   get 'purchases/price' => 'purchases#price', as: 'purchase_price'
+
 
   resource :basket, only: [:show, :create, :destroy]
   get 'basket/count' => 'baskets#count', as: 'basket_count'

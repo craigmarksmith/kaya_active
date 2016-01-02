@@ -34,10 +34,6 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(line_items: line_items, country:'AU')
   end
 
-  def complete
-    @purchase = Purchase.find(session[:purchase_id])
-  end
-
   def create
     voucher = Voucher.find_by_code(params[:purchase][:voucher_code])
     basket = Basket.new(session)
@@ -57,11 +53,57 @@ class PurchasesController < ApplicationController
     end
 
     begin
+      @purchase.pay!
       @purchase.save!
     rescue Stripe::CardError => e
       render :new
       return
     end
+
+    session[:purchase_id] = @purchase.id
+    clear_basket_products
+    PurchaseMailer.confirmation(@purchase).deliver
+    redirect_to action: :complete
+  end
+
+  def complete
+    @purchase = Purchase.find(session[:purchase_id])
+  end
+
+  def express_checkout
+    @basket = Basket.new(session)
+    line_items = @basket.line_items.map{|bli| bli.to_line_item }
+    @purchase = Purchase.new(line_items: line_items, country:'AU')
+
+    items = @purchase.line_items.map do |l|
+      {
+        name: l.product.name,
+        description: "#{l.product.name} size: #{l.size}",
+        quantity: l.qty,
+        amount: l.price
+      }
+    end
+
+    response = EXPRESS_GATEWAY.setup_purchase(@purchase.total,
+      ip: request.remote_ip,
+      return_url: express_checkout_complete_url,
+      cancel_return_url: basket_url,
+      currency: "AUD",
+      allow_guest_checkout: true,
+      items: items
+    )
+    redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
+  end
+
+  def express_checkout_complete
+    response = EXPRESS_GATEWAY.details_for(params['token'])
+
+    @purchase = Purchase.new_from_paypal(params['token'], response)
+
+    basket = Basket.new(session)
+    line_items = basket.line_items.map{|bli| bli.to_line_item }
+    @purchase.line_items = line_items
+    @purchase.save!
 
     session[:purchase_id] = @purchase.id
     clear_basket_products

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123075340) do
+ActiveRecord::Schema.define(version: 20160102080707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20151123075340) do
     t.datetime "updated_at"
     t.string   "voucher_code"
     t.integer  "voucher_discount_amount"
+    t.string   "paypal_token"
   end
 
   create_table "signups", force: true do |t|

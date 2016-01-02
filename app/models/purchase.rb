@@ -1,7 +1,6 @@
 class Purchase < ActiveRecord::Base
 
   after_initialize :set_code
-  before_save :pay!
 
   has_many :line_items
   belongs_to :voucher
@@ -15,6 +14,27 @@ class Purchase < ActiveRecord::Base
     :state,
     :post_code,
     :country
+
+  def self.new_from_paypal(token, paypal_response)
+
+    ship_to_data = paypal_response.params['PaymentDetails']['ShipToAddress']
+
+    details = {
+      paypal_token: token,
+      name: ship_to_data['Name'],
+      name_on_card: "#{paypal_response.params['PayerInfo']['PayerName']['FirstName']} #{paypal_response.params['PayerInfo']['PayerName']['LastName']}",
+      email_address: paypal_response.params['payer'],
+      address_line_1: ship_to_data['Street1'],
+      address_line_2: ship_to_data['Street2'] || '',
+      city: ship_to_data['CityName'],
+      state: ship_to_data['StateOrProvince'],
+      post_code: ship_to_data['PostalCode'],
+      country: ship_to_data['Country'],
+      delivery_price: 0 #revist this, we want paypal to calculate this
+    }
+
+    self.new(details)
+  end
 
   def set_code
     return if code
