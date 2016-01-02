@@ -30,6 +30,7 @@ class Purchase < ActiveRecord::Base
       state: ship_to_data['StateOrProvince'],
       post_code: ship_to_data['PostalCode'],
       country: ship_to_data['Country'],
+      paypal_response: paypal_response.to_json,
       delivery_price: 0 #revist this, we want paypal to calculate this
     }
 
