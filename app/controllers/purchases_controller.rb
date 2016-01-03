@@ -98,11 +98,17 @@ class PurchasesController < ApplicationController
   def express_checkout_complete
     response = EXPRESS_GATEWAY.details_for(params['token'])
 
-    @purchase = Purchase.new_from_paypal(params['token'], response)
+    @purchase = Purchase.new_from_paypal(params['token'], response, request.remote_ip)
 
     basket = Basket.new(session)
     line_items = basket.line_items.map{|bli| bli.to_line_item }
     @purchase.line_items = line_items
+
+    unless @purchase.express_checkout_pay!
+      redirect_to basket_path
+      return
+    end
+
     @purchase.save!
 
     session[:purchase_id] = @purchase.id

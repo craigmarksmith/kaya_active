@@ -15,12 +15,14 @@ class Purchase < ActiveRecord::Base
     :post_code,
     :country
 
-  def self.new_from_paypal(token, paypal_response)
+  def self.new_from_paypal(token, paypal_response, ip_address)
 
     ship_to_data = paypal_response.params['PaymentDetails']['ShipToAddress']
 
     details = {
+      ip: ip_address,
       paypal_token: token,
+      paypal_payer_id: paypal_response.params['payer_id'],
       name: ship_to_data['Name'],
       name_on_card: "#{paypal_response.params['PayerInfo']['PayerName']['FirstName']} #{paypal_response.params['PayerInfo']['PayerName']['LastName']}",
       email_address: paypal_response.params['payer'],
@@ -41,6 +43,18 @@ class Purchase < ActiveRecord::Base
     return if code
     o = [('A'..'Z')].map { |i| i.to_a }.flatten
     self.code = (0...10).map { o[rand(o.length)] }.join
+  end
+
+  def express_checkout_pay!
+    express_purchase_options = {
+      :ip => ip,
+      :token => paypal_token,
+      :payer_id => paypal_payer_id,
+      currency: 'AUD'
+    }
+
+    response = EXPRESS_GATEWAY.purchase(total, express_purchase_options)
+    response.success?
   end
 
   def pay!
