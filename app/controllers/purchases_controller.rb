@@ -99,6 +99,7 @@ class PurchasesController < ApplicationController
     response = EXPRESS_GATEWAY.details_for(params['token'])
 
     @purchase = Purchase.new_from_paypal(params['token'], response, request.remote_ip)
+    @purchase.delivery_price = calculate_delivery(response.params['PaymentDetails']['ShipToAddress']['Country'])
 
     basket = Basket.new(session)
     line_items = basket.line_items.map{|bli| bli.to_line_item }

@@ -47,9 +47,9 @@ class Purchase < ActiveRecord::Base
 
   def express_checkout_pay!
     express_purchase_options = {
-      :ip => ip,
-      :token => paypal_token,
-      :payer_id => paypal_payer_id,
+      ip: ip,
+      token: paypal_token,
+      payer_id: paypal_payer_id,
       currency: 'AUD'
     }
 
