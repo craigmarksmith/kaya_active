@@ -18,20 +18,57 @@ class PurchasesController < ApplicationController
   end
 
   def calculate_delivery(country_code)
-    delivery_prices = {
-      'AU' => 0,
-      'US' => 2110,
-      'CA' => 2110,
-      'NZ' => 1755
-    }
-    default_price = 2520
-    delivery_prices[country_code] || default_price
+    delivery_prices = Purchase::DeliveryPrices
+    delivery_prices[country_code] || Purchase::DefaultDeliveryPrice
   end
 
   def new
+    if params[:country].empty?
+      redirect_to basket_path, flash: {error: "Please choose a delivery destination."}
+      return
+    end
+
+    if params['paypal_checkout.x']
+      paypal_checkout_new
+    else
+      site_checkout_new
+    end
+  end
+
+  def site_checkout_new
     @basket = Basket.new(session)
     line_items = @basket.line_items.map{|bli| bli.to_line_item }
     @purchase = Purchase.new(line_items: line_items, country:'AU')
+  end
+
+  def paypal_checkout_new
+    @basket = Basket.new(session)
+    line_items = @basket.line_items.map{|bli| bli.to_line_item }
+    @purchase = Purchase.new(line_items: line_items, country:'AU')
+    @purchase.delivery_price = calculate_delivery(params[:country])
+
+    items = @purchase.line_items.map do |l|
+      {
+        name: l.product.name,
+        description: "#{l.product.name} size: #{l.size}",
+        quantity: l.qty,
+        amount: l.price
+      }
+    end
+
+    response = EXPRESS_GATEWAY.setup_purchase(@purchase.total,
+      shipping: @purchase.delivery_price,
+      subtotal: @purchase.line_item_total,
+      handling: 0,
+      tax: 0,
+      ip: request.remote_ip,
+      return_url: express_checkout_complete_url,
+      cancel_return_url: basket_url,
+      currency: "AUD",
+      allow_guest_checkout: true,
+      items: items
+    )
+    redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
   end
 
   def create
@@ -66,36 +103,7 @@ class PurchasesController < ApplicationController
     redirect_to action: :complete
   end
 
-  def complete
-    @purchase = Purchase.find(session[:purchase_id])
-  end
-
-  def express_checkout
-    @basket = Basket.new(session)
-    line_items = @basket.line_items.map{|bli| bli.to_line_item }
-    @purchase = Purchase.new(line_items: line_items, country:'AU')
-
-    items = @purchase.line_items.map do |l|
-      {
-        name: l.product.name,
-        description: "#{l.product.name} size: #{l.size}",
-        quantity: l.qty,
-        amount: l.price
-      }
-    end
-
-    response = EXPRESS_GATEWAY.setup_purchase(@purchase.total,
-      ip: request.remote_ip,
-      return_url: express_checkout_complete_url,
-      cancel_return_url: basket_url,
-      currency: "AUD",
-      allow_guest_checkout: true,
-      items: items
-    )
-    redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
-  end
-
-  def express_checkout_complete
+  def express_checkout_create
     response = EXPRESS_GATEWAY.details_for(params['token'])
 
     @purchase = Purchase.new_from_paypal(params['token'], response, request.remote_ip)
@@ -116,6 +124,10 @@ class PurchasesController < ApplicationController
     clear_basket_products
     PurchaseMailer.confirmation(@purchase).deliver
     redirect_to action: :complete
+  end
+
+  def complete
+    @purchase = Purchase.find(session[:purchase_id])
   end
 
   def purchase_params

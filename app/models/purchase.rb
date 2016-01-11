@@ -5,6 +5,15 @@ class Purchase < ActiveRecord::Base
   has_many :line_items
   belongs_to :voucher
 
+  DefaultDeliveryPrice = 2520
+
+  DeliveryPrices = {
+    'AU' => 0,
+    'US' => 2110,
+    'CA' => 2110,
+    'NZ' => 1755
+  }
+
   validates_presence_of \
     :name,
     :name_on_card,
@@ -80,8 +89,12 @@ class Purchase < ActiveRecord::Base
     "email: #{email_address}"
   end
 
+  def line_item_total
+    line_items.inject(0){|sum, line_item| sum += (line_item.price * line_item.qty.to_i); sum}
+  end
+
   def total
-    t = line_items.inject(0){|sum, line_item| sum += (line_item.price * line_item.qty.to_i); sum}+(self.delivery_price||0)
+    t = line_item_total+(self.delivery_price||0)
     t -= self.voucher_discount_amount||0
     t
   end

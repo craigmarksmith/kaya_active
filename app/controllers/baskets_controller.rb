@@ -1,6 +1,7 @@
 class BasketsController < ApplicationController
 
   include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::NumberHelper
 
   def show
     @basket = Basket.new(session)
@@ -22,6 +23,14 @@ class BasketsController < ApplicationController
     @basket = Basket.new(session)
     response = pluralize(@basket.count, 'Item') if @basket.count > 0
     render json: {items: response}
+  end
+
+  def value
+    @basket = Basket.new(session)
+    delivery = Purchase::DeliveryPrices.has_key?(params[:country]) ? Purchase::DeliveryPrices[params[:country]] : Purchase::DefaultDeliveryPrice
+    delivery = 0 if params[:country] == ''
+    price = @basket.total + delivery
+    render json: {total_price_in_dollars: number_to_currency(price/100.00) }
   end
 
 end

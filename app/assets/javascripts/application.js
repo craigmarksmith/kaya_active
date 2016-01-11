@@ -20,4 +20,6 @@
 //= require pinterest
 //= require signup
 //= require cart_item_count
+//= require bootbox.min
+//= require basket
 
