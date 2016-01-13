@@ -2,11 +2,6 @@ class PurchasesController < ApplicationController
 
   include ActionView::Helpers::NumberHelper
 
-  def calculate_delivery(country_code)
-    delivery_prices = Purchase::DeliveryPrices
-    delivery_prices[country_code] || Purchase::DefaultDeliveryPrice
-  end
-
   def new
     if params[:country].empty?
       redirect_to basket_path, flash: {error: "Please choose a delivery destination."}
@@ -23,18 +18,15 @@ class PurchasesController < ApplicationController
   def site_checkout_new
     @basket = Basket.new(session)
     line_items = @basket.line_items.map{|bli| bli.to_line_item }
-    @purchase = Purchase.new(line_items: line_items, country:'AU')
+    @purchase = Purchase.new(line_items: line_items, country: params[:country])
     @purchase.voucher_code = params[:voucher_code] if params[:voucher_code]
-    @purchase.country = params[:country]
-    @purchase.delivery_price = calculate_delivery(params[:country])
   end
 
   def paypal_checkout_new
     @basket = Basket.new(session)
     line_items = @basket.line_items.map{|bli| bli.to_line_item }
-    @purchase = Purchase.new(line_items: line_items, country:'AU')
+    @purchase = Purchase.new(line_items: line_items, country: params[:country])
     @purchase.voucher_code = params[:voucher_code] if params[:voucher_code]
-    @purchase.delivery_price = calculate_delivery(params[:country])
 
     items = @purchase.line_items.map do |l|
       {
@@ -73,7 +65,6 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     line_items = basket.line_items.map{|bli| bli.to_line_item }
     @purchase.line_items = line_items
-    @purchase.delivery_price = calculate_delivery(purchase_params[:country])
     @purchase.voucher_code = basket.voucher_code
 
     unless @purchase.valid?
@@ -99,7 +90,6 @@ class PurchasesController < ApplicationController
     response = EXPRESS_GATEWAY.details_for(params['token'])
 
     @purchase = Purchase.new_from_paypal(params['token'], response, request.remote_ip)
-    @purchase.delivery_price = calculate_delivery(response.params['PaymentDetails']['ShipToAddress']['Country'])
 
     basket = Basket.new(session)
     line_items = basket.line_items.map{|bli| bli.to_line_item }

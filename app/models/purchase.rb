@@ -1,6 +1,6 @@
 class Purchase < ActiveRecord::Base
 
-  after_initialize :set_code
+  after_initialize :set_code, :set_delivery_price
 
   has_many :line_items
   belongs_to :voucher, primary_key: :code, foreign_key: :voucher_code
@@ -25,7 +25,6 @@ class Purchase < ActiveRecord::Base
     :country
 
   def self.new_from_paypal(token, paypal_response, ip_address)
-
     ship_to_data = paypal_response.params['PaymentDetails']['ShipToAddress']
 
     details = {
@@ -41,8 +40,7 @@ class Purchase < ActiveRecord::Base
       state: ship_to_data['StateOrProvince'],
       post_code: ship_to_data['PostalCode'],
       country: ship_to_data['Country'],
-      paypal_response: paypal_response.to_json,
-      delivery_price: 0 #revist this, we want paypal to calculate this
+      paypal_response: paypal_response.to_json
     }
 
     self.new(details)
@@ -52,6 +50,11 @@ class Purchase < ActiveRecord::Base
     return if code
     o = [('A'..'Z')].map { |i| i.to_a }.flatten
     self.code = (0...10).map { o[rand(o.length)] }.join
+  end
+
+  def set_delivery_price
+    delivery_prices = Purchase::DeliveryPrices
+    self.delivery_price = delivery_prices[country] || Purchase::DefaultDeliveryPrice
   end
 
   def express_checkout_pay!
