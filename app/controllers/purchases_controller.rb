@@ -69,17 +69,12 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    voucher = Voucher.find_by_code(params[:purchase][:voucher_code])
     basket = Basket.new(session)
-
     @purchase = Purchase.new(purchase_params)
-
     line_items = basket.line_items.map{|bli| bli.to_line_item }
     @purchase.line_items = line_items
-
     @purchase.delivery_price = calculate_delivery(purchase_params[:country])
-    @purchase.voucher_code = voucher.code if voucher
-    @purchase.voucher_discount_amount = voucher.fixed_discount_amount_in_cent if voucher
+    @purchase.voucher_code = basket.voucher_code
 
     unless @purchase.valid?
       render :new
