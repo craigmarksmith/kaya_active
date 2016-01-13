@@ -10,6 +10,7 @@ class Basket
       @session[:products] = []
       @line_items = []
     end
+    @voucher_code = @session[:voucher_code] || nil
   end
 
   def add(product_slug, size)
@@ -31,6 +32,11 @@ class Basket
       end
     end
     @session[:products] = @line_items.map{|item| item.to_hash}
+  end
+
+  def voucher_code=(code)
+    @voucher_code = code
+    @session[:voucher_code] = code
   end
 
   def voucher
