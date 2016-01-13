@@ -9,6 +9,7 @@ class @Basket
         dataType: "json"
         url: basketValuePath
         data:
+          voucher_code: $(".js-voucher-code").val(),
           country: @value
 
         success: (result) ->
