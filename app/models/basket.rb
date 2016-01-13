@@ -1,6 +1,6 @@
 class Basket
 
-  attr_accessor :line_items
+  attr_accessor :line_items, :voucher_code
 
   def initialize(session)
     @session = session
@@ -33,15 +33,30 @@ class Basket
     @session[:products] = @line_items.map{|item| item.to_hash}
   end
 
+  def voucher
+    voucher = Voucher.find_by_code(@voucher_code)
+  end
+
+  def voucher_discount_amount
+    return 0.00 unless voucher
+    voucher.fixed_discount_amount_in_cent
+  end
+
+  def voucher_discount_in_dollars
+    return 0.00 unless voucher
+    voucher.discount_in_dollars
+  end
+
   def total_in_dollars
     total/100.00
   end
 
   def total
-    line_items.inject(0) do |sum, item|
+    amount = line_items.inject(0) do |sum, item|
       sum += item.total_in_cents
       sum
     end
+    amount - voucher_discount_amount
   end
 
   def count

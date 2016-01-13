@@ -3,7 +3,7 @@ class Purchase < ActiveRecord::Base
   after_initialize :set_code
 
   has_many :line_items
-  belongs_to :voucher
+  belongs_to :voucher, primary_key: :code, foreign_key: :voucher_code
 
   DefaultDeliveryPrice = 2520
 
@@ -89,13 +89,24 @@ class Purchase < ActiveRecord::Base
     "email: #{email_address}"
   end
 
+  def voucher_discount_amount
+    return 0.00 unless voucher
+    voucher.fixed_discount_amount_in_cent
+  end
+
+  def voucher_discount_in_dollars
+    return 0.00 unless voucher
+    voucher.discount_in_dollars
+  end
+
+
   def line_item_total
     line_items.inject(0){|sum, line_item| sum += (line_item.price * line_item.qty.to_i); sum}
   end
 
   def total
     t = line_item_total+(self.delivery_price||0)
-    t -= self.voucher_discount_amount||0
+    t -= voucher_discount_amount||0
     t
   end
 

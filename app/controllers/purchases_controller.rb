@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
 
   include ActionView::Helpers::NumberHelper
 
+  #this can go I think
   def price
     voucher = Voucher.find_by_code(params[:voucher_code])
     delivery_price = calculate_delivery(params[:country])
@@ -45,6 +46,7 @@ class PurchasesController < ApplicationController
     @basket = Basket.new(session)
     line_items = @basket.line_items.map{|bli| bli.to_line_item }
     @purchase = Purchase.new(line_items: line_items, country:'AU')
+    @purchase.voucher_code = params[:voucher_code] if params[:voucher_code]
     @purchase.delivery_price = calculate_delivery(params[:country])
 
     items = @purchase.line_items.map do |l|
@@ -55,10 +57,18 @@ class PurchasesController < ApplicationController
         amount: l.price
       }
     end
+    if @purchase.voucher_code
+      items << {
+          name: "Voucher: #{@purchase.voucher_code}",
+          description: "Discount voucher #{@purchase.voucher_code} for #{number_to_currency(@purchase.voucher_discount_in_dollars)}",
+          quantity: 1,
+          amount: -@purchase.voucher_discount_amount
+      }
+    end
 
     response = EXPRESS_GATEWAY.setup_purchase(@purchase.total,
       shipping: @purchase.delivery_price,
-      subtotal: @purchase.line_item_total,
+      subtotal: @purchase.line_item_total - @purchase.voucher_discount_amount,
       handling: 0,
       tax: 0,
       ip: request.remote_ip,

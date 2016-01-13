@@ -13,6 +13,12 @@
         <tr>
           <td class='hidden-xs'></td>
           <td class='hidden-xs'></td>
+          <td>Voucher Discount</td>
+          <td class="js-voucher-discount"></td>
+        </tr>
+        <tr>
+          <td class='hidden-xs'></td>
+          <td class='hidden-xs'></td>
           <td>Delivery Price</td>
           <td>
             <div class="form-group <%= flash[:error] ? 'has-error' : ''%>">
@@ -29,6 +35,9 @@
         </tr>
       </tbody>
     </table>
+
+    <legend>Voucher</legend>
+    <%= text_field_tag :voucher_code, nil, placeholder: 'Voucher Code', class: 'js-voucher-code' %>
 
     <div class="form-group">
       <button class='btn btn-primary submit-button' type='submit'>Checkout now</button>
