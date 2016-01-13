@@ -89,14 +89,14 @@ class Purchase < ActiveRecord::Base
     "email: #{email_address}"
   end
 
-  def voucher_discount_amount
-    return 0.00 unless voucher
-    voucher.fixed_discount_amount_in_cent
-  end
-
   def voucher_discount_in_dollars
     return 0.00 unless voucher
     voucher.discount_in_dollars
+  end
+
+  def voucher_code=(code)
+    super(code)
+    voucher ? self.voucher_discount_amount = voucher.fixed_discount_amount_in_cent : 0
   end
 
   def line_item_total

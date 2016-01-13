@@ -25,16 +25,4 @@ class BasketsController < ApplicationController
     render json: {items: response}
   end
 
-  def value
-    @basket = Basket.new(session)
-    @basket.voucher_code = params[:voucher_code] if params[:voucher_code]
-    delivery = Purchase::DeliveryPrices.has_key?(params[:country]) ? Purchase::DeliveryPrices[params[:country]] : Purchase::DefaultDeliveryPrice
-    delivery = 0 if params[:country] == ''
-    price = @basket.total + delivery
-    render json: {
-      total_price_in_dollars: number_to_currency(price/100.00),
-      voucher_price_in_dollars: number_to_currency(@basket.voucher_discount_in_dollars)
-    }
-  end
-
 end

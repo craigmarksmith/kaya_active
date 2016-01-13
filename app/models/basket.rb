@@ -13,6 +13,11 @@ class Basket
     @voucher_code = @session[:voucher_code] || nil
   end
 
+  def clear!
+    @session[:products] = []
+    @session[:voucher_code] = nil
+  end
+
   def add(product_slug, size)
     if current_item = @line_items.select{|line| line.product_slug == product_slug and line.size == size}.first
       item = current_item

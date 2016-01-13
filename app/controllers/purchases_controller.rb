@@ -2,22 +2,6 @@ class PurchasesController < ApplicationController
 
   include ActionView::Helpers::NumberHelper
 
-  #this can go I think
-  def price
-    voucher = Voucher.find_by_code(params[:voucher_code])
-    delivery_price = calculate_delivery(params[:country])
-    new_total = (params[:total_price].to_i+delivery_price)
-    new_total -= voucher.fixed_discount_amount_in_cent if voucher
-    result = {
-      delivery_price_in_dollars: delivery_price > 0 ? number_to_currency(delivery_price/100.00) : 'FREE',
-      voucher_price_in_dollars: voucher ? number_to_currency(voucher.discount_in_dollars) : '$0.00',
-      valid_voucher: !voucher.nil?,
-      total_price_in_dollars: number_to_currency(new_total/100.00)
-    }
-
-    render json: result
-  end
-
   def calculate_delivery(country_code)
     delivery_prices = Purchase::DeliveryPrices
     delivery_prices[country_code] || Purchase::DefaultDeliveryPrice
@@ -111,7 +95,7 @@ class PurchasesController < ApplicationController
     end
 
     session[:purchase_id] = @purchase.id
-    clear_basket_products
+    basket.clear!
     PurchaseMailer.confirmation(@purchase).deliver
     redirect_to action: :complete
   end
@@ -125,6 +109,7 @@ class PurchasesController < ApplicationController
     basket = Basket.new(session)
     line_items = basket.line_items.map{|bli| bli.to_line_item }
     @purchase.line_items = line_items
+    @purchase.voucher_code = basket.voucher_code
 
     unless @purchase.express_checkout_pay!
       redirect_to basket_path
@@ -134,7 +119,7 @@ class PurchasesController < ApplicationController
     @purchase.save!
 
     session[:purchase_id] = @purchase.id
-    clear_basket_products
+    basket.clear!
     PurchaseMailer.confirmation(@purchase).deliver
     redirect_to action: :complete
   end
