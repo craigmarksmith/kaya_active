@@ -36,12 +36,16 @@
       </tbody>
     </table>
 
-    <legend>Voucher</legend>
-    <%= text_field_tag :voucher_code, @basket.voucher_code, placeholder: 'Voucher Code', class: 'js-voucher-code' %>
+    <div class="form-group form-inline pull-left">
+      <legend>Apply a promo code</legend>
+      <%= label_tag :voucher_code, "Please enter your promotional code/voucher" %>
+      <%= text_field_tag :voucher_code, @basket.voucher_code, placeholder: 'Voucher Code', class: 'js-voucher-code form-control' %>
+      <button class='btn btn-primary submit-button js-voucher-button' type='button'>Apply</button>
+    </div>
 
-    <div class="form-group">
-      <button class='btn btn-primary submit-button' type='submit'>Checkout now</button>
-      <input class='btn submit-button' type='image' alt='Pay with Paypal' src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" name='paypal_checkout'></button>
+    <div class="form-group text-right">
+      <button class='btn btn-primary submit-button' type='submit'>GO TO CHECKOUT</button>
+      <input class='btn submit-button' type='image' alt='Pay with Paypal' src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" name='paypal_checkout'></button>
     </div>
   <% end %>
 <% end %>

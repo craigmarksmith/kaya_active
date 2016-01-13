@@ -16,13 +16,14 @@ class @Basket
           $(".js-total-price").html result["total_price_in_dollars"]
 
   setUpVoucher: (basketValuePath) ->
-    $(".js-voucher-code").focusout (event) ->
-      if !!@value
+    $(".js-voucher-button").click (event) ->
+      val = $(".js-voucher-code").val()
+      if !!val
         $.ajax
           dataType: "json"
           url: basketValuePath
           data:
-            voucher_code: @value
+            voucher_code: val
             country: $(".js-delivery-select").val()
 
           success: (result) ->
