@@ -99,7 +99,6 @@ class Purchase < ActiveRecord::Base
     voucher.discount_in_dollars
   end
 
-
   def line_item_total
     line_items.inject(0){|sum, line_item| sum += (line_item.price * line_item.qty.to_i); sum}
   end

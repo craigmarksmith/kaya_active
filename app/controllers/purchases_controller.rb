@@ -41,6 +41,8 @@ class PurchasesController < ApplicationController
     line_items = @basket.line_items.map{|bli| bli.to_line_item }
     @purchase = Purchase.new(line_items: line_items, country:'AU')
     @purchase.voucher_code = params[:voucher_code] if params[:voucher_code]
+    @purchase.country = params[:country]
+    @purchase.delivery_price = calculate_delivery(params[:country])
   end
 
   def paypal_checkout_new

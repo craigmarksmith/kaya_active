@@ -26,7 +26,7 @@
         <tr>
           <td></td>
           <td>Delivery Price</td>
-          <td><strong class="js-delivery-price">Free</strong></td>
+          <td><strong class="js-delivery-price"><%= @purchase.delivery_price > 0 ? number_to_currency(@purchase.delivery_price/100.00) : "FREE" %></strong></td>
         </tr>
         <tr>
           <td></td>
