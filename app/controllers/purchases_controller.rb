@@ -40,6 +40,7 @@ class PurchasesController < ApplicationController
     @basket = Basket.new(session)
     line_items = @basket.line_items.map{|bli| bli.to_line_item }
     @purchase = Purchase.new(line_items: line_items, country:'AU')
+    @purchase.voucher_code = params[:voucher_code] if params[:voucher_code]
   end
 
   def paypal_checkout_new
