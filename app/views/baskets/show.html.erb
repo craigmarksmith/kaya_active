@@ -43,12 +43,12 @@
       <button class='btn btn-primary submit-button js-voucher-button' type='button'>Apply</button>
     </div>
 
-    <% if params['enabled_paypal'] %>
-      <div class="form-group text-right">
-        <button class='btn btn-primary submit-button' type='submit'>GO TO CHECKOUT</button>
+    <div class="form-group text-right">
+      <button class='btn btn-primary submit-button' type='submit'>GO TO CHECKOUT</button>
+      <% if params['enabled_paypal'] %>
         <input class='btn submit-button' type='image' alt='Pay with Paypal' src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" name='paypal_checkout'></button>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
 
