@@ -47,7 +47,7 @@ class PurchasesController < ApplicationController
 
     response = EXPRESS_GATEWAY.setup_purchase(@purchase.total,
       shipping: @purchase.delivery_price,
-      subtotal: @purchase.line_item_total - @purchase.voucher_discount_amount,
+      subtotal: @purchase.line_item_total - @purchase.voucher_discount_amount.to_i,
       handling: 0,
       tax: 0,
       ip: request.remote_ip,
