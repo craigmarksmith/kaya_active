@@ -1,7 +1,21 @@
+@media screen and (max-width: 500px) {
+  table.basket_product_details {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+
+    tr {
+      border-bottom: 0;
+    }
+  }
+}
+
+
 .basket-summary, .order-summary {
   div.remove {
     display: none;
   }
+
   @media screen and (max-width: 500px) {
     tr {
       border: 1px solid #ddd;

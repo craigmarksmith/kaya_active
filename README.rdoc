@@ -3,11 +3,11 @@
 = TODO
 
 * Adjust quantity
-* Add paypal
-  * do shipping
-  * to vouchers
-  * test fail
-  * error message on basket page on fail
+* Add paypal - DONE
+  * do shipping - DONE
+  * to vouchers - DONE
+  * test fail - DONE
+  * error message on basket page on fail - DONE
 * change how the price and name are shown ( consider mobile )
 * upgrade to new rails
 * Add continue shopping to basket

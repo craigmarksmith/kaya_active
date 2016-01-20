@@ -2,14 +2,18 @@
 <% if @basket.line_items.size < 1 %>
   <p>Your cart is empty at the moment. <%= link_to 'Continue shopping', products_path %>
 <% else %>
+  <%= render partial: 'shared/error_notice' %>
+  <table class="table basket-summary basket_product_details">
+    <tbody>
+      <% @basket.line_items.each do |line_item| %>
+        <% product = line_item.product %>
+        <%= render partial: 'shared/basket_row', locals: {product: product, line_item: line_item,on_purchase: false} %>
+      <% end %>
+    </tbody>
+  </table>
   <%= form_tag new_purchase_path, method: 'get' do |form| %>
-    <%= render partial: 'shared/error_notice' %>
     <table class="table basket-summary">
       <tbody>
-        <% @basket.line_items.each do |line_item| %>
-          <% product = line_item.product %>
-          <%= render partial: 'shared/basket_row', locals: {product: product, line_item: line_item,on_purchase: false} %>
-        <% end %>
         <tr>
           <td class='hidden-xs'></td>
           <td class='hidden-xs'></td>
@@ -35,7 +39,6 @@
         </tr>
       </tbody>
     </table>
-
     <div class="form-group form-inline pull-left">
       <legend>Apply a promo code</legend>
       <%= label_tag :voucher_code, "Please enter your promotional code/voucher" %>
