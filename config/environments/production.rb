@@ -90,4 +90,15 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+      login: ENV["PAYPAL_USERNAME"],
+      password: ENV["PAYPAL_PASSWORD"],
+      signature: ENV["PAYPAL_SIGNATURE"]
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
+
 end
