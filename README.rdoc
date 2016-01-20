@@ -4,6 +4,10 @@
 
 * Adjust quantity
 * Add paypal
+  * do shipping
+  * to vouchers
+  * test fail
+  * error message on basket page on fail
 * change how the price and name are shown ( consider mobile )
 * upgrade to new rails
 * Add continue shopping to basket

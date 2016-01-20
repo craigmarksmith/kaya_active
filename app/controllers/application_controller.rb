@@ -30,7 +30,17 @@ class ApplicationController < ActionController::Base
     @recent_articles.limit!(3)
   end
 
-  def clear_basket_products
-    session[:products] = []
+  def value
+    @basket = Basket.new(session)
+    @basket.voucher_code = params[:voucher_code] if params[:voucher_code]
+    delivery = Purchase::DeliveryPrices.has_key?(params[:country]) ? Purchase::DeliveryPrices[params[:country]] : Purchase::DefaultDeliveryPrice
+    delivery = 0 if params[:country] == ''
+    price = @basket.total + delivery
+    render json: {
+      delivery_price_in_dollars: delivery > 0 ? number_to_currency(delivery/100.00) : 'FREE',
+      total_price_in_dollars: number_to_currency(price/100.00),
+      voucher_price_in_dollars: number_to_currency(@basket.voucher_discount_in_dollars)
+    }
   end
+
 end

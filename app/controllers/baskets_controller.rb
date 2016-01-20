@@ -1,6 +1,7 @@
 class BasketsController < ApplicationController
 
   include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::NumberHelper
 
   def show
     @basket = Basket.new(session)

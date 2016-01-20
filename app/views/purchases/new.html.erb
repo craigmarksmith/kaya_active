@@ -26,7 +26,7 @@
         <tr>
           <td></td>
           <td>Delivery Price</td>
-          <td><strong class="js-delivery-price">Free</strong></td>
+          <td><strong class="js-delivery-price"><%= @purchase.delivery_price > 0 ? number_to_currency(@purchase.delivery_price/100.00) : "FREE" %></strong></td>
         </tr>
         <tr>
           <td></td>
@@ -38,9 +38,6 @@
 
   <%= form_auth_field %>
   <%= hidden_field_tag :size, params[:size]  %>
-      <legend>Voucher</legend>
-      <%= form.input :voucher_code, placeholder: 'Voucher Code' %>
-
       <legend>About You</legend>
       <%= form.input :name, placeholder: 'Name' %>
       <%= form.input :email_address, placeholder: 'Email Address' %>
