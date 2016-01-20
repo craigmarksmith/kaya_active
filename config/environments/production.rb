@@ -92,7 +92,7 @@ Rails.application.configure do
   }
 
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test
+    ActiveMerchant::Billing::Base.mode = :production
     paypal_options = {
       login: ENV["PAYPAL_USERNAME"],
       password: ENV["PAYPAL_PASSWORD"],
