@@ -41,7 +41,7 @@ class PurchasesController < ApplicationController
           name: "Voucher: #{@purchase.voucher_code}",
           description: "Discount voucher #{@purchase.voucher_code} for #{number_to_currency(@purchase.voucher_discount_in_dollars)}",
           quantity: 1,
-          amount: -@purchase.voucher_discount_amount
+          amount: -@purchase.voucher_discount_amount.to_i
       }
     end
 
