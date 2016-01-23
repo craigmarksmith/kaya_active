@@ -3,6 +3,7 @@
   <p>Your cart is empty at the moment. <%= link_to 'Continue shopping', products_path %>
 <% else %>
   <%= render partial: 'shared/error_notice' %>
+  <span class='js-voucher-message'></span>
   <table class="table basket-summary basket_product_details">
     <tbody>
       <% @basket.line_items.each do |line_item| %>

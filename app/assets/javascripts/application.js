@@ -21,5 +21,7 @@
 //= require signup
 //= require cart_item_count
 //= require bootbox.min
+//= require handlebars.runtime
+//= require_tree ./templates
 //= require basket
 

@@ -53,6 +53,8 @@ gem 'email_validator'
 gem 'pry-remote', group: :development
 gem 'quiet_assets', group: :development
 
+gem 'handlebars_assets'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

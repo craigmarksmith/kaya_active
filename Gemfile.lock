@@ -111,6 +111,11 @@ GEM
     execjs (2.2.1)
     formtastic (2.3.0.rc3)
       actionpack (>= 3.0)
+    handlebars_assets (0.17.2)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -251,6 +256,7 @@ DEPENDENCIES
   country_select
   devise
   email_validator
+  handlebars_assets
   jquery-rails
   kramdown
   newrelic_rpm

@@ -29,5 +29,8 @@ class @Basket
           success: (result) ->
             $(".js-total-price").html result["total_price_in_dollars"]
             $(".js-voucher-discount").html result["voucher_price_in_dollars"]
+            message = HandlebarsTemplates['voucher_notice']
+            $('.js-voucher-message').replaceWith(message)
+            window.scrollTo(0,0)
 
 
