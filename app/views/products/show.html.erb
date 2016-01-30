@@ -66,13 +66,12 @@
 
   <div class="col-md-4 col-xs-12">
     <h1 itemprop="name"><%= "#{@product.name.strip.titleize}" -%></h1>
-    <p itemprop="brand" itemscope itemtype="http://schema.org/Brand">from <span itemprop="name" itemprop="brand"><%= @product.brand %></span></p>
-
     <% if @product.price.present? and @product.price > 0 %>
       <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <p itemprop="price"><%= number_to_currency(@product.price_in_dollars) %></p>
+        <p class='price' itemprop="price"><%= number_to_currency(@product.price_in_dollars) %></p>
       </span>
     <% end %>
+    <p class='brand' itemprop="brand" itemscope itemtype="http://schema.org/Brand">from <span itemprop="name" itemprop="brand"><%= @product.brand %></span></p>
 
     <%= form_tag basket_path, method: 'puts', class: 'js-buy-online-form' do |form| %>
       <%= hidden_field_tag :product, @product.slug %>

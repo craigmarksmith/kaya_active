@@ -38,6 +38,7 @@ $font-size-base: 13px;
 @import "basket";
 @import "checkout";
 @import "blog";
+@import "product";
 
 #pinit {
   font-size: 20px;
@@ -71,9 +72,9 @@ $font-size-base: 13px;
 
 
 .container.body { margin-top:60px;}
-.container.body.products.index, .container.body.products.show { margin-top: 95px;}
+.container.body.products.index { margin-top: 95px;}
 @media screen and (max-width: 500px) {
-  .container.body.products.index, .container.body.products.show { margin-top: 100px;}
+  .container.body.products.index { margin-top: 100px;}
 }
 
 @import "footer";
@@ -180,26 +181,3 @@ ol.breadcrumb {
   font-size: 100%;
 }
 /* END: thumbnail */
-
-/* carousel */
-.carousel-control {
-  color: #656565;
-}
-
-.carousel-indicators {
-  bottom:-20px
-}
-
-.carousel-indicators .active {
-  background-color: #4b4b4b;
-  height: 9px;
-  width: 9px;
-}
-
-.carousel-indicators li {
-  background-color: white;
-  border:1px solid #656565;
-  height: 8px;
-  width: 8px;
-}
-/* END: carousel */

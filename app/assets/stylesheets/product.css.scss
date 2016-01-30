@@ -1,0 +1,44 @@
+.products.show {
+  #product-index-category-accordion {
+    display:none;
+  }
+  h1 {
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+
+  .price {
+    font-size: 3em;
+  }
+
+  #productImages {
+    margin-bottom: 10px;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  /* carousel */
+  .carousel-control {
+    color: #656565;
+  }
+
+  .carousel-indicators {
+    bottom:-30px
+  }
+
+  .carousel-indicators .active {
+    background-color: #4b4b4b;
+    height: 9px;
+    width: 9px;
+  }
+
+  .carousel-indicators li {
+    background-color: white;
+    border:1px solid #656565;
+    height: 8px;
+    width: 8px;
+  }
+  /* END: carousel */
+}
